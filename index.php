@@ -19,7 +19,7 @@
             <p id="About_Us">
                 Here is the home page!
             </p>
-            <img src="resources/chicken-cat.jpg" 
+            <img src="resources/chicken-cat.jpg"
              alt="Chicken Cat" />
         </div>
     </div>
