@@ -1,0 +1,39 @@
+* {
+	font-family: Arial;
+}
+
+html, body {
+	background-color: #FFA500;
+}
+
+body {
+	text-align:center;
+    min-width: 720px;
+}
+
+.navigation-bar {
+	display: inline-block;
+}
+
+#navigation-items{
+	font-size: 100%;
+	list-style-type: none;	
+	background-color: #D8D8D8;
+	padding: 9px;
+	border: #0059FF solid 2px;
+}
+
+#navigation-items li {
+	display: inline;
+	margin: 20px;
+}
+
+#navigation-items li a {
+	text-decoration: none;
+	color: black;
+}
+
+.content h1 {
+	text-align: center;
+}
+
