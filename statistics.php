@@ -20,6 +20,13 @@
                 Here is lots of statistics!
             </p>
         </div>
+        <div class="form_results">
+            <p>
+                Barn Number is: <?php echo $_POST["barn_no"]; ?>
+                <br><br>
+                Vaccine Administered is: <?php echo $_POST["vaccine_administered"]; ?>
+            </p>
+        </div>
     </div>
 </body>
 </html>
