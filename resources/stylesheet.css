@@ -33,6 +33,34 @@ body {
     color: black;
 }
 
+.content {
+    margin: auto;
+    display: inline-block;
+}
+
 .content h1 {
     text-align: center;
 }
+
+/* index.php */
+
+/* contact.php */
+
+/* statistics.php */
+
+.form_results {
+    background-color: #D8D8D8;
+    padding: 20px;
+    border: #0059FF solid 2px;
+    text-align: right;
+}
+
+/* submit-form.php */
+
+.form_div {
+    padding: 20px;
+    background-color: #D8D8D8;
+    border: #0059FF solid 2px;
+    text-align: right;
+}
+

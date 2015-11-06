@@ -20,6 +20,15 @@
                 Here is a form for you to write and submit!
             </p>
         </div>
+        <div class="form_div">
+            <form action="statistics.php" method="post">
+                Barn Number: <input type="text" name="barn_no">
+                <br><br>
+                Vaccine Administered: <input type="text" name="vaccine_administered">
+                <br><br>
+                <button type="submit" value="Submit">Submit</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
