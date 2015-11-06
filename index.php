@@ -14,31 +14,33 @@
       <h1> Home </h1>
     
     </div>
-    <center>
-		<h3>User Login</h3>
-		<hr />
-		<form method="post" action="userLogin/member.php">
-			<table border="0">
-				<tr>
-					<td><b>Username</b></td>
-					<td><input type="text" name="username">
-				
-				</tr>
-				<tr>
-					<td><b>Password</b></td>
-					<td><input name="password" type="password"></input></td>
-				</tr>
-				<br />
-				<tr>
-					<td><input type="submit" value="Submit" />
-					
-					<td><input type="button" value="Register" onclick="gotoregister()">
-				
-				</tr>
-			</table>
-		</form>
-	</center>
     
+    <div class = "Login">
+	    <center>
+			<h3>User Login</h3>
+			<hr />
+			<form method="post" action="userLogin/member.php">
+				<table border="0">
+					<tr>
+						<td><b>Username</b></td>
+						<td><input type="text" name="username">
+					
+					</tr>
+					<tr>
+						<td><b>Password</b></td>
+						<td><input name="password" type="password"></input></td>
+					</tr>
+					<br />
+					<tr>
+						<td><input type="submit" value="Submit" />
+						
+						<td><input type="button" value="Register" onclick="gotoregister()">
+					
+					</tr>
+				</table>
+			</form>
+		</center>
+    </div>
     
     <div class="content">
         <div class="summary">
