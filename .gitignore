@@ -13,4 +13,5 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-*.sass-cache* 
+*.sass-cache*
+.fuse_hidden* 
