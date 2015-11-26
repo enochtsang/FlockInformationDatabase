@@ -8,7 +8,7 @@
 <body>
     <div class="wrapper">
         <div id="logo-bar">
-            <img src="resources/chicken-cat.jpg" alt="Chicken Cat" height="42", width="42" />
+            <?php include 'logo-include.php'; ?>
             <h1> Flock Information Reporting Form </h1>
         </div>        
         <div class="content">
