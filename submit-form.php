@@ -2,8 +2,8 @@
 <html lang="en-CA">
 <head>
     <?php include 'header.php';?>
-    <title>Flock Information Database - Submit Form</title>
-    <meta name="description" content="Fill out a form for your flock here, IAPT will store your form into the database and it will contribute to the statistics page.">
+    <title>Flock Information Database - Statistics</title>
+    <meta name="description" content="View the flock information statistics owned by the Institute of Applied Poultry Technology (IAPT).">
 </head>
 <body>
     <div class="wrapper">
@@ -14,20 +14,18 @@
     </div>
     <div class="content">
         <div class="summary">
-            <h1> Submit Form </h1>
+            <h1> Statistics </h1>
             <br>
             <p id="About_Us">
-                Here is a form for you to write and submit!
+                Here is lots of statistics!
             </p>
         </div>
-        <div class="form_div">
-            <form action="statistics.php" method="post">
-                Barn Number: <input type="text" name="barn_no">
+        <div class="form_results">
+            <p>
+                Barn Number is: <?php echo $_POST["barn_no"]; ?>
                 <br><br>
-                Vaccine Administered: <input type="text" name="vaccine_administered">
-                <br><br>
-                <button type="submit" value="Submit">Submit</button>
-            </form>
+                Vaccine Administered is: <?php echo $_POST["vaccine_administered"]; ?>
+            </p>
         </div>
     </div>
 </body>
