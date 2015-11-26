@@ -3,7 +3,12 @@
 }
 
 html, body {
-    background-color: #FFA500;
+    background: -webkit-linear-gradient(left, #CCCCCC , white);
+    background: -o-linear-gradient(right, #CCCCCC, white); 
+    background: -moz-linear-gradient(right, #CCCCCC, white); 
+    background: linear-gradient(to right, #CCCCCC , white); 
+    margin: 0;
+    height: 100%;
 }
 
 body {
@@ -11,26 +16,11 @@ body {
     min-width: 720px;
 }
 
-.navigation-bar {
-    display: inline-block;
-}
-
-#navigation-items{
-    font-size: 100%;
-    list-style-type: none;
-    background-color: #D8D8D8;
-    padding: 9px;
-    border: #0059FF solid 2px;
-}
-
-#navigation-items li {
-    display: inline;
-    margin: 20px;
-}
-
-#navigation-items li a {
-    text-decoration: none;
-    color: black;
+.wrapper {
+    margin: 0 0 -39px;
+    min-height: 100%;
+    height: auto !important;
+    min-width: auto;
 }
 
 .content {
@@ -42,25 +32,29 @@ body {
     text-align: center;
 }
 
-/* index.php */
-
-/* contact.php */
-
-/* statistics.php */
-
-.form_results {
-    background-color: #D8D8D8;
-    padding: 20px;
-    border: #0059FF solid 2px;
-    text-align: right;
+/* logo-bar.php */
+#logo-bar {
+    background: -webkit-linear-gradient(black, #444444);
+    background: -o-linear-gradient(black, #444444);
+    background: -moz-linear-gradient(black, #444444);
+    background: linear-gradient(black, #444444);
+    width: auto;
+    position: relative;
+    color: white;
+    border-bottom: 10px solid #444444;
 }
+
+#logo-bar * {
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+/* index.php */
 
 /* submit-form.php */
 
-.form_div {
-    padding: 20px;
-    background-color: #D8D8D8;
-    border: #0059FF solid 2px;
-    text-align: right;
-}
+/* government-lookup.php */
 
+/* iapt-lookup.php */
