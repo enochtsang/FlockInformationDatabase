@@ -76,13 +76,9 @@ body {
 
 /* submit-form.php */
 .form-container {
-    text-align: right;
+    text-align: left;
     margin: auto;
     margin: 100px;
-}
-
-.general h3 {
-    text-align: left;
 }
 
 .general table {
