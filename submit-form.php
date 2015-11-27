@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!git DOCTYPE html>
 <html lang="en-CA">
 <head>
     <?php include 'header.php';?>
@@ -14,6 +14,8 @@
             <div class="form-container">
             <form name="general-flock-information" method="post" action="CHANGE_THIS.php">
                 <div class="general">
+                    <h3> General Flock Information </h3>
+                    <hr>
                     <table>
                         <tr>
                             <td width="30%"><label for="producer-enterprise">Producer / Enterprise</label></td>
