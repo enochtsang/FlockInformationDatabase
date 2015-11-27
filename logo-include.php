@@ -1,1 +1,1 @@
-<img src="resources/iaptLogo.png" alt="Chicken Cat" height="90", width="100" />
+<img src="resources/iaptLogo.png" alt="Iapt Logo" width="160" />

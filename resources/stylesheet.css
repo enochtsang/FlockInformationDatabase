@@ -68,6 +68,10 @@ body {
     height: auto;
 }
 
+#logo-bar img {
+    margin-right: 30px;
+}
+
 /* index.php */
 
 /* submit-form.php */
