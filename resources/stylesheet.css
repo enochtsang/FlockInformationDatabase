@@ -1,5 +1,10 @@
+@font-face {
+    font-family: Lato;
+    src: url(fonts/Lato-Regular.ttf);
+}
+
 * {
-    font-family: Arial;
+    font-family: Lato;
 }
 
 html, body {
@@ -70,6 +75,10 @@ body {
     text-align: right;
     margin: auto;
     margin: 100px;
+}
+
+.general h3 {
+    text-align: left;
 }
 
 .general table {
