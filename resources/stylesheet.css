@@ -77,14 +77,16 @@ body {
 }
 
 .general tr {
-    height: 30px;
+    height: 40px;
 }
 
 .general input {
     float: left;
-    margin-left: 5%;
-    width: 95%;
+    margin-left: 10%;
+    width: 60%;
     border: 1px solid #999999;
+
+    padding: 3px;
 }
 
 .general input:focus {
