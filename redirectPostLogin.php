@@ -50,20 +50,21 @@
                
                 if ($userType == "gov"){
                    printf("in gov");
-                   header("Location: http://localhost/govMain.php");
+                   header("Location: government-lookup.php");
                    exit;
                    
                    
                 }
                 else if ($userType == "IAPT"){
-                   gotoIAPTPage();
+                    header("Location: iapt-lookup.php");
                 }
                 else if ($userType == "enterprise"){
-                    gotoEnterprisePage();
+                    header("Location: enterprise-lookup.php");
                 }
                 else
-                    printf("row is false");
-            }
+                    header("Location: index.php");  //login does not contain valid user_type          
+                
+                }
             else {
                 header("Location: login.php");
             }

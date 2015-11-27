@@ -2,14 +2,14 @@
 <html lang="en-CA">
 <head>
     <?php include 'header.php';?>
-    <title>Flock Information Database - Government Lookup</title>
+    <title>Flock Information Database - IAPT Lookup</title>
     <meta name="description" content="View the flock information statistics owned by the Institute of Applied Poultry Technology (IAPT).">
 </head>
 <body>
     <div class="wrapper">
         <div id="logo-bar">
             <?php include 'logo-include.php'; ?>
-            <h1> Government Information Lookup </h1>
+            <h1> IAPT Information Lookup </h1>
         </div>        
         <div class="content">
             <h2> Producer/Enterprise Name: </h2>
