@@ -3,57 +3,101 @@
 }
 
 html, body {
-    background: -webkit-linear-gradient(left, #CCCCCC , white);
-    background: -o-linear-gradient(right, #CCCCCC, white); 
-    background: -moz-linear-gradient(right, #CCCCCC, white); 
-    background: linear-gradient(to right, #CCCCCC , white); 
+    background: -webkit-linear-gradient(left, #BBBBBB , #DDDDDD);
+    background: -o-linear-gradient(right, #BBBBBB, #DDDDDD); 
+    background: -moz-linear-gradient(right, #BBBBBB, #DDDDDD); 
+    background: linear-gradient(to right, #BBBBBB , #DDDDDD); 
     margin: 0;
     height: 100%;
 }
 
 body {
     text-align:center;
-    min-width: 720px;
 }
 
 .wrapper {
     margin: 0 0 -39px;
     min-height: 100%;
-    height: auto !important;
+    height: 100%;
     min-width: auto;
 }
 
-.content {
+.center-content{
+    position: absolute;
     margin: auto;
-    display: inline-block;
+    width: 500px;
+    left: 50%;
+    margin-left: -250px;
+    top: 80px;
+    bottom: 0px;
+}
+.content {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background: -webkit-linear-gradient( #EEEEEE , white);
+    background: -o-linear-gradient( #EEEEEE, white); 
+    background: -moz-linear-gradient( #EEEEEE, white); 
+    background: linear-gradient(#EEEEEE , white);   
+    border-right: #555555 solid 3px;
+    border-left: #555555 solid 3px;
 }
 
-.content h1 {
-    text-align: center;
-}
 
 /* logo-bar.php */
 #logo-bar {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    height: 70px;
+
     background: -webkit-linear-gradient(black, #444444);
     background: -o-linear-gradient(black, #444444);
     background: -moz-linear-gradient(black, #444444);
     background: linear-gradient(black, #444444);
-    width: auto;
-    position: relative;
     color: white;
     border-bottom: 10px solid #444444;
 }
-
-#logo-bar * {
-    height: 100%;
-    vertical-align: middle;
-    display: inline-block;
+#logo-bar {
+    white-space: nowrap;
 }
 
+#logo-bar * {
+    vertical-align: middle;
+    display: inline-block;
+    height: auto;
+}
 
 /* index.php */
 
 /* submit-form.php */
+.form-container {
+    margin: auto;
+    width: 100%;
+}
+
+.general input {
+    border: 1px solid #999999;
+}
+
+.general ul {
+    list-style: none;
+    padding: 0px;
+    width: 50%;
+    margin: auto;
+}
+
+.general li {
+    padding: 9px 0px;
+}
+
+.general input:focus {
+    outline: none;
+    border-color: #ffa500;
+    box-shadow: 0 0 5px #ffb732;
+}
 
 /* government-lookup.php */
 
