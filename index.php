@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
+    		<script>
+	function gotoregister() {
+    location.href = "register.php";
+        }
+        </script>
     <?php include 'header.php';?>
     <title>Flock Information Database</title>
     <meta name="description" content="IAPT's flock information database">
