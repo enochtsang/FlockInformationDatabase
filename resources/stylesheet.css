@@ -78,30 +78,76 @@ body {
 .form-container {
     text-align: left;
     margin: auto;
-    margin: 100px;
+    margin: 100px 10px;
 }
 
-.general table {
+.form-container img {
+    display: inline-block;
+}
+
+
+.arrow {
+    padding: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.arrow:focus {
+    outline: 0;
+}
+
+#prev-arrow {
+    /* flip the arrow so we can use the same image */
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+#form-column {
     width: 100%;
 }
 
-.general tr {
+.form-section {
+    /*position: absolute;*/
+    left: 100px; 
+    right: 100px; 
+}
+
+.form-section table {
+    width: 100%;
+}
+
+.form-section tr {
     height: 40px;
 }
 
-.general input {
+.form-section input {
     float: left;
     margin-left: 10%;
     width: 60%;
     border: 1px solid #999999;
-
     padding: 3px;
 }
 
-.general input:focus {
-    outline: none;
+.form-section input:hover {
+    border-color: white;
+    box-shadow: 0 0 5px white;
+}
+
+.form-section input:focus {
     border-color: #ffa500;
-    box-shadow: 0 0 5px #ffb732;
+    box-shadow: 0 0 5px #ffa500;
+}
+
+.form-col-1 {
+    width: 30%;
+}
+
+.form-col-2 {
+    width: 70%;
 }
 
 /* government-lookup.php */
