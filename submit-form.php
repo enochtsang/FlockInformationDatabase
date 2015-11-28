@@ -167,6 +167,10 @@
                             <td><label for="age-of-birds">Age of Birds</label></td>
                             <td><input type="text" name="age-of-birds" maxlength="80"></td>
                         </tr>
+                        <tr>
+                            <td></td>
+                            <td><button type="submit">Click Me!</button></td>
+                        </tr>
                     </table>
                 </div> 
             </form>

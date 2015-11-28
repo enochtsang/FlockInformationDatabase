@@ -13,6 +13,7 @@ html, body {
     background: -moz-linear-gradient(right, #CCCCCC, #EEEEEE); 
     background: linear-gradient(to right, #CCCCCC , #EEEEEE); 
     margin: 0;
+    padding: 0;
     height: 100%;
 }
 
@@ -32,7 +33,8 @@ body {
     
     /* top is the height of logo bar (height + border + 10px of extra space) */
     top: 90px;
-    bottom: 10px;
+    bottom: 5px;
+    /*overflow: hidden;*/
 
     background: -webkit-linear-gradient(#333333, #222222);
     background: -o-linear-gradient(#333333, #222222); 
@@ -43,6 +45,10 @@ body {
     color: #F0F0F0;
 }
 
+.clear {
+    height: 5px;
+    clear: both;
+}
 
 /* logo-bar.php */
 #logo-bar {
@@ -78,7 +84,7 @@ body {
 .form-container {
     text-align: left;
     margin: auto;
-    margin: 100px 10px;
+    /*margin-top: 50px;*/
 }
 
 .form-container img {
@@ -110,22 +116,20 @@ body {
     width: 100%;
 }
 
-.form-section {
-    /*position: absolute;*/
-    left: 100px; 
-    right: 100px; 
-}
-
 .form-section table {
     width: 100%;
 }
+
 
 .form-section tr {
     height: 40px;
 }
 
+.form-section label {
+    white-space: nowrap;;
+}
+
 .form-section input {
-    float: left;
     margin-left: 10%;
     width: 60%;
     border: 1px solid #999999;
@@ -140,6 +144,12 @@ body {
 .form-section input:focus {
     border-color: #ffa500;
     box-shadow: 0 0 5px #ffa500;
+}
+
+.form-section button{
+    margin: auto;
+    width: 60%;
+    border: 1px solid #999999;
 }
 
 .form-col-1 {
