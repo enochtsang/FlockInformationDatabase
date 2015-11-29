@@ -81,6 +81,10 @@ body {
 /* index.php */
 
 /* submit-form.php */
+.content {
+    min-width: 800px;
+}
+
 .form-container {
     text-align: left;
     margin: auto;
@@ -93,6 +97,7 @@ body {
 
 
 .arrow {
+    margin-top: 300px;
     padding: 20px;
     width: 50px;
     height: 50px;
@@ -116,48 +121,115 @@ body {
     width: 100%;
 }
 
+.form-section {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.form-section * {
+    position: static;
+}
+
 .form-section table {
     width: 100%;
 }
 
 
-.form-section tr {
+#general tr {
     height: 40px;
 }
 
-.form-section label {
-    white-space: nowrap;;
+#general label {
+    white-space: nowrap;
+    display: inline-block;
+    float: left;
 }
 
-.form-section input {
+#general input[type=text] {
     margin-left: 10%;
-    width: 60%;
+    width: 250px;
     border: 1px solid #999999;
     padding: 3px;
+
 }
 
-.form-section input:hover {
+#general input[type=text]:hover {
     border-color: white;
     box-shadow: 0 0 5px white;
 }
 
-.form-section input:focus {
-    border-color: #ffa500;
-    box-shadow: 0 0 5px #ffa500;
+#general input[type=text]:focus {
+    border-color: white;
+    box-shadow: 0 0 5px white;
 }
 
-.form-section button{
+
+#general input[type=radio] {
+    float: left;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+#general .left-most-radio {
+    margin-left: 10%;
+}
+
+#general .not-left-most-radio {
+    margin-left: 20px;
+}
+
+#general button{
     margin: auto;
     width: 60%;
     border: 1px solid #999999;
 }
 
-.form-col-1 {
-    width: 30%;
+#general td:last-child  {
+    width: 100%;
 }
 
-.form-col-2 {
+#section-a table {
+    border-collapse: collapse;
+}
+
+#section-a tr {
+    border: dashed;
+    border-width: 1px 0;
+}
+
+#section-a tr:first-child {
+  border-top: none;
+}
+
+#section-a tr:last-child {
+  border-bottom: none;
+}
+
+#section-a td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#section-a td:first-child {
     width: 70%;
+    padding-right: 10px;
+}
+
+#section-a td:nth-child(2) {
+    width: 15%;
+}
+
+#section-a td:last-child {
+    width: 15%;
+}
+
+#section-a label {
+    white-space: normal;
+    min-width: 50px;
 }
 
 /* government-lookup.php */
