@@ -1,6 +1,5 @@
 $(document).ready(function(){
-    var section_shown = 3;
-    $("#push").hide();
+    var section_shown = 0;
     var form_sections = ["#general", "#section-a", "#section-b", "#additional-comments"];
     var animation_running = false;
 
