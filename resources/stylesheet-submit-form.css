@@ -1,0 +1,151 @@
+.content {
+    min-width: 800px;
+    min-height: 1750px;
+}
+
+.form-container {
+    text-align: left;
+    margin: auto;
+    /*margin-top: 50px;*/
+}
+
+.form-container img {
+    display: inline-block;
+}
+
+
+.arrow {
+    padding: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.arrow:focus {
+    outline: 0;
+}
+
+#prev-arrow {
+    /* flip the arrow so we can use the same image */
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+#form-column {
+    width: 100%;
+}
+
+.form-section {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.form-section * {
+    position: static;
+}
+
+.form-section table {
+    width: 100%;
+}
+
+
+#general tr {
+    height: 40px;
+}
+
+#general label {
+    white-space: nowrap;
+    display: inline-block;
+    float: left;
+}
+
+#general input[type=text] {
+    margin-left: 10%;
+    width: 250px;
+    border: 1px solid #999999;
+    padding: 3px;
+
+}
+
+#general input[type=text]:hover {
+    border-color: white;
+    box-shadow: 0 0 5px white;
+}
+
+#general input[type=text]:focus {
+    border-color: white;
+    box-shadow: 0 0 5px white;
+}
+
+
+#general input[type=radio] {
+    float: left;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+#general .left-most-radio {
+    margin-left: 10%;
+}
+
+#general .not-left-most-radio {
+    margin-left: 20px;
+}
+
+#general button{
+    margin: auto;
+    width: 60%;
+    border: 1px solid #999999;
+}
+
+#general td:last-child  {
+    width: 100%;
+}
+
+#section-a table {
+    border-collapse: collapse;
+}
+
+#section-a .question-header {
+    border-top: dashed;
+    border-width: 1px 0;
+}
+
+
+#section-a td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#section-a td:first-child {
+    width: 70%;
+    padding-right: 10px;
+}
+
+#section-a td:nth-child(2) {
+    width: 15%;
+}
+
+#section-a td:last-child {
+    width: 15%;
+}
+
+#section-a label {
+    white-space: normal;
+    min-width: 50px;
+}
+
+#section-a .question-information-row td {
+    padding: 5px 0px 5px 20px;
+}
+
+#section-a .question-information-row input {
+    width: 200px;
+}
