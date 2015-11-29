@@ -54,6 +54,7 @@ body {
 /* logo-bar.php */
 #logo-bar {
     width: 100%;
+    min-width: 1000px;
     position: absolute;
     top: 0px;
     height: 70px;
