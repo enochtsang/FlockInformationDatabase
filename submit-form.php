@@ -133,8 +133,8 @@
                             </td></tr>
                             <tr class="question-information-row question-1-information-row"><td>
                                 <table><tr>
-                                <td><label for="question-1-e">Safe marketing date (if any)</label></td>
-                                <td><input type="text" name="question-1-e" maxlength="80"></td>
+                                <td><label for="question-1-e">Safe marketing date date (if any)</label></td>
+                                <td><input type="date" name="question-1-e" maxlength="80"></td>
                                 </tr></table>
                             </td></tr>
                         <tr class="question-header">
@@ -169,7 +169,7 @@
                             <tr class="question-information-row question-2-information-row"><td>
                                 <table><tr>
                                 <td><label for="question-2-e">Safe marketing date (if any)</label></td>
-                                <td><input type="text" name="question-2-e" maxlength="80"></td>
+                                <td><input type="date" name="question-2-e" maxlength="80"></td>
                                 </tr></table>
                             </td></tr>
                         <tr class="question-header">
@@ -226,8 +226,8 @@
                             </td></tr>
                             <tr class="question-information-row question-4-information-row"><td>
                                 <table><tr>
-                                <td><label for="question-4-e">Safe marketing (if any)</label></td>
-                                <td><input type="text" name="question-4-e" maxlength="80"></td>
+                                <td><label for="question-4-e">Safe marketing date (if any)</label></td>
+                                <td><input type="date" name="question-4-e" maxlength="80"></td>
                                 </tr></table>
                             </td></tr>
                             <tr class="question-information-row question-4-information-row"><td>
@@ -269,7 +269,7 @@
                             <tr class="question-information-row question-5-information-row"><td>
                                 <table><tr>
                                 <td><label for="question-5-e">Safe marketing date (if any)</label></td>
-                                <td><input type="text" name="question-5-e" maxlength="80"></td>
+                                <td><input type="date" name="question-5-e" maxlength="80"></td>
                                 </tr></table>
                             </td></tr>
                         <tr class="question-header">
@@ -298,7 +298,7 @@
                             <tr class="question-information-row question-6-information-row"><td>
                                 <table><tr>
                                 <td><label for="question-6-e">Safe marketing date (if any)</label></td>
-                                <td><input type="text" name="question-6-e" maxlength="80"></td>
+                                <td><input type="date" name="question-6-e" maxlength="80"></td>
                                 </tr></table>
                             </td></tr>
                         <tr class="question-header">
@@ -338,8 +338,8 @@
                             </td></tr>
                             <tr class="question-information-row question-7-information-row"><td>
                                 <table><tr>
-                                <td><label for="question-7-e">Safe marketing (if any)</label></td>
-                                <td><input type="text" name="question-7-e" maxlength="80"></td>
+                                <td><label for="question-7-e">Safe marketing date (if any)</label></td>
+                                <td><input type="date" name="question-7-e" maxlength="80"></td>
                                 </tr></table>
                             </td></tr>
                             <tr class="question-information-row question-7-information-row"><td>
