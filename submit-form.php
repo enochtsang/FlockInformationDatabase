@@ -389,43 +389,21 @@
                 <div id="additional-comments" class="form-section">
                     <h3> Additional Comments </h3>
                     <hr>
-                    <table>
-                        <tr>
-                            <td><label for="producer-enterprise">Producer / Enterprise</label></td>
-                            <td><input type="text" name="producer-enterprise" maxlength="80"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><label for="producer-code-quota">Producer Code / Quota</label></td>
-                            <td><input type="text" name="producer-code-quota" maxlength="80"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><label for="barn-number">Barn #</label></td>
-                            <td><input type="text" name="barn-number" maxlength="80"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><label for="species">Species</label></td>
-                            <td><input type="text" name="species" maxlength="80"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><label for="category-sex">Category/Sex</label></td>
-                            <td><input type="text" name="category-sex" maxlength="80"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><label for="age-of-birds">Age of Birds</label></td>
-                            <td><input type="text" name="age-of-birds" maxlength="80"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><button type="submit">Click Me!</button></td>
-                            <td></td>
-                        </tr>
-                    </table>
+                    <p>
+                        Provide any additional comments on flock condition during the brooding
+                        /grow-out period and/or the catching process below if desired.
+                    </p>
+                    <br>
+                    <textarea name="additional-comments" form ="flock-information"></textarea>
+                    <br>
+                    <p>
+                        I confirm that, to the best of my knowledge, the information contained 
+                        on this flock information reporting form is accurate and compelte and 
+                        that any diseases that were diagnosed in the flock as a result of 
+                        laboratory tests and/or readily available observable clinical signs have 
+                        been identified and reported on this form.
+                    </p>
+                    <input type="submit" value="Confirm and Submit">
                 </div>
             </form>
         </td>

@@ -149,3 +149,8 @@
 #section-a .question-information-row input {
     width: 200px;
 }
+
+#additional-comments textarea {
+    width: 100%;
+    min-height: 300px;
+}

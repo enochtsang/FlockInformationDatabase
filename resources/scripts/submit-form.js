@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var section_shown = 0;
+    var section_shown = 3;
     $("#push").hide();
     var form_sections = ["#general", "#section-a", "#section-b", "#additional-comments"];
     var animation_running = false;
@@ -32,7 +32,7 @@ $(document).ready(function(){
                 animation_running = false;
             });
             section_shown += 1
-            if(section_shown == 1){
+            if(form_sections[section_shown] == "#section-a"){
                 $(".content").css("min-height", "1750px");
                 $(".content").css("margin-bottom", "15px");                
             } else {
