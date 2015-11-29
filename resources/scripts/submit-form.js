@@ -34,8 +34,10 @@ $(document).ready(function(){
             section_shown += 1
             if(section_shown == 1){
                 $(".content").css("min-height", "1750px");
+                $(".content").css("margin-bottom", "15px");                
             } else {
                 $(".content").css("min-height", "0px");
+                $(".content").css("margin-bottom", "0px");                
             }
         }
     });
