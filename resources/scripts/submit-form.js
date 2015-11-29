@@ -17,6 +17,11 @@ $(document).ready(function(){
                 animation_running = false;
             });
             section_shown -= 1;
+            if(section_shown == 1){
+                $(".content").css("min-height", "1750px");
+            } else {
+                $(".content").css("min-height", "0px");
+            }
         }
     })
     $("#next-arrow").mousedown(function(){
@@ -27,6 +32,11 @@ $(document).ready(function(){
                 animation_running = false;
             });
             section_shown += 1
+            if(section_shown == 1){
+                $(".content").css("min-height", "1750px");
+            } else {
+                $(".content").css("min-height", "0px");
+            }
         }
     });
 
