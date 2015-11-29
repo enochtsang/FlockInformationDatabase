@@ -209,13 +209,13 @@
                             <tr class="question-information-row question-4-information-row"><td>
                                 <table><tr>
                                 <td><label for="question-4-b">First treatment date</label></td>
-                                <td><input type="text" name="question-4-b" maxlength="80"></td>
+                                <td><input type="date" name="question-4-b" maxlength="80"></td>
                                 </tr></table>
                             </td></tr>
                             <tr class="question-information-row question-4-information-row"><td>
                                 <table><tr>
                                 <td><label for="question-4-c">Last treatment date</label></td>
-                                <td><input type="text" name="question-4-c" maxlength="80"></td>
+                                <td><input type="date" name="question-4-c" maxlength="80"></td>
                                 </tr></table>
                             </td></tr>
                             <tr class="question-information-row question-4-information-row"><td>
@@ -321,13 +321,13 @@
                             <tr class="question-information-row question-7-information-row"><td>
                                 <table><tr>
                                 <td><label for="question-7-b">First treatment date</label></td>
-                                <td><input type="text" name="question-7-b" maxlength="80"></td>
+                                <td><input type="date" name="question-7-b" maxlength="80"></td>
                                 </tr></table>
                             </td></tr>
                             <tr class="question-information-row question-7-information-row"><td>
                                 <table><tr>
                                 <td><label for="question-7-c">Last treatment date</label></td>
-                                <td><input type="text" name="question-7-c" maxlength="80"></td>
+                                <td><input type="date" name="question-7-c" maxlength="80"></td>
                                 </tr></table>
                             </td></tr>
                             <tr class="question-information-row question-7-information-row"><td>
