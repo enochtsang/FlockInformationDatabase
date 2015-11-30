@@ -5,19 +5,11 @@
 
 .form-container {
     text-align: left;
-    margin: auto;
-    /*margin-top: 50px;*/
 }
-
-.form-container img {
-    display: inline-block;
-}
-
 
 .arrow {
     padding: 20px;
     width: 50px;
-    height: 50px;
 }
 
 .arrow:focus {
@@ -35,7 +27,7 @@
 }
 
 #form-column {
-    width: 100%;
+    width: 100%; /* ensure next arrow is pushed to the right */
 }
 
 .form-section {
@@ -47,23 +39,13 @@
     margin-right: 10%;
 }
 
-.form-section * {
-    position: static;
-}
-
-.form-section table {
-    width: 100%;
-}
-
-
 #general tr {
     height: 40px;
 }
 
 #general label {
     white-space: nowrap;
-    display: inline-block;
-    float: left;
+    float: left; /* for radio button labels */
 }
 
 #general input[type=text] {
@@ -87,8 +69,6 @@
 
 #general input[type=radio] {
     float: left;
-    white-space: nowrap;
-    display: inline-block;
 }
 
 #general .left-most-radio {
@@ -97,12 +77,6 @@
 
 #general .not-left-most-radio {
     margin-left: 20px;
-}
-
-#general button{
-    margin: auto;
-    width: 60%;
-    border: 1px solid #999999;
 }
 
 #general td:last-child  {
