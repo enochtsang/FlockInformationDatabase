@@ -5,15 +5,7 @@
 	function gotologin() {
     location.href = "login.php";
 }
-        function gotoGovPage(){
-    location.href ="govMain.php";
-        }
-        function gotoIAPTPage(){
-    location.href ="iaptMain.php";
-        }
-        function gotoEnterprisePage(){
-    location.href ="enterpriseMain.php";
-        }
+
 </script>
     </head>
     <body bgcolor=#b2b2b2>
@@ -49,7 +41,6 @@
 
                
                 if ($userType == "gov"){
-                   printf("in gov");
                    header("Location: government-lookup.php");
                    exit;
                    
@@ -57,16 +48,24 @@
                 }
                 else if ($userType == "IAPT"){
                     header("Location: iapt-lookup.php");
+                    exit;
+
                 }
                 else if ($userType == "enterprise"){
                     header("Location: enterprise-lookup.php");
+                    exit;
+
                 }
                 else
-                    header("Location: index.php");  //login does not contain valid user_type          
+                    header("Location: index.php");  //login does not contain valid user_type    
+                    exit;
+
                 
                 }
             else {
                 header("Location: login.php");
+                exit;
+
             }
             
             printf("this isn't working");
