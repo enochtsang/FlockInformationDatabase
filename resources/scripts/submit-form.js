@@ -50,7 +50,7 @@ $(document).ready(function(){
 
     var APPROXIMATE_ROW_HEIGHT = 50;
     var minHeight = 600;
-    
+
     $(".question-information-row").hide();
 
     $('input[name=question-1]').change(function() {

@@ -85,13 +85,13 @@
 
 #section-a table {
     border-collapse: collapse;
+    width: 100%;
 }
 
 #section-a .question-header {
     border-top: dashed;
     border-width: 1px 0;
 }
-
 
 #section-a td {
     padding-top: 15px;
@@ -109,11 +109,6 @@
 
 #section-a td:last-child {
     width: 15%;
-}
-
-#section-a label {
-    white-space: normal;
-    min-width: 50px;
 }
 
 #section-a .question-information-row td {
