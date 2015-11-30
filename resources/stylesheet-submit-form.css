@@ -119,6 +119,41 @@
     width: 200px;
 }
 
+#section-b #feed-distruption-table {
+    width: 100%;
+}
+
+#section-b table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#section-b tr {
+    height: 50px;
+}
+
+#section-b .section-b-separator {
+    border-top: dashed;
+    border-width: 1px 0;
+}
+
+#section-b .month-day-table td:nth-child(3) {
+    padding-left: 10px;
+}
+
+#section-b input {
+    margin-left: 9px;
+}
+
+#section-b #feed-distruption-table td {
+    width: 50%;
+}
+
+#section-b .floor-input {
+    /*margin-left: 100%;*/
+    float: right;
+}
+
 #additional-comments textarea {
     width: 100%;
     min-height: 300px;
