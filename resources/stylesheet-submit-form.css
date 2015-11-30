@@ -1,0 +1,160 @@
+.content {
+    min-width: 800px;
+    min-height: 800px;
+}
+
+.form-container {
+    text-align: left;
+}
+
+.arrow {
+    padding: 20px;
+    width: 50px;
+}
+
+.arrow:focus {
+    outline: 0;
+}
+
+#prev-arrow {
+    /* flip the arrow so we can use the same image */
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+#form-column {
+    width: 100%; /* ensure next arrow is pushed to the right */
+}
+
+.form-section {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#general tr {
+    height: 40px;
+}
+
+#general label {
+    white-space: nowrap;
+    float: left; /* for radio button labels */
+}
+
+#general input[type=text] {
+    margin-left: 10%;
+    width: 250px;
+    border: 1px solid #999999;
+    padding: 3px;
+
+}
+
+#general input[type=text]:hover {
+    border-color: white;
+    box-shadow: 0 0 5px white;
+}
+
+#general input[type=text]:focus {
+    border-color: white;
+    box-shadow: 0 0 5px white;
+}
+
+
+#general input[type=radio] {
+    float: left;
+}
+
+#general .left-most-radio {
+    margin-left: 10%;
+}
+
+#general .not-left-most-radio {
+    margin-left: 20px;
+}
+
+#general td:last-child  {
+    width: 100%;
+}
+
+#section-a table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#section-a .question-header {
+    border-top: dashed;
+    border-width: 1px 0;
+}
+
+#section-a td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#section-a td:first-child {
+    width: 70%;
+    padding-right: 10px;
+}
+
+#section-a td:nth-child(2) {
+    width: 15%;
+}
+
+#section-a td:last-child {
+    width: 15%;
+}
+
+#section-a .question-information-row td {
+    padding: 5px 0px 5px 20px;
+}
+
+#section-a .question-information-row input {
+    width: 200px;
+}
+
+#section-b #feed-distruption-table {
+    width: 100%;
+}
+
+#section-b table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#section-b tr {
+    height: 50px;
+}
+
+#section-b .section-b-separator {
+    border-top: dashed;
+    border-width: 1px 0;
+}
+
+#section-b .month-day-table td:nth-child(3) {
+    padding-left: 10px;
+}
+
+#section-b input {
+    margin-left: 9px;
+}
+
+#section-b #feed-distruption-table td {
+    width: 50%;
+}
+
+#section-b .floor-input {
+    /*margin-left: 100%;*/
+    float: right;
+}
+
+#additional-comments textarea {
+    width: 100%;
+    min-height: 300px;
+}

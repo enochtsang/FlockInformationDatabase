@@ -1,59 +1,86 @@
+@font-face {
+    font-family: Lato;
+    src: url(fonts/Lato-Regular.ttf);
+}
+
 * {
-    font-family: Arial;
+    font-family: Lato;
 }
 
 html, body {
-    background: -webkit-linear-gradient(left, #CCCCCC , white);
-    background: -o-linear-gradient(right, #CCCCCC, white); 
-    background: -moz-linear-gradient(right, #CCCCCC, white); 
-    background: linear-gradient(to right, #CCCCCC , white); 
+    background: -webkit-linear-gradient(left, #CCCCCC , #EEEEEE);
+    background: -o-linear-gradient(right, #CCCCCC, #EEEEEE); 
+    background: -moz-linear-gradient(right, #CCCCCC, #EEEEEE); 
+    background: linear-gradient(to right, #CCCCCC , #EEEEEE); 
     margin: 0;
+    padding: 0;
     height: 100%;
 }
 
 body {
     text-align:center;
-    min-width: 720px;
-}
-
-.wrapper {
-    margin: 0 0 -39px;
-    min-height: 100%;
-    height: auto !important;
-    min-width: auto;
 }
 
 .content {
-    margin: auto;
-    display: inline-block;
+    /* Absolute allows forcing div to the bottom */
+    position: absolute;
+
+    /* Center content */ 
+    width: 60%;
+    min-width: 600px;   /* we can discuss this number */
+    margin-left: 20%;
+    margin-right: 20%;
+    
+    /* top is the height of logo bar (height + border + 10px of extra space) */
+    top: 90px;
+    bottom: 10px;
+    
+    /*overflow: hidden;*/
+
+    background: -webkit-linear-gradient(#333333, #222222);
+    background: -o-linear-gradient(#333333, #222222); 
+    background: -moz-linear-gradient(#333333, #222222); 
+    background: linear-gradient(#333333, #222222);   
+    border-right: #999999 solid 1px;
+    border-left: #999999 solid 1px;
+    color: #F0F0F0;
 }
 
-.content h1 {
-    text-align: center;
+.clear {
+    height: 5px;
+    clear: both;
 }
 
 /* logo-bar.php */
 #logo-bar {
+    width: 100%;
+    min-width: 1000px;
+    position: absolute;
+    top: 0px;
+    height: 70px;
+
     background: -webkit-linear-gradient(black, #444444);
     background: -o-linear-gradient(black, #444444);
     background: -moz-linear-gradient(black, #444444);
     background: linear-gradient(black, #444444);
-    width: auto;
-    position: relative;
     color: white;
     border-bottom: 10px solid #444444;
 }
-
-#logo-bar * {
-    height: 100%;
-    vertical-align: middle;
-    display: inline-block;
+#logo-bar {
+    white-space: nowrap;
 }
 
+#logo-bar * {
+    vertical-align: middle;
+    display: inline-block;
+    height: auto;
+}
+
+#logo-bar img {
+    margin-right: 30px;
+}
 
 /* index.php */
-
-/* submit-form.php */
 
 /* government-lookup.php */
 
