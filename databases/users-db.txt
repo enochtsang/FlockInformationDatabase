@@ -1,0 +1,16 @@
+--
+-- Database: `Users`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `User_Info`
+--
+
+CREATE TABLE `User_Info` (
+  `Username` varchar(22) NOT NULL,
+  `Password` text NOT NULL,
+  `User_Type` varchar(22) NOT NULL,
+  `Email` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

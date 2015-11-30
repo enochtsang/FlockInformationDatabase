@@ -1,0 +1,187 @@
+--
+-- Database: `Flock_Information_DB`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Administered To`
+--
+
+CREATE TABLE `Administered To` (
+  `Species` text NOT NULL,
+  `Medication_Name` varchar(22) NOT NULL,
+  `Barn_Shipped_Date` date DEFAULT NULL,
+  `BarnNo` int(11) NOT NULL COMMENT 'foreign key'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Barn`
+--
+
+CREATE TABLE `Barn` (
+  `BarnNo` int(11) NOT NULL,
+  `Birds_Placed` varchar(22) DEFAULT NULL,
+  `Mortality_Rate` int(11) DEFAULT NULL,
+  `Birds_Shipped` int(11) DEFAULT NULL,
+  `Grow_Rate` int(11) DEFAULT NULL,
+  `Density` int(11) DEFAULT NULL,
+  `Ecode` int(11) NOT NULL COMMENT 'Enterprise code (foreign key)'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Catching`
+--
+
+CREATE TABLE `Catching` (
+  `Planned_Date` date NOT NULL,
+  `Planned_Time` time NOT NULL,
+  `Actual_Date` date NOT NULL,
+  `Actual_Time` time NOT NULL,
+  `BarnNo` int(11) NOT NULL COMMENT 'foreign key'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Consults`
+--
+
+CREATE TABLE `Consults` (
+  `Enterprise_Code` int(11) NOT NULL,
+  `Veterinary_Name` varchar(22) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Enterprise`
+--
+
+CREATE TABLE `Enterprise` (
+  `Ename` varchar(40) DEFAULT NULL,
+  `Ecode` int(10) NOT NULL,
+  `Pcode` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Medications`
+--
+
+CREATE TABLE `Medications` (
+  `Safe_Marketing_Date` date DEFAULT NULL,
+  `Treatment_Date_Start` date DEFAULT NULL,
+  `Treatment_Date_End` date DEFAULT NULL,
+  `Withdrawal_Period` int(11) DEFAULT NULL,
+  `Medication_Name` varchar(40) NOT NULL,
+  `Dose` int(11) NOT NULL,
+  `Question` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Poultry Flock`
+--
+
+CREATE TABLE `Poultry Flock` (
+  `kg/Bird` int(11) NOT NULL,
+  `Species` int(11) NOT NULL,
+  `Category/Sex` varchar(22) NOT NULL,
+  `Age` int(11) NOT NULL,
+  `BarnNo` int(11) NOT NULL COMMENT 'forgin key',
+  `Birds_Shipped_Date` date DEFAULT NULL COMMENT 'forgin key',
+  `PName` varchar(22) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Poultry Supplier`
+--
+
+CREATE TABLE `Poultry Supplier` (
+  `Sname` varchar(40) NOT NULL,
+  `Saddress` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Prescribes`
+--
+
+CREATE TABLE `Prescribes` (
+  `Veterinary_Name` varchar(22) NOT NULL,
+  `Medication_Name` varchar(22) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Processing`
+--
+
+CREATE TABLE `Processing` (
+  `Planned_Date` date NOT NULL,
+  `Feed_Supply_Disrupted` text NOT NULL,
+  `Feed_Withdraw_Time` time NOT NULL,
+  `Time_Feed_Not_Accessible` date NOT NULL,
+  `BarnNo` int(11) NOT NULL COMMENT 'foreign key'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Purchases From`
+--
+
+CREATE TABLE `Purchases From` (
+  `Enterprise_Code` int(11) NOT NULL,
+  `Supplier_Name` varchar(22) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Veterinary Practice`
+--
+
+CREATE TABLE `Veterinary Practice` (
+  `Vname` varchar(40) NOT NULL,
+  `Vaddress` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Barn`
+--
+ALTER TABLE `Barn`
+  ADD PRIMARY KEY (`BarnNo`);
+
+--
+-- Indexes for table `Enterprise`
+--
+ALTER TABLE `Enterprise`
+  ADD PRIMARY KEY (`Ecode`);
+
+--
+-- Indexes for table `Medications`
+--
+ALTER TABLE `Medications`
+  ADD PRIMARY KEY (`Medication_Name`);
+
+--
+-- Indexes for table `Veterinary Practice`
+--
+ALTER TABLE `Veterinary Practice`
+  ADD PRIMARY KEY (`Vname`);
