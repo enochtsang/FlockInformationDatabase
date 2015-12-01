@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-    <?php include 'header.php';?>
+    <?php include 'header.php';
+    if($_SESSION['user_type'] != "gov"){
+    header("Location: index.php");
+    exit;
+    }
+    ?>
     <title>Flock Information Database - IAPT Lookup</title>
     <meta name="description" content="View the flock information statistics owned by the Institute of Applied Poultry Technology (IAPT).">
 </head>
