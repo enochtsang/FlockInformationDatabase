@@ -30,11 +30,11 @@ body {
     min-width: 600px;   /* we can discuss this number */
     margin-left: 20%;
     margin-right: 20%;
-    
+
     /* top is the height of logo bar (height + border + 10px of extra space) */
     top: 90px;
     bottom: 10px;
-    
+
     /*overflow: hidden;*/
 
     background: -webkit-linear-gradient(#333333, #222222);
@@ -54,7 +54,6 @@ body {
 /* logo-bar.php */
 #logo-bar {
     width: 100%;
-    min-width: 1000px;
     position: absolute;
     top: 0px;
     height: 70px;
@@ -81,7 +80,33 @@ body {
 }
 
 /* index.php */
+#register-login {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+#inner-register {
+    width: 50%;
+    float: none;
+    margin: 0 auto;
+}
+
+#inner-login {
+    width: 50%;
+    float: none;
+    margin: 0 auto;
+}
+
+
+.about-us {
+    width: 100%;
+    margin-top: 500px;
+}
+
 
 /* government-lookup.php */
 
 /* iapt-lookup.php */
+
