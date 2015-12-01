@@ -21,11 +21,11 @@
                         <th colspan="2"><h3>New users register here.</h3></th>
                         <tr>
                             <td><label for="register_username"><b>Username<b></label></td>
-                            <td><input type="text" name="username"></td>
+                            <td><input type="text" name="register_username"></td>
                         </tr>
                         <tr>
                             <td><label for="register_password"><b>Password</label></b></td>
-                            <td><input name="password" type="password"></input></td>
+                            <td><input name="register_password" type="password"></input></td>
                         </tr>
                         <tr>
                             <td><label for="user_type"><b>User Type</b></label></td>
@@ -48,11 +48,11 @@
                         <th colspan="2"><h3>Existing users login here.</h3></th>
                         <tr>
                             <td><label for="login_username"><b>Username</b></label></td>
-                            <td><input type="text" name="username"></td>
+                            <td><input type="text" name="login_username"></td>
                         </tr>
                         <tr>
                             <td><label for="login_password"><b>Password</b></label></td>
-                            <td><input name="password" type="password"></input></td>
+                            <td><input name="password" type="login_password"></input></td>
                         </tr>
                         <tr>
                             <td colspan="2"><input type="submit" value="Login"/></td>
