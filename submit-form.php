@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+<?php
+	
+require_once 'connect.php';
+    // If the values are posted, insert them into the database.
+    if (isset($_POST['username']) && isset($_POST['password'])){
+        $username = $_POST['username'];
+		$user_type = $_POST['user_type'];	
+        $password = $_POST['password'];
+ 	if(!empty($username) && !empty($user_type) && !empty($password)){
+        $query = "INSERT INTO `INFO` (username, password, user_type) VALUES ('$username', '$password','$user_type')";
+        $result = mysqli_query($con,$query);
+        if($result){
+            $msg = "User Created Successfully.";
+        }
+		}else{
+		$msg = "Please fill in all the fields.";
+		}
+    }
+    ?>
 <html lang="en-CA">
 <head>
     <?php include 'header.php';?>
@@ -28,51 +47,61 @@
                             <td><label for="producer-enterprise">Producer / Enterprise</label></td>
                             <td><input type="text" name="producer-enterprise" maxlength="80"></td>
                             <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="producer-code-quota">Producer Code / Quota</label></td>
                             <td><input type="text" name="producer-code-quota" maxlength="80"></td>
                             <td></td>
+                            <?php $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota'); ?>
                         </tr>
                         <tr>
                             <td><label for="barn-number">Barn #</label></td>
                             <td><input type="text" name="barn-number" maxlength="80"></td>
                             <td></td>
+                            <?php $barn_number = filter_input(INPUT_POST, 'barn-number'); ?>
                         </tr>
                         <tr>
                             <td><label for="species">Species</label></td>
                             <td><input type="text" name="species" maxlength="80"></td>
+                            <?php $species = filter_input(INPUT_POST, 'species'); ?>
                             <td></td>
                         </tr>
                         <tr>
                             <td><label for="category-sex">Category/Sex</label></td>
                             <td><input type="text" name="category-sex" maxlength="80"></td>
                             <td></td>
+                            <?php $category_sex = filter_input(INPUT_POST, 'category-sex'); ?>
                         </tr>
                         <tr>
                             <td><label for="age-of-birds">Age of Birds</label></td>
                             <td><input type="text" name="age-of-birds" maxlength="80"></td>
                             <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
                             <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
                             <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="number-of-birds-shipped">Number of Birds Shipped</label></td>
                             <td><input type="text" name="number-of-birds-shipped" maxlength="80"></td>
                             <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
                             <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
                             <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="mortality-rate">Mortality Rate</label></td>
                             <td><input type="text" name="mortality-rate" maxlength="80"></td>
                             <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="kg-per-bird">Kg/Bird</label></td>
