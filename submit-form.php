@@ -1,23 +1,25 @@
 <!DOCTYPE html>
+    <?php include 'header.php'; ?>
+
+
 <?php
 	
 require_once 'connect.php';
+  
+
     // If the values are posted, insert them into the database.
-    if (isset($_POST['username']) && isset($_POST['password'])){
-        $username = $_POST['username'];
-		$user_type = $_POST['user_type'];	
-        $password = $_POST['password'];
- 	if(!empty($username) && !empty($user_type) && !empty($password)){
-        $query = "INSERT INTO `INFO` (username, password, user_type) VALUES ('$username', '$password','$user_type')";
-        $result = mysqli_query($con,$query);
-        if($result){
-            $msg = "User Created Successfully.";
-        }
-		}else{
-		$msg = "Please fill in all the fields.";
-		}
+    if (isset($_POST['producer-enterprise']) && isset($_POST['producer-code-quota'])){
+       // $producer_enterprise = $_POST['producer-enterprise'];
+        $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');
+        $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise');
+ 	if(!empty($producer_code_quota) && !empty($producer_enterprise)){
+        $Enterprisequery = "INSERT INTO `Enterprise` (Ename,Ecode,Pcode) VALUES ('$producer_enterprise','$producer_code_quota', '$producer_code_quota')";
+        $result = mysqli_query($flockCon,$Enterprisequery);
+        
+    }
     }
     ?>
+
 <html lang="en-CA">
 <head>
     <?php include 'header.php';?>
@@ -38,7 +40,7 @@ require_once 'connect.php';
             <input type="image" class="arrow" id="prev-arrow" src="resources/next.png" alt="next"/>
         </td>
         <td id="form-column">
-            <form name="flock-information" method="post" action="index.php">
+            <form name="flock-information" method="post" action="submit-form.php">
                 <div id="general" class="form-section">
                     <h3> General Flock Information </h3>
                     <hr>
@@ -47,16 +49,11 @@ require_once 'connect.php';
                             <td><label for="producer-enterprise">Producer / Enterprise</label></td>
                             <td><input type="text" name="producer-enterprise" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); 
-                            $query = "INSERT INTO `Enterprise` (Ename) VALUES ('$producer_enterprise')";
-                            ?>
                         </tr>
                         <tr>
                             <td><label for="producer-code-quota">Producer Code / Quota</label></td>
                             <td><input type="text" name="producer-code-quota" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota'); 
-                            $query = "INSERT INTO `Enterprise` (Ecode,Pcode) VALUES ('$producer_code_quota', '$producer_code_quota')";?>
                         </tr>
                         <tr>
                             <td><label for="barn-number">Barn #</label></td>
@@ -105,7 +102,7 @@ require_once 'connect.php';
                             <td><input type="text" name="mortality-rate" maxlength="80"></td>
                             <td></td>
                             <?php $mortality_rate = filter_input(INPUT_POST, 'mortality-rate'); ?>
-                        </tr>p
+                        </tr>
                         <tr>
                             <td><label for="kg-per-bird">Kg/Bird</label></td>
                             <td><input type="text" name="kg-per-bird" maxlength="80"></td>
@@ -695,6 +692,8 @@ require_once 'connect.php';
         </table>
         </div>
     </div>
+
 </body>
 </html>
+
 
