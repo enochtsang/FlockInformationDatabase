@@ -9,10 +9,16 @@
     <div class="wrapper">
         <div id="logo-bar">
             <?php include 'logo-include.php'; ?>
-            <h1> IAPT Information </h1>
+            <h1> Gov Information Lookup </h1>
         </div>        
         <div class="content">
-            <h2> Producer/Enterprise Name: </h2>
+<!--            // Enterprise look-up-->
+            <h2> Search Forms: </h2>
+            <form action="gov-result.php" method="post">
+                Producer/Enterprise Code: <input type="text" name="enterprise-name"><br>
+                From: <input type="date" name="staer-date"><br> 
+                Up-To: <input type="date" name="end-date"><br> 
+                <input type="submit" value="search">
         </div>
     </div>
 </body>

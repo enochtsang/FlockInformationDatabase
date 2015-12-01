@@ -9,10 +9,21 @@
     <div class="wrapper">
         <div id="logo-bar">
             <?php include 'logo-include.php'; ?>
-            <h1> Government Information Lookup </h1>
+            <h1> IAPT Information Lookup </h1>
         </div>        
         <div class="content">
-            <h2> Producer/Enterprise Name: </h2>
+<!--            // Enterprise look-up-->
+            <h2> Search for Producer/Enterprise: </h2>
+            <form action="iapt-result.php" method="post">
+                Producer/Enterprise Code: <input type="text" name="enterprise-name"><br> 
+                <input type="submit" value="search">
+            </form>
+<!--           // Medication look-up-->
+            <h2> Search for Medication: </h2>
+            <form action="result.php" method="post">
+                Medication Name: <input type="text" name="medication-name"><br> 
+                <input type="submit" value="search">
+            </form>
         </div>
     </div>
 </body>
