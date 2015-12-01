@@ -15,7 +15,7 @@
 <!--            // Enterprise look-up-->
             <h2> Search Forms: </h2>
             <form action="gov-result.php" method="post">
-                Producer/Enterprise Code: <input type="text" name="enterprise-name"><br>
+                Producer/Enterprise Code: <input type="text" name="enterprise-code"><br>
                 Start Date: <input type="date" name="start-date"><br> 
                 End Date: <input type="date" name="end-date"><br> 
                 <input type="submit" value="search">

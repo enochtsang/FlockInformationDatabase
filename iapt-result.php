@@ -19,7 +19,7 @@
                         $Ecode = $_POST['enterprise-name'];
                         if(!empty($Ecode)){
                             $resultSQL = "SELECT * FROM (Enterprise as E) WHERE E.Ecode='$Ecode'";
-                            $query = mysqli_query($con, $resultSQL);
+                            $query = mysqli_query($flockCon, $resultSQL);
 
                            while($result = mysqli_fetch_array($query)) {
                                 echo "<div class = \"tuple\">"; 
@@ -37,7 +37,7 @@
                         $Mname = $_POST['medication-name'];
                         if(!empty($Mname)){
                             $resultSQL = "SELECT * FROM (Medications as M) WHERE M.Mname='$Mname'";
-                            $query = mysqli_query($con, $resultSQL);
+                            $query = mysqli_query($flockCon, $resultSQL);
                             
                            while($result = mysqli_fetch_array($query)) {
                                 echo "<div class = \"tuple\">"; 

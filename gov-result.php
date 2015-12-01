@@ -16,13 +16,13 @@
                 <h2> Search Results: </h2>
     <!--            // Enterprise result -->
                     <?php            
-                        $Ecode = $_POST['enterprise-name'];
+                        $Ecode = $_POST['enterprise-code'];
                         $startDate = $_POST['start-date'];
                         $endDate = $_POST['end-date'];
                         if(!empty($Ecode) && !empty($startDate) && !empty($endDate)){
                             $resultSQL = "SELECT * FROM (Enterprise as E) WHERE E.Ecode='$Ecode' 
-                                                        AND E.date BETWEEN '$startDate' AND '$endDate'";
-                            $query = mysqli_query($con, $resultSQL);
+                                                        AND E.submissionDate BETWEEN '$startDate' AND '$endDate'";
+                            $query = mysqli_query($flockCon, $resultSQL);
 
                            while($result = mysqli_fetch_array($query)) {
                                 echo "<div class = \"tuple\">"; 
