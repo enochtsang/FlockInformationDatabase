@@ -38,7 +38,7 @@ require_once 'connect.php';
             <input type="image" class="arrow" id="prev-arrow" src="resources/next.png" alt="next"/>
         </td>
         <td id="form-column">
-            <form name="flock-information" method="post" action="CHANGE_THIS.php">
+            <form name="flock-information" method="post" action="index.php">
                 <div id="general" class="form-section">
                     <h3> General Flock Information </h3>
                     <hr>
@@ -47,13 +47,16 @@ require_once 'connect.php';
                             <td><label for="producer-enterprise">Producer / Enterprise</label></td>
                             <td><input type="text" name="producer-enterprise" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); 
+                            $query = "INSERT INTO `Enterprise` (Ename) VALUES ('$producer_enterprise')";
+                            ?>
                         </tr>
                         <tr>
                             <td><label for="producer-code-quota">Producer Code / Quota</label></td>
                             <td><input type="text" name="producer-code-quota" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota'); ?>
+                            <?php $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota'); 
+                            $query = "INSERT INTO `Enterprise` (Ecode,Pcode) VALUES ('$producer_code_quota', '$producer_code_quota')";?>
                         </tr>
                         <tr>
                             <td><label for="barn-number">Barn #</label></td>
@@ -77,35 +80,36 @@ require_once 'connect.php';
                             <td><label for="age-of-birds">Age of Birds</label></td>
                             <td><input type="text" name="age-of-birds" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
+                            <?php $age_of_birds = filter_input(INPUT_POST, 'age-of-birds'); ?>
                         </tr>
                         <tr>
                             <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
                             <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
+                            <?php $number_of_birds_placed = filter_input(INPUT_POST, 'number-of-birds-placed'); ?>
                         </tr>
                         <tr>
                             <td><label for="number-of-birds-shipped">Number of Birds Shipped</label></td>
                             <td><input type="text" name="number-of-birds-shipped" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
+                            <?php $number_of_birds_shipped = filter_input(INPUT_POST, 'number-of-birds-shipped'); ?>
                         </tr>
                         <tr>
                             <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
                             <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
+                            <?php $number_of_birds_placed = filter_input(INPUT_POST, 'number-of-birds-placed'); ?>
                         </tr>
                         <tr>
                             <td><label for="mortality-rate">Mortality Rate</label></td>
                             <td><input type="text" name="mortality-rate" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
-                        </tr>
+                            <?php $mortality_rate = filter_input(INPUT_POST, 'mortality-rate'); ?>
+                        </tr>p
                         <tr>
                             <td><label for="kg-per-bird">Kg/Bird</label></td>
                             <td><input type="text" name="kg-per-bird" maxlength="80"></td>
+                            <?php $kg_per_bird = filter_input(INPUT_POST, 'kg-per-bird'); ?>
                             <td></td>
                         </tr>
                         <tr>
@@ -119,6 +123,7 @@ require_once 'connect.php';
                         <tr>
                             <td><label for="grow-out-density">Grow-out Density</label></td>
                             <td><input type="text" name="grow-out-density" maxlength="80"></td>
+                            <?php $grow_out_density = filter_input(INPUT_POST, 'grow-out-density'); ?>
                             <td></td>
                         </tr>
                         <tr>
@@ -660,7 +665,7 @@ require_once 'connect.php';
                     <br>
                     <p>
                         I confirm that, to the best of my knowledge, the information contained 
-                        on this flock information reporting form is accurate and compelte and 
+                        on this flock information reporting form is accurate and complete and 
                         that any diseases that were diagnosed in the flock as a result of 
                         laboratory tests and/or readily available observable clinical signs have 
                         been identified and reported on this form.
@@ -677,3 +682,4 @@ require_once 'connect.php';
     </div>
 </body>
 </html>
+
