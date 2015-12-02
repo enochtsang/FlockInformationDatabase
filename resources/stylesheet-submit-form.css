@@ -9,6 +9,7 @@
 .arrow {
     margin: 20px;
     width: 50px;
+    background: none;
 }
 
 .arrow:hover {
