@@ -46,13 +46,11 @@ td {
 .login-table input[type=text] {
 	width: 150px;
 	padding: 2px 3px;
-	border-radius:  1px;
 }
 
 .login-table input[type=password] {
 	width: 150px;
 	padding: 2px 3px;
-	border-radius: 1px;
 }
 
 .about-us {
