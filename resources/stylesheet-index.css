@@ -2,3 +2,28 @@
 	min-height: 250px;
 	margin-bottom: 5px;
 }
+
+#register-login {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+#inner-register {
+    width: 50%;
+    float: none;
+    margin: 0 auto;
+}
+
+#inner-login {
+    width: 50%;
+    float: none;
+    margin: 0 auto;
+}
+
+
+.about-us {
+    width: 100%;
+    margin-top: 500px;
+}
