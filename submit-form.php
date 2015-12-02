@@ -1,23 +1,6 @@
 <!DOCTYPE html>
     <?php include 'header.php'; ?>
 
-
-
-//require_once 'connect.php';
-//  
-//
-//    // If the values are posted, insert them into the database.
-//    if (isset($_POST['producer-enterprise']) && isset($_POST['producer-code-quota'])){
-//       // $producer_enterprise = $_POST['producer-enterprise'];
-//        $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');
-//        $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise');
-// 	if(!empty($producer_code_quota) && !empty($producer_enterprise)){
-//        $enterpriseQuery = "INSERT INTO `Enterprise` (Ename,Ecode) VALUES ('$producer_enterprise','$producer_code_quota')";
-//        $result = mysqli_query($flockCon,$enterpriseQuery);
-//        }
-//    }
-//    
-    
 <html lang="en-CA">
 <head>
     <?php include 'header.php';?>
