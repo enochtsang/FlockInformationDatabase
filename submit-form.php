@@ -13,11 +13,15 @@ require_once 'connect.php';
         $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');
         $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise');
  	if(!empty($producer_code_quota) && !empty($producer_enterprise)){
-        $Enterprisequery = "INSERT INTO `Enterprise` (Ename,Ecode,Pcode) VALUES ('$producer_enterprise','$producer_code_quota', '$producer_code_quota')";
+        $Enterprisequery = "INSERT INTO `Enterprise` (Ename,Ecode) VALUES ('$producer_enterprise','$producer_code_quota', '$producer_code_quota')";
         $result = mysqli_query($flockCon,$Enterprisequery);
         
     }
     }
+    
+    
+    
+    
     ?>
 
 <html lang="en-CA">
@@ -40,7 +44,7 @@ require_once 'connect.php';
             <input type="image" class="arrow" id="prev-arrow" src="resources/next.png" alt="next"/>
         </td>
         <td id="form-column">
-            <form name="flock-information" method="post" action="submit-form.php">
+            <form name="flock-information" method="post" action="submit-form-backend.php">
                 <div id="general" class="form-section">
                     <h3> General Flock Information </h3>
                     <hr>
