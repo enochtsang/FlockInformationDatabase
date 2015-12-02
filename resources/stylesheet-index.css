@@ -1,0 +1,64 @@
+.content {
+	min-height: 250px;
+	margin-bottom: 5px;
+	padding: 20px;
+}
+
+hr {
+	margin: 30px;
+}
+
+td {
+	vertical-align: top;
+}
+
+#register-login {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+#register-login hr {
+	margin: 10px 10% 10px;
+	border: 0px;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.login-table {
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+.login-table tr {
+	height: 30px;
+}
+
+.login-table td {
+	text-align: left;
+	vertical-align: top;
+	white-space: nowrap;
+	padding-right: 20px;
+}
+
+.login-table input[type=text] {
+	width: 150px;
+	padding: 2px 3px;
+}
+
+.login-table input[type=password] {
+	width: 150px;
+	padding: 2px 3px;
+}
+
+.login-table select {
+	width: 156px;
+	padding: 2px 3px;	
+}
+
+.about-us {
+    width: 100%;
+    margin-top: 500px;
+}
