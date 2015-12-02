@@ -2,28 +2,22 @@
     <?php include 'header.php'; ?>
 
 
-<?php
-	
-require_once 'connect.php';
-  
 
-    // If the values are posted, insert them into the database.
-    if (isset($_POST['producer-enterprise']) && isset($_POST['producer-code-quota'])){
-       // $producer_enterprise = $_POST['producer-enterprise'];
-        $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');
-        $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise');
- 	if(!empty($producer_code_quota) && !empty($producer_enterprise)){
-        $Enterprisequery = "INSERT INTO `Enterprise` (Ename,Ecode) VALUES ('$producer_enterprise','$producer_code_quota', '$producer_code_quota')";
-        $result = mysqli_query($flockCon,$Enterprisequery);
-        
-    }
-    }
+//require_once 'connect.php';
+//  
+//
+//    // If the values are posted, insert them into the database.
+//    if (isset($_POST['producer-enterprise']) && isset($_POST['producer-code-quota'])){
+//       // $producer_enterprise = $_POST['producer-enterprise'];
+//        $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');
+//        $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise');
+// 	if(!empty($producer_code_quota) && !empty($producer_enterprise)){
+//        $enterpriseQuery = "INSERT INTO `Enterprise` (Ename,Ecode) VALUES ('$producer_enterprise','$producer_code_quota')";
+//        $result = mysqli_query($flockCon,$enterpriseQuery);
+//        }
+//    }
+//    
     
-    
-    
-    
-    ?>
-
 <html lang="en-CA">
 <head>
     <?php include 'header.php';?>
@@ -44,7 +38,7 @@ require_once 'connect.php';
             <input type="image" class="arrow" id="prev-arrow" src="resources/next.png" alt="next"/>
         </td>
         <td id="form-column">
-            <form name="flock-information" method="post" action="submit-form-backend.php">
+            <form name="flock-information" method="post" action="submit-form-query.php">
                 <div id="general" class="form-section">
                     <h3> General Flock Information </h3>
                     <hr>
@@ -63,43 +57,31 @@ require_once 'connect.php';
                             <td><label for="barn-number">Barn #</label></td>
                             <td><input type="text" name="barn-number" maxlength="80"></td>
                             <td></td>
-                            <?php $barn_number = filter_input(INPUT_POST, 'barn-number'); ?>
                         </tr>
                         <tr>
                             <td><label for="species">Species</label></td>
                             <td><input type="text" name="species" maxlength="80"></td>
-                            <?php $species = filter_input(INPUT_POST, 'species'); ?>
                             <td></td>
                         </tr>
                         <tr>
                             <td><label for="category-sex">Category/Sex</label></td>
                             <td><input type="text" name="category-sex" maxlength="80"></td>
                             <td></td>
-                            <?php $category_sex = filter_input(INPUT_POST, 'category-sex'); ?>
                         </tr>
                         <tr>
                             <td><label for="age-of-birds">Age of Birds</label></td>
                             <td><input type="text" name="age-of-birds" maxlength="80"></td>
                             <td></td>
-                            <?php $age_of_birds = filter_input(INPUT_POST, 'age-of-birds'); ?>
                         </tr>
                         <tr>
                             <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
                             <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
                             <td></td>
-                            <?php $number_of_birds_placed = filter_input(INPUT_POST, 'number-of-birds-placed'); ?>
                         </tr>
                         <tr>
                             <td><label for="number-of-birds-shipped">Number of Birds Shipped</label></td>
                             <td><input type="text" name="number-of-birds-shipped" maxlength="80"></td>
                             <td></td>
-                            <?php $number_of_birds_shipped = filter_input(INPUT_POST, 'number-of-birds-shipped'); ?>
-                        </tr>
-                        <tr>
-                            <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
-                            <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
-                            <td></td>
-                            <?php $number_of_birds_placed = filter_input(INPUT_POST, 'number-of-birds-placed'); ?>
                         </tr>
                         <tr>
                             <td><label for="mortality-rate">Mortality Rate</label></td>
@@ -110,7 +92,6 @@ require_once 'connect.php';
                         <tr>
                             <td><label for="kg-per-bird">Kg/Bird</label></td>
                             <td><input type="text" name="kg-per-bird" maxlength="80"></td>
-                            <?php $kg_per_bird = filter_input(INPUT_POST, 'kg-per-bird'); ?>
                             <td></td>
                         </tr>
                         <tr>
@@ -124,7 +105,6 @@ require_once 'connect.php';
                         <tr>
                             <td><label for="grow-out-density">Grow-out Density</label></td>
                             <td><input type="text" name="grow-out-density" maxlength="80"></td>
-                            <?php $grow_out_density = filter_input(INPUT_POST, 'grow-out-density'); ?>
                             <td></td>
                         </tr>
                         <tr>
