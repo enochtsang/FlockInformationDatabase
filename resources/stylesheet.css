@@ -51,18 +51,18 @@ body {
     clear: both;
 }
 
-input[type=text] {
+input {
     outline: 0;
     border: 1px solid #999999;
     padding: 3px;
 }
 
-input[type=text]:hover {
+input:hover {
     border-color: white;
     box-shadow: 0 0 7px white;
 }
 
-input[type=text]:focus {
+input:focus {
     border-color: white;
     box-shadow: 0 0 4px white;
 }

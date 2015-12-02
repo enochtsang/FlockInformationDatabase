@@ -10,11 +10,39 @@
 .arrow {
     padding: 20px;
     width: 50px;
+    outline: 0;
+    border: none;
+}
+
+.arrow:hover {
+    box-shadow: none;
 }
 
 .arrow:focus {
-    outline: 0;
+    box-shadow: none;
 }
+
+input[type=radio]{
+    box-shadow: none;
+}
+
+select {
+    outline: 0;
+    border: 1px solid #999999;
+    background: white;
+    padding: 3px;
+}
+
+select:hover {
+    border-color: white;
+    box-shadow: 0 0 7px white;
+}
+
+select:focus {
+    border-color: white;
+    box-shadow: 0 0 4px white;
+}
+
 
 #prev-arrow {
     /* flip the arrow so we can use the same image */
