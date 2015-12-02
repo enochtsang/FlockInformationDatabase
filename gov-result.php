@@ -15,7 +15,8 @@
     <!--            // Enterprise look-up-->
                 <h2> Search Results: </h2>
     <!--            // Enterprise result -->
-                    <?php            
+                    <?php
+                        require_once 'connect.php';
                         $Ecode = $_POST['enterprise-code'];
                         $startDate = $_POST['start-date'];
                         $endDate = $_POST['end-date'];
