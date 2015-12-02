@@ -8,8 +8,16 @@
 }
 
 .arrow {
-    padding: 20px;
+    margin: 20px;
     width: 50px;
+}
+
+.arrow:hover {
+    -webkit-filter: brightness(150%);     
+}
+
+.arrow:active {
+    -webkit-filter: brightness(90%);     
 }
 
 .arrow:focus {
