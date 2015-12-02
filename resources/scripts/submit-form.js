@@ -16,11 +16,19 @@ $(document).ready(function(){
     $(formSections[sectionShown]).show();
     $('.question-information-row').hide();
 
+    updateContentHeight();
+
     function updateContentHeight(){
-        if(formSections[sectionShown] == '#section-a'){
+        if(formSections[sectionShown] == '#general'){
+            $('.content').css('min-height', '700px').css('margin-bottom', '5px');
+        } else if (formSections[sectionShown] == '#section-a'){
             $('.content').css('min-height', minHeight.toString() + 'px').css('margin-bottom', '5px');
+        } else if (formSections[sectionShown] == '#section-b'){
+            $('.content').css('min-height', '680px').css('margin-bottom', '5px');
+        } else if (formSections[sectionShown] == '#additional-comments'){
+            $('.content').css('min-height', '700px').css('margin-bottom', '5px');
         } else {
-            $('.content').css('min-height', '0px').css('margin-bottom', '0px');
+            alert("section out of bounds");
         }
     }
 
