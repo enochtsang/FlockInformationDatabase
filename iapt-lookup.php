@@ -20,7 +20,7 @@
             </form>
 <!--           // Medication look-up-->
             <h2> Search for Medication: </h2>
-            <form action="gov-result.php" method="post">
+            <form action="iapt-result.php" method="post">
                 Medication Name: <input type="text" name="medication-name"><br> 
                 <input type="submit" value="search">
             </form>

@@ -20,35 +20,56 @@
                     <?php 
                         require_once 'connect.php'; 
                         $Ecode = $_POST['enterprise-name'];
+                        $Mname = $_POST['medication-name'];
                         if(!empty($Ecode)){
                             $resultSQL = "SELECT * FROM (Enterprise as E) WHERE E.Ecode='$Ecode'";
                             $query = mysqli_query($flockCon, $resultSQL);
-                            echo "<table border = '1'";
+                            echo "<table border = '3'";
                             while($row = mysqli_fetch_array($query)){
+                                echo "<tr>";
+                                echo "<td>" . "Enterprise-Code" . "</td>";
+                                echo "<td>" . "Enterprise-Name" . "</td>";
+                                echo "<td>" . "Producer-Code" . "</td>";
+                                echo "<td>" . "Submission-Date" . "</td>";
+                                echo "</tr>";
                                 echo "<tr>";
                                 echo "<td>" . $row[0] . "</td>";
                                 echo "<td>" . $row[1] . "</td>";
                                 echo "<td>" . $row[2] . "</td>";
                                 echo "<td>" . $row[3] . "</td>";
+                                echo "</tr>";
                             }
                                 echo "</table>";
                                 
                             }
-                    ?>
                 
-<!--                // Medication result -->
-                    <?php
-                        $Mname = $_POST['medication-name'];
-                        if(!empty($Mname)){
-                            $resultSQL = "SELECT * FROM (Medications as M) WHERE M.Mname='$Mname'";
-                            $query = mysqli_query($flockCon, $resultSQL);
+                        // Medication result
+                        //require_once 'connect.php'; 
+                        //$Mname = $_POST['medication-name'];
+                        else if(!empty($Mname)){
+                            $resultSQL2 = "SELECT * FROM (Medications as M) WHERE M.Medication_Name='$Mname'";
+                            $query2 = mysqli_query($flockCon, $resultSQL2);
                             
-                            echo "<table border = '1'";
-                            while($row = mysqli_fetch_array($query)){
-                               echo "<tr><td>" . $row[0] . "</td></tr>";
-                               echo "<tr><td>" . $row[1] . "</td></tr>";
-                               echo "<tr><td>" . $row[2] . "</td></tr>";
-                               echo "<tr><td>" . $row[3] . "</td></tr>";
+                            echo "<table border = '3'";
+                            while($row2 = mysqli_fetch_array($query2)){
+                                echo "<tr>";
+                                echo "<td>" . "Safe-Marketing-Date" . "</td>";
+                                echo "<td>" . "Treatment-Date-Start" . "</td>";
+                                echo "<td>" . "Treatment-Date-End" . "</td>";
+                                echo "<td>" . "Withdrawal-Period" . "</td>";
+                                echo "<td>" . "Medication-Name" . "</td>";
+                                echo "<td>" . "Dose" . "</td>";
+                                echo "<td>" . "Question" . "</td>";
+                                echo "</tr>";
+                                echo "<tr>";
+                                echo "<td>" . $row2[0] . "</td>";
+                                echo "<td>" . $row2[1] . "</td>";
+                                echo "<td>" . $row2[2] . "</td>";
+                                echo "<td>" . $row2[3] . "</td>";
+                                echo "<td>" . $row2[4] . "</td>";
+                                echo "<td>" . $row2[5] . "</td>";
+                                echo "<td>" . $row2[6] . "</td>";
+                                echo "</tr>";
                             }
                                echo "</table>";
                             }
