@@ -8,8 +8,22 @@
 }
 
 .arrow {
-    padding: 20px;
+    margin: 20px;
     width: 50px;
+}
+
+.arrow:hover {
+    -moz-transform: brightness(150%);
+    -o-transform: brightness(150%);
+    -webkit-filter: brightness(150%);     
+    filter: brightness(150%);
+}
+
+.arrow:active {
+    -moz-transform: brightness(90%);
+    -o-transform: brightness(90%);
+    -webkit-filter: brightness(90%);     
+    filter: brightness(90%);
 }
 
 .arrow:focus {
