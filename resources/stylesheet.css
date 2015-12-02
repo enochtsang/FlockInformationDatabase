@@ -52,35 +52,20 @@ body {
 }
 
 input[type=text] {
+    outline: 0;
     border: 1px solid #999999;
     padding: 3px;
 }
 
 input[type=text]:hover {
     border-color: white;
-    box-shadow: 0 0 5px white;
+    box-shadow: 0 0 7px white;
 }
 
 input[type=text]:focus {
     border-color: white;
-    box-shadow: 0 0 5px white;
+    box-shadow: 0 0 4px white;
 }
-
-input[type=password] {
-    border: 1px solid #999999;
-    padding: 3px;
-}
-
-input[type=password]:hover {
-    border-color: white;
-    box-shadow: 0 0 5px white;
-}
-
-input[type=password]:focus {
-    border-color: white;
-    box-shadow: 0 0 5px white;
-}
-
 
 
 /* logo-bar.php */
