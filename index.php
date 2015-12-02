@@ -32,7 +32,13 @@
                         </tr>
                         <tr>
                             <td><label for="user_type">User Type</label></td>
-                            <td><input type="text" name="user_type"></td>
+                            <td>
+                                <select form="register" name="user_type">
+                                    <option value="producer">Producer</option>
+                                    <option value="iapt">IAPT</option>
+                                    <option value="gov">Government</option>
+                                </select>                            
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="email">Email</label></td>

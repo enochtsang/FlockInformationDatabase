@@ -53,6 +53,11 @@ td {
 	padding: 2px 3px;
 }
 
+.login-table select {
+	width: 156px;
+	padding: 2px 3px;	
+}
+
 .about-us {
     width: 100%;
     margin-top: 500px;
