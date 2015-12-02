@@ -470,7 +470,6 @@
                                 <table>
                                     <td><label for="planned-catching-time">Time</label></td>
                                     <td><input type="time" name="planned-catching-time"></td>
-                                    <?php $planned_catching_time = filter_input(INPUT_POST, 'planned-catching-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -506,14 +505,12 @@
                                             <option value="nov">Nov</option>
                                             <option value="dec">Dec</option>
                                         </select>
-                                        <?php $planned_processing_month = filter_input(INPUT_POST, 'planned-processing-month'); ?>
                                     </td>
                                     <td>
                                         <label for="planned-processing-day">Day</label>
                                     </td>
                                     <td>
                                         <input type="number" name="planned-processing-day" min="1" max="31">
-                                        <?php $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-day'); ?>
                                     </td>
                                 </table>
                             </td>
@@ -521,7 +518,6 @@
                                 <table>
                                     <td><label for="planned-processing-time">Time</label></td>
                                     <td><input type="time" name="planned-processing-time"></td>
-                                    <?php $planned_processing_time = filter_input(INPUT_POST, 'planned-processing-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -532,7 +528,6 @@
                                 <table>
                                     <td><label for="last-water-access-time">Time</label></td>
                                     <td><input type="time" name="last-water-access-time"></td>
-                                    <?php $last_water_access_time = filter_input(INPUT_POST, 'last-water-access-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -548,7 +543,6 @@
                                         <input type="radio" name="feed-distruption" value="no">
                                         <label for="no">No</label>
                                     </td>
-                                    <?php $feed_distruption = filter_input(INPUT_POST, 'feed-distruption'); ?>
                                 </table>
                             </td>
                             <td></td>
@@ -560,7 +554,6 @@
                                 <table>
                                     <td><label for="feed-withdrawal-time">Time</label></td>
                                     <td><input type="time" name="feed-withdrawal-time"></td>
-                                    <?php $feed_withdrawal_time = filter_input(INPUT_POST, 'feed-withdrawal-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -586,7 +579,6 @@
                                             <option value="nov">Nov</option>
                                             <option value="dec">Dec</option>
                                         </select>
-                                        <?php $food_no_access_month = filter_input(INPUT_POST, 'food-no-access-month'); ?>
                                     </td>
                                     <td>
                                         <label for="food-no-access-day">Day</label>
@@ -594,7 +586,6 @@
                                     <td>
                                         <input type="number" name="food-no-access-day" min="1" max="31">
                                     </td>
-                                    <?php $food_no_access_day = filter_input(INPUT_POST, 'food-no-access-day'); ?>
                                 </table>
                             </td>
                             <td>
@@ -607,7 +598,6 @@
                                 <input type="time" class="floor-input" name="floor-1-time">
                             </td>
                             <td></td>
-                            <?php $floor_1_time = filter_input(INPUT_POST, 'floor-1-time'); ?>
                         </tr>
                         <tr>
                             <td></td>
@@ -616,7 +606,6 @@
                                 <input type="time" class="floor-input" name="floor-2-time">
                             </td>
                             <td></td>
-                            <?php $floor_2_time = filter_input(INPUT_POST, 'floor-2-time'); ?>
                         </tr>
                         <tr>
                             <td></td>
@@ -625,7 +614,6 @@
                                 <input type="time" class="floor-input" name="floor-3-time">
                             </td>
                             <td></td>
-                            <?php $floor_3_time = filter_input(INPUT_POST, 'floor-3-time'); ?>
                         </tr>
                     </table>
                 </div>

@@ -7,8 +7,14 @@
             <?php
             session_start();
             require_once 'connect.php';
+//TODO figure out where to put additional comments section
+//TODO Get Enoch to modify section B to use single date & datetime variable to reduce table clutter
+//TODO make sure tables have all primary and secondary keys
+//TODO add section to form for added items like vet and poultry supplier
+//TODO add cert to poultry flock
 
-// If the values are posted, insert them into the database.
+
+
             if (isset(fileter_input(INPUT_POST,'producer-code-quota')) && isset(fileter_input(INPUT_POST,'producer-enterprise'))) {
                 // $producer_enterprise = $_POST['producer-enterprise'];
                 $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');
@@ -18,9 +24,6 @@
                     $result = mysqli_query($flockCon, $enterpriseQuery);
                 }
             }
-
-
-
 
            if (isset(fileter_input(INPUT_POST,'barn-number')) && isset(fileter_input(INPUT_POST,'mortality-rate'))
                     && isset(fileter_input(INPUT_POST,'number-of-birds-shipped'))&& isset(fileter_input(INPUT_POST,'number-of-birds-placed'))
@@ -64,21 +67,59 @@
                 $actual_catching_date = filter_input(INPUT_POST, 'actual-catching-date');
                 $actual_catching_time = filter_input(INPUT_POST, 'actual-catching-time');
                 if (!empty($planned_catching_date) && !empty($actual_catching_date)&& !empty($planned_catching_time)&& !empty($actual_catching_time)) {
-                    $catchingQuery = "INSERT INTO `Enterprise` (Planned_Date,Planned_Time,Actual_Date,Actual_Time,BarnNo) "
+                    $catchingQuery = "INSERT INTO `catching` (Planned_Date,Planned_Time,Actual_Date,Actual_Time,BarnNo) "
                             . "VALUES ('$planned_catching_date','$planned_catching_time', '$actual_catching_date', '$actual_catching_time')";
-                    $result = mysqli_query($flockCon, $catchinQuery);
+                    $result = mysqli_query($flockCon, $catchingQuery);
                 }
             }
             
-            if (isset(fileter_input(INPUT_POST,'species')) && isset(fileter_input(INPUT_POST,'species'))) {
+            
+            if (isset(fileter_input(INPUT_POST,'planned-processing-datetime')) && isset(fileter_input(INPUT_POST,'last-water-access-time'))
+                    && isset(fileter_input(INPUT_POST,'feed-distruption'))&& isset(fileter_input(INPUT_POST,'feed-withdrawal-time'))
+                    && isset(fileter_input(INPUT_POST,'food-no-access-date'))&& isset(fileter_input(INPUT_POST,'floor-1-time'))) {
                 // $producer_enterprise = $_POST['producer-enterprise'];
-                $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');
-                $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise');
-                if (!empty($producer_code_quota) && !empty($producer_enterprise)) {
-                    $medicationsQuery = "INSERT INTO `Enterprise` (Ename,Ecode) VALUES ('$producer_enterprise','$producer_code_quota', '$producer_code_quota')";
-                    $result = mysqli_query($flockCon, $medicationsQuery);
+                $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-datetime');
+                $last_water_access_time = filter_input(INPUT_POST, 'last-water-access-time');
+                $feed_distruption = filter_input(INPUT_POST, 'feed-distruption');
+                $feed_withdrawal_time = filter_input(INPUT_POST, 'feed-withdrawal-time');
+                $food_no_access_date = filter_input(INPUT_POST, 'food-no-access-date');
+                $floor_1_time = filter_input(INPUT_POST, 'floor-1-time');
+                $floor_2_time = filter_input(INPUT_POST, 'floor-2-time');
+                $floor_3_time = filter_input(INPUT_POST, 'floor-3-time');
+                if (!empty($planned_processing_day) && !empty($last_water_access_time)&& !empty($feed_distruption)
+                        && !empty($feed_withdrawal_time)&& !empty($food_no_access_date)&& !empty($floor_1_time)) {
+                    $processingQuery = "INSERT INTO `processing` (Planned_Date,Feed_Supply_Disrupted,Feed_Withdraw_Time,"
+                            . "Time_Feed_Not_Accessible,BarnNo,floor1_time,floor2_time,floor3_time,last_water_access) "
+                            . "VALUES ('$planned_processing_day','$feed_distruption', '$feed_withdrawal_time', '$feed_withdrawal_time', "
+                            . "'$food_no_access_date', '$barn_number', '$floor_1_time', '$floor_2_time', '$floor_3_time')";
+                    $result = mysqli_query($flockCon, $processingQuery);
                 }
             }
+            
+            if (isset(fileter_input(INPUT_POST,'question-1')) && isset(fileter_input(INPUT_POST,'question-2'))
+                    && isset(fileter_input(INPUT_POST,'question-2')) && isset(fileter_input(INPUT_POST,'question-2'))
+                            && isset(fileter_input(INPUT_POST,'question-2'))) {
+                $q1Answer = filter_input(INPUT_POST, 'question-1');
+                $q2Answer = filter_input(INPUT_POST, 'question-2');
+                $q3Answer = filter_input(INPUT_POST, 'question-3');
+                $q4Answer = filter_input(INPUT_POST, 'question-4');
+                $q5Answer = filter_input(INPUT_POST, 'question-5');
+                //if they are true grab post values and pass them to the db
+                
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             if (isset(fileter_input(INPUT_POST,'species')) && isset(fileter_input(INPUT_POST,'species'))) {
                 // $producer_enterprise = $_POST['producer-enterprise'];
