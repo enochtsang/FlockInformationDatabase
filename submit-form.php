@@ -457,7 +457,6 @@
                                             <option value="nov">Nov</option>
                                             <option value="dec">Dec</option>
                                         </select>
-                                        <?php $planned_catching_month = filter_input(INPUT_POST, 'planned-catching-month'); ?>
                                     </td>
                                     <td>
                                         <label for="planned-catching-day">Day</label>
@@ -465,7 +464,6 @@
                                     <td>
                                         <input type="number" name="planned-catching-day" min="1" max="31">
                                     </td>
-                                    <?php $planned_catching_day = filter_input(INPUT_POST, 'planned-catching-day'); ?>
                                 </table>
                             </td>
                             <td>
@@ -481,9 +479,8 @@
                             <td></td>
                             <td>
                                 <table>
-                                    <td><label for="planned-catching-time">Time</label></td>
-                                    <td><input type="time" name="planned-catching-time"></td>
-                                    <?php $planned_catching_time = filter_input(INPUT_POST, 'planned-catching-time'); ?>
+                                    <td><label for="actual-catching-time">Time</label></td>
+                                    <td><input type="time" name="actual-catching-time"></td>
                                 </table>
                             </td>
                         </tr>
