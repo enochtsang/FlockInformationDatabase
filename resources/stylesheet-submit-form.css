@@ -1,6 +1,5 @@
 .content {
     min-width: 800px;
-    min-height: 800px;
 }
 
 .form-container {
@@ -8,12 +7,23 @@
 }
 
 .arrow {
-    padding: 20px;
+    margin: 20px;
     width: 50px;
+    background: none;
 }
 
-.arrow:focus {
-    outline: 0;
+.arrow:hover {
+    -moz-transform: brightness(150%);
+    -o-transform: brightness(150%);
+    -webkit-filter: brightness(150%);
+    filter: brightness(150%);
+}
+
+.arrow:active {
+    -moz-transform: brightness(90%);
+    -o-transform: brightness(90%);
+    -webkit-filter: brightness(90%);
+    filter: brightness(90%);
 }
 
 #prev-arrow {
@@ -51,21 +61,7 @@
 #general input[type=text] {
     margin-left: 10%;
     width: 250px;
-    border: 1px solid #999999;
-    padding: 3px;
-
 }
-
-#general input[type=text]:hover {
-    border-color: white;
-    box-shadow: 0 0 5px white;
-}
-
-#general input[type=text]:focus {
-    border-color: white;
-    box-shadow: 0 0 5px white;
-}
-
 
 #general input[type=radio] {
     float: left;

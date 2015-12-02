@@ -5,3 +5,4 @@
 <link rel="stylesheet" href="/resources/libraries/jquery-ui/jquery-ui.min.css">
 <script src="resources/libraries/jquery-1.11.3.js"></script>
 <script src="resources/libraries/jquery-ui/jquery-ui.min.js"></script>
+<script src="resources/libraries/snowstorm-min.js"></script>

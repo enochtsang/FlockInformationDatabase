@@ -55,11 +55,6 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
-                            <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
                             <td><label for="number-of-birds-shipped">Number of Birds Shipped</label></td>
                             <td><input type="text" name="number-of-birds-shipped" maxlength="80"></td>
                             <td></td>
@@ -480,8 +475,8 @@
                             <td></td>
                             <td>
                                 <table>
-                                    <td><label for="planned-catching-time">Time</label></td>
-                                    <td><input type="time" name="planned-catching-time"></td>
+                                    <td><label for="actual-catching-time">Time</label></td>
+                                    <td><input type="time" name="actual-catching-time"></td>
                                 </table>
                             </td>
                         </tr>
