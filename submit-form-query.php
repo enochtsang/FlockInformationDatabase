@@ -7,6 +7,12 @@
             <?php
             session_start();
             require_once 'connect.php';
+           
+            //global variables
+           // $barn_number= filter_input(INPUT_POST, 'barn-number'); // Barn -> BarnNo
+           // $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');// Enterprise -> Ecode
+            
+            
 //TODO figure out where to put additional comments section
 //TODO Get Enoch to modify section B to use single date & datetime variable to reduce table clutter
 //TODO make sure tables have all primary and secondary keys
@@ -15,8 +21,7 @@
 
 
 
-            if (isset(filter_input(INPUT_POST,'producer-code-quota')) && isset(filter_input(INPUT_POST,'producer-enterprise'))) {
-                // $producer_enterprise = $_POST['producer-enterprise'];
+            if (isset($_POST['producer-enterprise'])) {
                 $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');
                 $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise');
                 if (!empty($producer_code_quota) && !empty($producer_enterprise)) {
@@ -25,40 +30,39 @@
                 }
             }
 
-           if (isset(filter_input(INPUT_POST,'barn-number')) && isset(filter_input(INPUT_POST,'mortality-rate'))
-                    && isset(filter_input(INPUT_POST,'number-of-birds-shipped'))&& isset(filter_input(INPUT_POST,'number-of-birds-placed'))
-                    && isset(filter_input(INPUT_POST,'grow-out-density'))) {
-               $barn_number = filter_input(INPUT_POST, 'barn-number'); 
-               $mortality_rate = filter_input(INPUT_POST, 'mortality-rate'); 
+//            if (isset($_POST['mortality-rate']) && isset($_POST['number-of-birds-shipped'])
+//            		&& isset($_POST['number-of-birds-placed'])&& isset($_POST['grow-out-density']) && isset($_POST['barn-number'])) {
+                $barn_number = filter_input(INPUT_POST, 'barn-number'); 
+                $mortality_rate = filter_input(INPUT_POST, 'mortality-rate'); 
                 $number_of_birds_shipped = filter_input(INPUT_POST, 'number-of-birds-shipped');
                 $number_of_birds_placed = filter_input(INPUT_POST, 'number-of-birds-placed');
                 //TODO add CFC OFFSAP cert
                 $grow_out_density = filter_input(INPUT_POST, 'grow-out-density');
                 //TODO gow out density units
-                if (!empty($barn_number) && !empty($grow_out_density)
-                        && !empty($number_of_birds_placed)&& !empty($number_of_birds_shipped)
-                        && !empty($producer_code_quota)&& !empty($mortality_rate)) {
-                    $barnQuery = "INSERT INTO `Barn` (BarnNo,Birds_Placed,Mortality_Rate,Birds_Shipped,Ecode,Grow_Out_Density) "
+//                 if (!empty($grow_out_density)&& !empty($number_of_birds_placed)
+//                 		&& !empty($number_of_birds_shipped)&& !empty($mortality_rate)) {
+                    $barnQuery = "INSERT INTO `barn` (BarnNo,Birds_Placed,Mortality_Rate,Birds_Shipped,Ecode,Grow_Out_Density) "
                             . "VALUES ('$barn_number', '$number_of_birds_placed','$mortality_rate', '$number_of_birds_shipped','$producer_code_quota','$grow_out_density')";
                     $resultBarn = mysqli_query($flockCon, $barnQuery);
-                    echo "in the barn if";
-                }
-            }
+                   
+//                }
+//             }
             
-            if (isset(filter_input(INPUT_POST,'kg-per-bird')) && isset(filter_input(INPUT_POST,'species'))
-                    && isset(filter_input(INPUT_POST,'category-sex'))&&isset(filter_input(INPUT_POST,'age-of-birds'))) {
+//             if (isset($_POST['kg-per-bird']) && isset($_POST['species'])
+//                     && isset($_POST['category-sex'])&& isset($_POST['age-of-birds'])) {
                 $kg_per_bird = filter_input(INPUT_POST, 'kg-per-bird'); 
                 $species = filter_input(INPUT_POST, 'species');
-                $category_sex = filter_input(INPUT_POST, 'category-sex');
+                $category = filter_input(INPUT_POST, 'category-sex');
                 $age_of_birds = filter_input(INPUT_POST, 'age-of-birds');
                 //BarnNo          
-                if (!empty($kg_per_bird) && !empty($species)
-                        && !empty($category_sex)&& !empty($age_of_birds)) {
-                    $poultryFlockQuery = "INSERT INTO `poulty flock` (kg/Bird,Species,Category/Sex,Age,BarnNo) "
-                            . "VALUES ('$kg_per_bird','$species', '$category_sex','$age_of_birds','$barn_number',)";
+//                 if (!empty($kg_per_bird) && !empty($species)
+//                         && !empty($category_sex)&& !empty($age_of_birds)) {
+                    $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,Species,category,Age,BarnNo) "
+                            . "VALUES ('$kg_per_bird','$species', '$category','$age_of_birds','$barn_number')";
+
                     $resultPoultry = mysqli_query($flockCon, $poultryFlockQuery);
-                }
-            }
+//                  }
+//              }
             
 //            if (isset(fileter_input(INPUT_POST,'planned-catching-date')) && isset(fileter_input(INPUT_POST,'planned-catching-time'))
 //                    && isset(filter_input(INPUT_POST, 'actual-catching-date'))&& isset(filter_input(INPUT_POST, 'actual-catching-time'))) {
