@@ -4,6 +4,10 @@
 	padding: 20px;
 }
 
+hr {
+	margin: 30px;
+}
+
 #register-login {
     width: 100%;
     margin-left: auto;
@@ -11,10 +15,18 @@
     margin-top: 2%;
 }
 
+#register-login hr {
+	margin: 10px 10% 10px;
+	border: 0px;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
 .login-table {
     width: 50%;
     margin: 0 auto;
 }
+
 
 .login-table tr {
 	height: 30px;
@@ -37,11 +49,7 @@
 	width: 150px;
 	padding: 2px 3px;
 	border: 0px;
-	border-radius:  1px;
-}
-
-hr {
-	margin: 30px;
+	border-radius: 1px;
 }
 
 .about-us {

@@ -18,6 +18,7 @@
             <tr>
             <td>
                 <h3>Register</h3>
+                <hr>
                 <form id="register-form" method="post" action="index.php">
                     <table id="inner-register" class="login-table">
                         <tr>
@@ -46,6 +47,7 @@
 
             <td>
                 <h3>Login</h3>
+                <hr>
                 <form id="login-form" method="post" action="redirectPostLogin.php">
                     <table id="inner-login" class="login-table">
                         <tr>
