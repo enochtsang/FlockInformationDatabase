@@ -73,7 +73,7 @@
 //                if (!empty($planned_catching_date) && !empty($actual_catching_date)&& !empty($planned_catching_time)&& !empty($actual_catching_time)) {
 //                    $catchingQuery = "INSERT INTO `catching` (Planned_Date,Planned_Time,Actual_Date,Actual_Time,BarnNo) "
 //                            . "VALUES ('$planned_catching_date','$planned_catching_time', '$actual_catching_date', '$actual_catching_time')";
-//                    $result = mysqli_query($flockCon, $catchingQuery);
+//                    $resultCatching = mysqli_query($flockCon, $catchingQuery);
 //                }
 //            }
 //            
@@ -81,7 +81,6 @@
 //            if (isset(fileter_input(INPUT_POST,'planned-processing-datetime')) && isset(fileter_input(INPUT_POST,'last-water-access-time'))
 //                    && isset(fileter_input(INPUT_POST,'feed-distruption'))&& isset(fileter_input(INPUT_POST,'feed-withdrawal-time'))
 //                    && isset(fileter_input(INPUT_POST,'food-no-access-date'))&& isset(fileter_input(INPUT_POST,'floor-1-time'))) {
-//                // $producer_enterprise = $_POST['producer-enterprise'];
 //                $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-datetime');
 //                $last_water_access_time = filter_input(INPUT_POST, 'last-water-access-time');
 //                $feed_distruption = filter_input(INPUT_POST, 'feed-distruption');
@@ -96,7 +95,7 @@
 //                            . "Time_Feed_Not_Accessible,BarnNo,floor1_time,floor2_time,floor3_time,last_water_access) "
 //                            . "VALUES ('$planned_processing_day','$feed_distruption', '$feed_withdrawal_time', '$feed_withdrawal_time', "
 //                            . "'$food_no_access_date', '$barn_number', '$floor_1_time', '$floor_2_time', '$floor_3_time')";
-//                    $result = mysqli_query($flockCon, $processingQuery);
+//                    $resultProcessing = mysqli_query($flockCon, $processingQuery);
 //                }
 //            }
 //            
@@ -111,16 +110,6 @@
 //                //if they are true grab post values and pass them to the db
 //                
 //            }
-//            
-//            
-//            
-//            
-//            
-//            
-//            
-//            
-//            
-//            
 //            
 //            
 //            
