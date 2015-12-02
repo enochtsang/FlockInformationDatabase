@@ -4,6 +4,7 @@
     <?php include 'header.php';?>
     <title>Flock Information Database</title>
     <meta name="description" content="IAPT's flock information database">
+    <link href="resources/stylesheet-index.css?version=0" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <div class="wrapper">
