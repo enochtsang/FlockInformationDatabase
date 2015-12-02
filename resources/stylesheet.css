@@ -53,18 +53,17 @@ body {
 
 input {
     outline: 0;
-    border: 1px solid #999999;
+    border: none;
     padding: 3px;
+    background: #EEEEEE;
 }
 
 input:hover {
-    border-color: white;
-    box-shadow: 0 0 7px white;
+    box-shadow: 0 0 7px #EEEEEE;
 }
 
 input:focus {
-    border-color: white;
-    box-shadow: 0 0 4px white;
+    box-shadow: 0 0 4px #EEEEEE;
 }
 
 input[type=radio]{
@@ -73,23 +72,20 @@ input[type=radio]{
 
 input[type=image]{
     box-shadow: none;
+    background: none;
 }
 
 select {
     outline: 0;
-    border: 1px solid #999999;
-    background: white;
     padding: 3px;
 }
 
 select:hover {
-    border-color: white;
-    box-shadow: 0 0 7px white;
+    box-shadow: 0 0 7px #EEEEEE;
 }
 
 select:focus {
-    border-color: white;
-    box-shadow: 0 0 4px white;
+    box-shadow: 0 0 4px #EEEEEE;
 }
 
 

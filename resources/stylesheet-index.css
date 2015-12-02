@@ -4,22 +4,6 @@
 	padding: 20px;
 }
 
-input[type=password] {
-    outline: 0;
-    border: 1px solid #999999;
-    padding: 3px;
-}
-
-input[type=password]:hover {
-    border-color: white;
-    box-shadow: 0 0 5px white;
-}
-
-input[type=password]:focus {
-    border-color: white;
-    box-shadow: 0 0 5px white;
-}
-
 hr {
 	margin: 30px;
 }
