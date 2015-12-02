@@ -17,9 +17,9 @@
             <table id="register-login">
             <tr>
             <td>
+                <h3>Register</h3>
                 <form id="register-form" method="post" action="index.php">
-                    <table id="inner-register">
-                        <th colspan="2"><h3>New users register here.</h3></th>
+                    <table id="inner-register" class="login-table">
                         <tr>
                             <td><label for="register_username"><b>Username<b></label></td>
                             <td><input type="text" name="register_username"></td>
@@ -37,33 +37,35 @@
                             <td><input type="text" name="email"></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input type="submit" value="Register"/></td>
+                            <td></td>
+                            <td><input type="submit" value="Register"/></td>
                         </tr>
                     </table>
                 </form>
             </td>
 
             <td>
-                <form id="login-form" method="post" action="redirectPostLogin.php" >
-                    <table id="inner-login">
-                        <th colspan="2"><h3>Existing users login here.</h3></th>
+                <h3>Login</h3>
+                <form id="login-form" method="post" action="redirectPostLogin.php">
+                    <table id="inner-login" class="login-table">
                         <tr>
                             <td><label for="login_username"><b>Username</b></label></td>
                             <td><input type="text" name="login_username"></td>
                         </tr>
                         <tr>
                             <td><label for="login_password"><b>Password</b></label></td>
-                            <td><input name="password" type="login_password"></input></td>
+                            <td><input name="login_password" type="password"></input></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input type="submit" value="Login"/></td>
+                            <td></td>
+                            <td><input type="submit" value="Login"/></td>
                         </tr>
                     </table>
                 </form>
             </td>
             </tr>
             </table>
-
+            <hr />
             <div id="about-us">
                 <h1> About Us </h1>
                 <p>Institute of Applied Poultry Technologies! INFO HERE</p>

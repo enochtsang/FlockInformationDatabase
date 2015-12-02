@@ -1,6 +1,7 @@
 .content {
 	min-height: 250px;
 	margin-bottom: 5px;
+	padding: 20px;
 }
 
 #register-login {
@@ -10,18 +11,38 @@
     margin-top: 2%;
 }
 
-#inner-register {
+.login-table {
     width: 50%;
-    float: none;
     margin: 0 auto;
 }
 
-#inner-login {
-    width: 50%;
-    float: none;
-    margin: 0 auto;
+.login-table tr {
+	height: 30px;
 }
 
+.login-table td {
+	text-align: left;
+	white-space: nowrap;
+	padding-right: 20px;
+}
+
+.login-table input[type=text] {
+	width: 150px;
+	padding: 2px 3px;
+	border: 0px;
+	border-radius:  1px;
+}
+
+.login-table input[type=password] {
+	width: 150px;
+	padding: 2px 3px;
+	border: 0px;
+	border-radius:  1px;
+}
+
+hr {
+	margin: 30px;
+}
 
 .about-us {
     width: 100%;
