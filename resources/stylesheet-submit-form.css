@@ -51,21 +51,7 @@
 #general input[type=text] {
     margin-left: 10%;
     width: 250px;
-    border: 1px solid #999999;
-    padding: 3px;
-
 }
-
-#general input[type=text]:hover {
-    border-color: white;
-    box-shadow: 0 0 5px white;
-}
-
-#general input[type=text]:focus {
-    border-color: white;
-    box-shadow: 0 0 5px white;
-}
-
 
 #general input[type=radio] {
     float: left;

@@ -8,6 +8,10 @@ hr {
 	margin: 30px;
 }
 
+td {
+	vertical-align: top;
+}
+
 #register-login {
     width: 100%;
     margin-left: auto;
@@ -34,6 +38,7 @@ hr {
 
 .login-table td {
 	text-align: left;
+	vertical-align: top;
 	white-space: nowrap;
 	padding-right: 20px;
 }
