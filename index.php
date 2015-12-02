@@ -4,6 +4,7 @@
     <?php include 'header.php';?>
     <title>Flock Information Database</title>
     <meta name="description" content="IAPT's flock information database">
+    <script src="resources/scripts/index.js"></script>
     <link href="resources/stylesheet-index.css?version=0" rel="stylesheet" type="text/css"/>
 </head>
 <body>
@@ -19,7 +20,7 @@
             <td>
                 <h3>Register</h3>
                 <hr>
-                <form id="register-form" method="post" action="index.php">
+                <form id="register-form" name="register" method="post" action="CHANGE_THIS.php" onSubmit="return validateRegister()">
                     <table id="inner-register" class="login-table">
                         <tr>
                             <td><label for="register_username">Username</label></td>
