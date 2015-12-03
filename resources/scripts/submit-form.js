@@ -20,7 +20,7 @@ $(document).ready(function(){
 
     function updateContentHeight(){
         if(formSections[sectionShown] == '#general'){
-            $('.content').css('min-height', '750px').css('margin-bottom', '5px');
+            $('.content').css('min-height', '830px').css('margin-bottom', '5px');
         } else if (formSections[sectionShown] == '#section-a'){
             $('.content').css('min-height', minHeight.toString() + 'px').css('margin-bottom', '5px');
         } else if (formSections[sectionShown] == '#section-b'){
