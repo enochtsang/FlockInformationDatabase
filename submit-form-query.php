@@ -227,7 +227,7 @@
                		. "'$food_no_access_date', '$floor_1_time', '$floor_2_time', '$floor_3_time','$barn_number','$producer_code_quota','$submission_date')";
                $resultProcessing = mysqli_query($flockCon, $processingQuery);
                
-                
+                //TODO I haven't dealt with the additional comments section
                 
             
             ?>
