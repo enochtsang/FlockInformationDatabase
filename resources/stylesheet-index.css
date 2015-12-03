@@ -17,6 +17,7 @@ td {
     margin-left: auto;
     margin-right: auto;
     margin-top: 2%;
+    table-layout: fixed;
 }
 
 #register-login hr {
