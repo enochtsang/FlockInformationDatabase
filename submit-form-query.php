@@ -38,6 +38,7 @@
                 $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');//e_code_
                 $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise');//e_name
                 $produces_for = filter_input(INPUT_POST, 'produces-for');//produces_for
+                $additional_comments = document.getElementById("additional-comments").value;
                 //$vet_name = filter_input(INPUT_POST, 'vet-name');//vet_name
                 $vet_name = "Moath"; //TODO delete this when the table gets hooked up
                 //insert values into the database
@@ -211,10 +212,9 @@
                //***************processing******************
                //set variables from form submission
                //TODO isn't working might be because front end types are different
-               //TODO when the last field of form B is filled out the submit button can't be pressed
                $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-datetime');//planned_date
                $last_water_access_time = filter_input(INPUT_POST, 'last-water-access-time');//last_water_access
-               $feed_distruption = filter_input(INPUT_POST, 'feed-distruption');//feed_supply_disrupted
+               $feed_disruption = filter_input(INPUT_POST, 'feed-disruption');//feed_supply_disrupted
                $feed_withdrawal_time = filter_input(INPUT_POST, 'feed-withdrawal-time');//feed_withdraw_time
                $food_no_access_date = filter_input(INPUT_POST, 'food-no-access-date');//feed_not_accessible_date
                $floor_1_time = filter_input(INPUT_POST, 'floor-1-time');//floor1_time
@@ -223,7 +223,7 @@
                //set variables from form submission
                $processingQuery = "INSERT INTO `processing` (planned_date,last_water_access,feed_supply_disrupted,"
                		. "feed_withdraw_time,feed_not_accessible_date,floor1_time,floor2_time,floor3_time,barn_number_,e_code_,submission_date_) "
-               		. "VALUES ('$planned_processing_day','$last_water_access_time', '$feed_distruption', '$feed_withdrawal_time', "
+               		. "VALUES ('$planned_processing_day','$last_water_access_time', '$feed_disruption', '$feed_withdrawal_time', "
                		. "'$food_no_access_date', '$floor_1_time', '$floor_2_time', '$floor_3_time','$barn_number','$producer_code_quota','$submission_date')";
                $resultProcessing = mysqli_query($flockCon, $processingQuery);
                
