@@ -35,6 +35,11 @@
                             <td></td>
                         </tr>
                         <tr>
+                            <td><label for="produces-for">Producer For</label></td>
+                            <td><input type="text" name="produces-for" maxlength="80"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
                             <td><label for="barn-number">Barn #</label></td>
                             <td><input type="text" name="barn-number" maxlength="80"></td>
                             <td></td>
@@ -95,6 +100,16 @@
                                 <label for="lb-per-ft2">lb/ft<sup>2</sup></label>
                                 <input type="radio" class="not-left-most-radio" name="grow-out-density-units" value="kg-per-ft2">
                                 <label for="kg-per-ft2">kg/ft<sup>2</sup></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><label for="vet-name">Veterinary Practice Name</label></td>
+                            <td><input type="text" name="vet-name" maxlength="80"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><label for="vet-address">Veterinary Practice Address</label></td>
+                            <td><input type="text" name="vet-address" maxlength="80"></td>
                             <td></td>
                         </tr>
                     </table>
@@ -435,31 +450,12 @@
                         <tr>
                             <td><label>Planned catching time</label></td>
                             <td>
-                                <table class="month-day-table">
+                                <table class="date-table">
                                     <td>
-                                        <label for="planned-catching-month">Month</label>
+                                        <label for="planned-catching-date">Date</label>
                                     </td>
                                     <td>
-                                        <select form="flock-information" name="planned-catching-month">
-                                            <option value="jan">Jan</option>
-                                            <option value="feb">Feb</option>
-                                            <option value="mar">Mar</option>
-                                            <option value="apr">Apr</option>
-                                            <option value="may">May</option>
-                                            <option value="jun">Jun</option>
-                                            <option value="jul">Jul</option>
-                                            <option value="aug">Aug</option>
-                                            <option value="sep">Sep</option>
-                                            <option value="oct">Oct</option>
-                                            <option value="nov">Nov</option>
-                                            <option value="dec">Dec</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <label for="planned-catching-day">Day</label>
-                                    </td>
-                                    <td>
-                                        <input type="number" name="planned-catching-day" min="1" max="31">
+                                        <input type="date" name="planned-catching-date">
                                     </td>
                                 </table>
                             </td>
@@ -483,31 +479,12 @@
                         <tr class="section-b-separator">
                             <td><label>Planned processing time</label></td>
                             <td>
-                                <table class="month-day-table">
+                                <table class="date-table">
                                     <td>
-                                        <label for="planned-processing-month">Month</label>
+                                        <label for="planned-processing-date">Date</label>
                                     </td>
                                     <td>
-                                        <select form="flock-information" name="planned-processing-month">
-                                            <option value="jan">Jan</option>
-                                            <option value="feb">Feb</option>
-                                            <option value="mar">Mar</option>
-                                            <option value="apr">Apr</option>
-                                            <option value="may">May</option>
-                                            <option value="jun">Jun</option>
-                                            <option value="jul">Jul</option>
-                                            <option value="aug">Aug</option>
-                                            <option value="sep">Sep</option>
-                                            <option value="oct">Oct</option>
-                                            <option value="nov">Nov</option>
-                                            <option value="dec">Dec</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <label for="planned-processing-day">Day</label>
-                                    </td>
-                                    <td>
-                                        <input type="number" name="planned-processing-day" min="1" max="31">
+                                        <input type="date" name="planned-processing-date">
                                     </td>
                                 </table>
                             </td>
@@ -557,60 +534,27 @@
                         <tr class="section-b-separator">
                             <td><label>Time feed was no longer accessible</label></td>
                             <td>
-                                <table class="month-day-table">
-                                    <td>
-                                        <label for="food-no-access-month">Month</label>
-                                    </td>
-                                    <td>
-                                        <select form="flock-information" name="food-no-access-month">
-                                            <option value="jan">Jan</option>
-                                            <option value="feb">Feb</option>
-                                            <option value="mar">Mar</option>
-                                            <option value="apr">Apr</option>
-                                            <option value="may">May</option>
-                                            <option value="jun">Jun</option>
-                                            <option value="jul">Jul</option>
-                                            <option value="aug">Aug</option>
-                                            <option value="sep">Sep</option>
-                                            <option value="oct">Oct</option>
-                                            <option value="nov">Nov</option>
-                                            <option value="dec">Dec</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <label for="food-no-access-day">Day</label>
-                                    </td>
-                                    <td>
-                                        <input type="number" name="food-no-access-day" min="1" max="31">
-                                    </td>
+                                <table class="date-table">
+                                    <tr>
+                                        <td><label for="food-no-access-date">Date</label></td>
+                                        <td><input type="date" name="food-no-access-date"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="floor-1-time">1<sup>st</sup>  Floor Time</label></td>
+                                        <td><input type="time" class="floor-input" name="floor-1-time"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="floor-2-time">2<sup>nd</sup>  Floor Time</label></td>
+                                        <td><input type="time" class="floor-input" name="floor-2-time"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="floor-3-time">3<sup>rd</sup>  Floor Time</label></td>
+                                        <td><input type="time" class="floor-input" name="floor-3-time"></td>
+                                    </tr>
                                 </table>
                             </td>
                             <td>
                             </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <label for="floor-1-time">Floor #1</label>
-                                <input type="time" class="floor-input" name="floor-1-time">
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <label for="floor-2-time">Floor #2</label>
-                                <input type="time" class="floor-input" name="floor-2-time">
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <label for="floor-3-time">Floor #3</label>
-                                <input type="time" class="floor-input" name="floor-3-time">
-                            </td>
-                            <td></td>
                         </tr>
                     </table>
                 </div>
