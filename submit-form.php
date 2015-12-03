@@ -35,6 +35,11 @@
                             <td></td>
                         </tr>
                         <tr>
+                            <td><label for="produces-for">Producer For</label></td>
+                            <td><input type="text" name="produces-for" maxlength="80"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
                             <td><label for="barn-number">Barn #</label></td>
                             <td><input type="text" name="barn-number" maxlength="80"></td>
                             <td></td>
@@ -95,6 +100,16 @@
                                 <label for="lb-per-ft2">lb/ft<sup>2</sup></label>
                                 <input type="radio" class="not-left-most-radio" name="grow-out-density-units" value="kg-per-ft2">
                                 <label for="kg-per-ft2">kg/ft<sup>2</sup></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><label for="vet-name">Veterinary Practice Name</label></td>
+                            <td><input type="text" name="vet-name" maxlength="80"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><label for="vet-address">Veterinary Practice Address</label></td>
+                            <td><input type="text" name="vet-address" maxlength="80"></td>
                             <td></td>
                         </tr>
                     </table>
