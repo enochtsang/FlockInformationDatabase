@@ -83,7 +83,7 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
             <td>
                 <h3>Login</h3>
                 <hr>
-                <form id="login-form" method="post" action="redirectPostLogin.php">
+                <form id="login-form" method="post" action="redirect-post-login.php">
                     <table id="inner-login" class="login-table">
                         <tr>
                             <td><label for="username"><b>Username</b></label></td>
