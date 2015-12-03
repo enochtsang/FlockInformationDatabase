@@ -15,4 +15,6 @@ ehthumbs.db
 Thumbs.db
 *.sass-cache*
 .fuse_hidden*
-/nbproject/private/
+
+nbproject
+connect.php
