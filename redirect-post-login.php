@@ -31,6 +31,12 @@
             header("Location: submit-form.php");
             exit;
         }
+        else if ($userType == "none") {
+            echo "<script>
+                    alert('Invalid username and password'); 
+                    window.location.href = 'index.php';
+                 </script>";
+        }
         else{
             header("Location: index.php"); 
             exit;
