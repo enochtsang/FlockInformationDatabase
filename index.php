@@ -1,7 +1,7 @@
 <?php
 require_once 'connect.php';
-
 // If the values are posted, insert them into the database.
+
 if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['password']) && isset($_POST['email'])) {
     $username = $_POST['username'];
     $user_type = $_POST['user_type'];
@@ -31,6 +31,8 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
     <?php include 'header.php';?>
     <title>Flock Information Database</title>
     <meta name="description" content="IAPT's flock information database">
+    <script src="resources/scripts/index.js"></script>
+    <link href="resources/stylesheet-index.css?version=0" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <div class="wrapper">
@@ -42,37 +44,46 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
         <div class="content">
             <table id="register-login">
             <tr>
-            <td>
-                <form id="register-form" method="post" action="index.php">
-                    <table id="inner-register">
-                        <th colspan="2"><h3>New users register here.</h3></th>
+            <td>    
+                <h3>Register</h3>
+                <hr>
+                <form id="register-form" name="register" method="post" action="index.php">
+                    <table id="inner-register" class="login-table">
                         <tr>
                             <td><label for="username"><b>Username<b></label></td>
                             <td><input type="text" name="username"></td>
                         </tr>
                         <tr>
-                            <td><label for="password"><b>Password</label></b></td>
+                            <td><label for="password"><b>Password</b></label></td>
                             <td><input type="password" name="password"></input></td>
                         </tr>
                         <tr>
-                            <td><label for="user_type"><b>User Type</b></label></td>
-                            <td><input type="text" name="user_type"></td>
+                            <td><label for="user_type">User Type</label></td>
+                            <td>
+                                <select name="user_type">
+                                    <option value="producer">Producer</option>
+                                    <option value="iapt">IAPT</option>
+                                    <option value="gov">Government</option>
+                                </select>                            
+                            </td>
                         </tr>
                         <tr>
-                            <td><label for="email"><b>Email</b></label></td>
+                            <td><label for="email">Email</label></td>
                             <td><input type="text" name="email"></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input type="submit" value="Register"/></td>
+                            <td></td>
+                            <td><input type="submit" value="Register"/></td>
                         </tr>
                     </table>
                 </form>
             </td>
 
             <td>
-                <form id="login-form" method="post" action="redirectPostLogin.php" >
-                    <table id="inner-login">
-                        <th colspan="2"><h3>Existing users login here.</h3></th>
+                <h3>Login</h3>
+                <hr>
+                <form id="login-form" method="post" action="redirectPostLogin.php">
+                    <table id="inner-login" class="login-table">
                         <tr>
                             <td><label for="username"><b>Username</b></label></td>
                             <td><input type="text" name="username"></td>
@@ -80,24 +91,24 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
                         <tr>
                             <td><label for="login_password"><b>Password</b></label></td>
                             <td><input name="password" type="password"></input></td>
-                        </tr>
                         <tr>
-                            <td colspan="2"><input type="submit" value="Login"/></td>
+                            <td></td>
+                            <td><input type="submit" value="Login"/></td>
                         </tr>
                     </table>
                 </form>
             </td>
             </tr>
             </table>
-
             <div>
-            <br>
-            <?php
-            if (isset($msg) & !empty($msg)) {
-                echo $msg;
-            }
-            ?>  
+                <br>
+                <?php
+                    if (isset($msg) & !empty($msg)) {
+                        echo $msg;
+                    }
+                ?>  
             </div>
+            <hr />
             <div id="about-us">
                 <h1> About Us </h1>
                 <p>Institute of Applied Poultry Technologies! INFO HERE</p>

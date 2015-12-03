@@ -1,160 +1,103 @@
-"use strict";
+'use strict';
 
 $(document).ready(function(){
 
     var sectionShown = 0;
-    var formSections = ["#general", "#section-a", "#section-b", "#additional-comments"];
+    var formSections = ['#general', '#section-a', '#section-b', '#additional-comments'];
     var animationRunning = false;
-
-    for(var i = 0; i < formSections.length; i++){
-        $(formSections[i]).hide();
-    }
-    $(formSections[sectionShown]).show();
-
-    $("#prev-arrow").mousedown(function(){
-        if(sectionShown > 0 && !animationRunning){
-            animationRunning = true;
-            $(formSections[sectionShown]).hide("slide", { direction: "right" }, 300);
-            $(formSections[sectionShown - 1]).show("slide", { direction: "left" }, 300, function(){
-                animationRunning = false;
-                sectionShown -= 1;
-                if(formSections[sectionShown] == "#section-a"){
-                    $(".content").css("min-height", minHeight.toString() + "px");
-                    $(".content").css("margin-bottom", "5px");
-                } else {
-                    $(".content").css("min-height", "0px");
-                    $(".content").css("margin-bottom", "0px");
-                }
-            });
-        }
-    });
-
-    $("#next-arrow").mousedown(function(){
-        if(sectionShown < formSections.length - 1 && !animationRunning){
-            animationRunning = true;
-            $(formSections[sectionShown]).hide("slide", { direction: "left" }, 300);
-            $(formSections[sectionShown + 1]).show("slide", { direction: "right" }, 300, function(){
-                animationRunning = false;
-                sectionShown += 1;
-                if(formSections[sectionShown] == "#section-a"){
-                    $(".content").css("min-height", minHeight.toString() + "px");
-                    $(".content").css("margin-bottom", "5px");
-                } else {
-                    $(".content").css("min-height", "0px");
-                    $(".content").css("margin-bottom", "0px");
-                }
-            });
-        }
-    });
-
 
     var APPROXIMATE_ROW_HEIGHT = 50;
     var minHeight = 600;
 
-    $(".question-information-row").hide();
-
-    $('input[name=question-1]').change(function() {
-        if(!this.checked){
-            return;
-        }
-        if($('input[name=question-1]:checked').val() == "yes"){
-            $(".question-1-information-row").show();
-            minHeight += APPROXIMATE_ROW_HEIGHT * 3;
-        } else {
-            $(".question-1-information-row").hide();
-            minHeight -= APPROXIMATE_ROW_HEIGHT * 3;
-        }
-        $(".content").css("min-height", minHeight.toString() + "px");
-        $(".content").css("margin-bottom", "5px");
+    formSections.forEach(function(formSection) {
+        $(formSection).hide();
     });
 
-    $('input[name=question-2]').change(function() {
-        if(!this.checked){
+    $(formSections[sectionShown]).show();
+    $('.question-information-row').hide();
+
+    updateContentHeight();
+
+    function updateContentHeight(){
+        if(formSections[sectionShown] == '#general'){
+            $('.content').css('min-height', '700px').css('margin-bottom', '5px');
+        } else if (formSections[sectionShown] == '#section-a'){
+            $('.content').css('min-height', minHeight.toString() + 'px').css('margin-bottom', '5px');
+        } else if (formSections[sectionShown] == '#section-b'){
+            $('.content').css('min-height', '680px').css('margin-bottom', '5px');
+        } else if (formSections[sectionShown] == '#additional-comments'){
+            $('.content').css('min-height', '700px').css('margin-bottom', '5px');
+        } else {
+            alert("section out of bounds");
+        }
+    }
+
+    function toggleQuestionSection(questionNumber,numRows){
+        var qNum = questionNumber.toString();
+
+        if(!$('input[name=question-' + qNum + ']'.checked)){
             return;
         }
-        if($('input[name=question-2]:checked').val() == "yes"){
-            $(".question-2-information-row").show();
-            minHeight += APPROXIMATE_ROW_HEIGHT * 4;
+
+        if($('input[name=question-' + qNum + ']:checked').val() == 'yes'){
+            $('.question-' + qNum + '-information-row').show();
+            minHeight += APPROXIMATE_ROW_HEIGHT * numRows;
         } else {
-            $(".question-2-information-row").hide();
-            minHeight -= APPROXIMATE_ROW_HEIGHT * 4;
+            $('.question-' + qNum + '-information-row').hide();
+            minHeight -= APPROXIMATE_ROW_HEIGHT * numRows;
         }
-        $(".content").css("min-height", minHeight.toString() + "px");
-        $(".content").css("margin-bottom", "5px");
+        updateContentHeight();
+    }
+
+    $('#prev-arrow').mousedown(function(){
+        if(sectionShown > 0 && !animationRunning){
+            animationRunning = true;
+            $(formSections[sectionShown]).hide('slide', { direction: 'right' }, 300);
+            $(formSections[sectionShown - 1]).show('slide', { direction: 'left' }, 300, function(){
+                animationRunning = false;
+                sectionShown -= 1;
+                updateContentHeight();
+            });
+        }
     });
 
-    $('input[name=question-3]').change(function() {
-        if(!this.checked){
-            return;
+    $('#next-arrow').mousedown(function(){
+        if(sectionShown < formSections.length - 1 && !animationRunning){
+            animationRunning = true;
+            $(formSections[sectionShown]).hide('slide', { direction: 'left' }, 300);
+            $(formSections[sectionShown + 1]).show('slide', { direction: 'right' }, 300, function(){
+                animationRunning = false;
+                sectionShown += 1;
+                updateContentHeight();
+            });
         }
-        if($('input[name=question-3]:checked').val() == "yes"){
-            $(".question-3-information-row").show();
-            minHeight += APPROXIMATE_ROW_HEIGHT * 1;
-        } else {
-            $(".question-3-information-row").hide();
-            minHeight -= APPROXIMATE_ROW_HEIGHT * 1;
-        }
-        $(".content").css("min-height", minHeight.toString() + "px");
-        $(".content").css("margin-bottom", "5px");
     });
 
-    $('input[name=question-4]').change(function() {
-        if(!this.checked){
-            return;
-        }
-        if($('input[name=question-4]:checked').val() == "yes"){
-            $(".question-4-information-row").show();
-            minHeight += APPROXIMATE_ROW_HEIGHT * 7;
-        } else {
-            $(".question-4-information-row").hide();
-            minHeight -= APPROXIMATE_ROW_HEIGHT * 7;
-        }
-        $(".content").css("min-height", minHeight.toString() + "px");
-        $(".content").css("margin-bottom", "5px");
+    $('input[name=question-1]').change(function(){
+        toggleQuestionSection(1, 3);
     });
 
-    $('input[name=question-5]').change(function() {
-        if(!this.checked){
-            return;
-        }
-        if($('input[name=question-5]:checked').val() == "yes"){
-            $(".question-5-information-row").show();
-            minHeight += APPROXIMATE_ROW_HEIGHT * 3;
-        } else {
-            $(".question-5-information-row").hide();
-            minHeight -= APPROXIMATE_ROW_HEIGHT * 3;
-        }
-        $(".content").css("min-height", minHeight.toString() + "px");
-        $(".content").css("margin-bottom", "5px");
+    $('input[name=question-2]').change(function(){
+        toggleQuestionSection(2 ,4);
     });
 
-    $('input[name=question-6]').change(function() {
-        if(!this.checked){
-            return;
-        }
-        if($('input[name=question-6]:checked').val() == "yes"){
-            $(".question-6-information-row").show();
-            minHeight += APPROXIMATE_ROW_HEIGHT * 3;
-        } else {
-            $(".question-6-information-row").hide();
-            minHeight -= APPROXIMATE_ROW_HEIGHT * 3;
-        }
-        $(".content").css("min-height", minHeight.toString() + "px");
-        $(".content").css("margin-bottom", "5px");
+    $('input[name=question-3]').change(function(){
+        toggleQuestionSection(3 ,1);
     });
 
-    $('input[name=question-7]').change(function() {
-        if(!this.checked){
-            return;
-        }
-        if($('input[name=question-7]:checked').val() == "yes"){
-            $(".question-7-information-row").show();
-            minHeight += APPROXIMATE_ROW_HEIGHT * 6;
-        } else {
-            $(".question-7-information-row").hide();
-            minHeight -= APPROXIMATE_ROW_HEIGHT * 6;
-        }
-        $(".content").css("min-height", minHeight.toString() + "px");
-        $(".content").css("margin-bottom", "5px");
+    $('input[name=question-4]').change(function(){
+        toggleQuestionSection(4 ,7);
+    });
+
+    $('input[name=question-5]').change(function(){
+        toggleQuestionSection(5 ,3);
+    });
+
+    $('input[name=question-6]').change(function(){
+        toggleQuestionSection(6 ,3);
+    });
+
+    $('input[name=question-7]').change(function(){
+        toggleQuestionSection(7 ,6);
     });
 });
