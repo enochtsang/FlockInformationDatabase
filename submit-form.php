@@ -420,7 +420,7 @@
                                 <table>
                                     <tr>
                                         <td><label for="question-7-f">Dose</label></td>
-                                        <td><input type="text" name="question-4-f" maxlength="80"></td>
+                                        <td><input type="text" name="question-7-f" maxlength="80"></td>
                                     </tr>
                                 </table>
                             </td>

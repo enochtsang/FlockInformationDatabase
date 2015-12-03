@@ -66,14 +66,14 @@
             
 //            if (isset(fileter_input(INPUT_POST,'planned-catching-date')) && isset(fileter_input(INPUT_POST,'planned-catching-time'))
 //                    && isset(filter_input(INPUT_POST, 'actual-catching-date'))&& isset(filter_input(INPUT_POST, 'actual-catching-time'))) {
-//                $planned_catching_date = filter_input(INPUT_POST, 'planned-catching-date');
-//                $planned_catching_time = filter_input(INPUT_POST, 'planned-catching-time');
-//                $actual_catching_date = filter_input(INPUT_POST, 'actual-catching-date');
-//                $actual_catching_time = filter_input(INPUT_POST, 'actual-catching-time');
+               $planned_catching_date = filter_input(INPUT_POST, 'planned-catching-date');
+               $planned_catching_time = filter_input(INPUT_POST, 'planned-catching-time');
+               $actual_catching_date = filter_input(INPUT_POST, 'actual-catching-date');
+               $actual_catching_time = filter_input(INPUT_POST, 'actual-catching-time');
 //                if (!empty($planned_catching_date) && !empty($actual_catching_date)&& !empty($planned_catching_time)&& !empty($actual_catching_time)) {
-//                    $catchingQuery = "INSERT INTO `catching` (Planned_Date,Planned_Time,Actual_Date,Actual_Time,BarnNo) "
-//                            . "VALUES ('$planned_catching_date','$planned_catching_time', '$actual_catching_date', '$actual_catching_time')";
-//                    $resultCatching = mysqli_query($flockCon, $catchingQuery);
+                   $catchingQuery = "INSERT INTO `catching` (Planned_Date,Planned_Time,Actual_Date,Actual_Time,BarnNo) "
+                           . "VALUES ('$planned_catching_date','$planned_catching_time', '$actual_catching_date', '$actual_catching_time')";
+                   $resultCatching = mysqli_query($flockCon, $catchingQuery);
 //                }
 //            }
 //            
@@ -81,35 +81,125 @@
 //            if (isset(fileter_input(INPUT_POST,'planned-processing-datetime')) && isset(fileter_input(INPUT_POST,'last-water-access-time'))
 //                    && isset(fileter_input(INPUT_POST,'feed-distruption'))&& isset(fileter_input(INPUT_POST,'feed-withdrawal-time'))
 //                    && isset(fileter_input(INPUT_POST,'food-no-access-date'))&& isset(fileter_input(INPUT_POST,'floor-1-time'))) {
-//                $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-datetime');
-//                $last_water_access_time = filter_input(INPUT_POST, 'last-water-access-time');
-//                $feed_distruption = filter_input(INPUT_POST, 'feed-distruption');
-//                $feed_withdrawal_time = filter_input(INPUT_POST, 'feed-withdrawal-time');
-//                $food_no_access_date = filter_input(INPUT_POST, 'food-no-access-date');
-//                $floor_1_time = filter_input(INPUT_POST, 'floor-1-time');
-//                $floor_2_time = filter_input(INPUT_POST, 'floor-2-time');
-//                $floor_3_time = filter_input(INPUT_POST, 'floor-3-time');
+               $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-datetime');
+               $last_water_access_time = filter_input(INPUT_POST, 'last-water-access-time');
+               $feed_distruption = filter_input(INPUT_POST, 'feed-distruption');
+               $feed_withdrawal_time = filter_input(INPUT_POST, 'feed-withdrawal-time');
+               $food_no_access_date = filter_input(INPUT_POST, 'food-no-access-date');
+               $floor_1_time = filter_input(INPUT_POST, 'floor-1-time');
+               $floor_2_time = filter_input(INPUT_POST, 'floor-2-time');
+               $floor_3_time = filter_input(INPUT_POST, 'floor-3-time');
 //                if (!empty($planned_processing_day) && !empty($last_water_access_time)&& !empty($feed_distruption)
 //                        && !empty($feed_withdrawal_time)&& !empty($food_no_access_date)&& !empty($floor_1_time)) {
-//                    $processingQuery = "INSERT INTO `processing` (Planned_Date,Feed_Supply_Disrupted,Feed_Withdraw_Time,"
-//                            . "Time_Feed_Not_Accessible,BarnNo,floor1_time,floor2_time,floor3_time,last_water_access) "
-//                            . "VALUES ('$planned_processing_day','$feed_distruption', '$feed_withdrawal_time', '$feed_withdrawal_time', "
-//                            . "'$food_no_access_date', '$barn_number', '$floor_1_time', '$floor_2_time', '$floor_3_time')";
-//                    $resultProcessing = mysqli_query($flockCon, $processingQuery);
+                   $processingQuery = "INSERT INTO `processing` (Planned_Date,Feed_Supply_Disrupted,Feed_Withdraw_Time,"
+                           . "Time_Feed_Not_Accessible,BarnNo,floor1_time,floor2_time,floor3_time,last_water_access) "
+                           . "VALUES ('$planned_processing_day','$feed_distruption', '$feed_withdrawal_time', '$feed_withdrawal_time', "
+                           . "'$food_no_access_date', '$barn_number', '$floor_1_time', '$floor_2_time', '$floor_3_time')";
+                   $resultProcessing = mysqli_query($flockCon, $processingQuery);
 //                }
 //            }
 //            
 //            if (isset(fileter_input(INPUT_POST,'question-1')) && isset(fileter_input(INPUT_POST,'question-2'))
 //                    && isset(fileter_input(INPUT_POST,'question-2')) && isset(fileter_input(INPUT_POST,'question-2'))
 //                            && isset(fileter_input(INPUT_POST,'question-2'))) {
-//                $q1Answer = filter_input(INPUT_POST, 'question-1');
-//                $q2Answer = filter_input(INPUT_POST, 'question-2');
-//                $q3Answer = filter_input(INPUT_POST, 'question-3');
-//                $q4Answer = filter_input(INPUT_POST, 'question-4');
-//                $q5Answer = filter_input(INPUT_POST, 'question-5');
-//                //if they are true grab post values and pass them to the db
-//                
-//            }
+               $q1Answer = filter_input(INPUT_POST, 'question-1');
+               if(!empty($q1Answer) && isset(filter_input(INPUT_POST,'question-1-a'))){
+               	$question1 = 1;
+               	$question1a = filter_input(INPUT_POST,'question-1-a');//medication_name
+               	$question1d = filter_input(INPUT_POST,'question-1-d');//withdrawal_period
+               	$question1e = filter_input(INPUT_POST,'question-1-e');//safe_marketing_date
+               	$question1h = filter_input(INPUT_POST,'question-1-h');//prescribing_vet
+               	
+               	$question1Query = "INSERT INTO `medications` (medication_name,withdrawal_period,safe_marketing_date,question,prescribing_vet) 
+               	VALUES ('$question1a','$question1d','$question1e','$question1','$question1h')";
+               	$resultQuestion1 = mysqli_query($flockCon, $processingQuery);
+               }
+               $q2Answer = filter_input(INPUT_POST, 'question-2');
+               if(!empty($q2Answer) && isset(filter_input(INPUT_POST,'question-2-a'))){
+               	$question2 = 2;
+               	$question2a = filter_input(INPUT_POST,'question-2-a');//medication_name
+               	$question2b = filter_input(INPUT_POST,'question-2-b');//dose
+               	$question2d = filter_input(INPUT_POST,'question-2-d');//withdrawal_period
+               	$question2e = filter_input(INPUT_POST,'question-2-e');//safe_marketing_date
+               	$question2h = filter_input(INPUT_POST,'question-2-h');//prescribed_by
+               	
+               	$question2Query = "INSERT INTO `medications` (medication_name,dose,withdrawal_period,safe_marketing_date,question,prescribing_vet)
+               	VALUES ('$question2a','$question2b','$question2d','$question2e','$question2','$question2h')";
+               	$resultQuestion2 = mysqli_query($flockCon, $question5Query);               	
+               }
+               $q3Answer = filter_input(INPUT_POST, 'question-3');
+               if(!empty($q3Answer) && isset(filter_input(INPUT_POST,'question-3-g'))){
+               	$question3 = 3;
+               	$question3g = filter_input(INPUT_POST,'question-3-g');//disease_syndrome
+               	$question3i = filter_input(INPUT_POST,'question-3-i');//diagnosing_vet
+               	//TODO make disease_syndrome table work
+               	$question3Query = "INSERT INTO `disease_syndrome` (disease_syndrome_name,diagnosing_vet)
+               	VALUES ('$question3g','$question3i','$question3')";
+               	$resultQuestion3 = mysqli_query($flockCon, $question3Query);               	
+               }
+               $q4Answer = filter_input(INPUT_POST, 'question-4');
+               if(!empty($q4Answer) && isset(filter_input(INPUT_POST,'question-4-a'))){
+               	$question4 = 4;
+               	$question4a = filter_input(INPUT_POST,'question-4-a');//medication_Name
+               	$question4b = filter_input(INPUT_POST,'question-4-b');//treatment_date_start
+               	$question4c = filter_input(INPUT_POST,'question-4-c');//treatment_date_end
+               	$question4d = filter_input(INPUT_POST,'question-4-d');//withdrawal_period
+               	$question4e = filter_input(INPUT_POST,'question-4-e');//safe_marketing_date
+               	$question4f = filter_input(INPUT_POST,'question-4-f');//dose
+               	$question4g = filter_input(INPUT_POST,'question-4-g');//disease_syndrome
+               	$question4h = filter_input(INPUT_POST,'question-4-h');//prescribing_vet
+               	
+               	$question4Query = "INSERT INTO `medications` (medication_name,treatment_date_start,
+               	treatment_date_end,withdrawal_period,safe_marketing_date,dose,question,prescribing_vet)
+               	VALUES ('$question4a','$question4b','$question4c','$question4d','$question4e','$question4f','$question4','$question4h')";
+               	$resultQuestion4 = mysqli_query($flockCon, $resultQuestion4);    
+               	//TODO add insert for     $question4g into disease_syndrome table       	
+               }
+               $q5Answer = filter_input(INPUT_POST, 'question-5');
+               if(!empty($q5Answer) && isset(filter_input(INPUT_POST,'question-5-a'))){
+               	$question5 = 5;
+               	$question5a = filter_input(INPUT_POST,'question-5-a');//medication_Name
+               	$question5d = filter_input(INPUT_POST,'question-5-d');//withdrawal_period
+               	$question5e = filter_input(INPUT_POST,'question-5-e');//safe_marketing_date
+               	$question5h = filter_input(INPUT_POST,'question-5-h');//prescribing_vet
+               	
+               	$question5Query = "INSERT INTO `medications` (medication_name,withdrawal_period,safe_marketing_date,question,prescribing_vet)
+               	VALUES ('$question5a','$question5d','$question5e','$question5','$question5h')";
+               	$resultQuestion5 = mysqli_query($flockCon, $question5Query);
+                }
+                              
+                              
+               $q6Answer = filter_input(INPUT_POST, 'question-6');
+               if(!empty($q6Answer) && isset(filter_input(INPUT_POST,'question-6-a'))){
+               	$question6 = 6;
+               	$question6a = filter_input(INPUT_POST,'question-6-a');//medication_Name
+               	$question6d = filter_input(INPUT_POST,'question-6-d');//withdrawal_period
+               	$question6e = filter_input(INPUT_POST,'question-6-e');//safe_marketing_date
+               	$question6h = filter_input(INPUT_POST,'question-6-h');//prescribing_vet
+               	
+               	$question6Query = "INSERT INTO `medications` (medication_name,withdrawal_period,safe_marketing_date,question,prescribing_vet)
+               	VALUES ('$question6a','$question6d','$question6e','$question6','$question6h')";
+               	$resultQuestion6 = mysqli_query($flockCon, $question6Query);
+               }
+               
+               
+               $q7Answer = filter_input(INPUT_POST, 'question-7');
+               if(!empty($q7Answer) && isset(filter_input(INPUT_POST,'question-7-a'))){
+               	$question7 = 7;
+               	$question7a = filter_input(INPUT_POST,'question-7-a');//medication_Name
+               	$question7b = filter_input(INPUT_POST,'question-7-b');//treatment_date_start
+               	$question7c = filter_input(INPUT_POST,'question-7-c');//treatment_date_end
+               	$question7d = filter_input(INPUT_POST,'question-7-d');//withdrawal_period
+               	$question7e = filter_input(INPUT_POST,'question-7-e');//safe_marketing_date
+               	$question7f = filter_input(INPUT_POST,'question-7-f');//dose
+               	$question7h = filter_input(INPUT_POST,'question-7-h');//prescribing_vet
+               	
+               	$question7Query = "INSERT INTO `medications` (medication_name,treatment_date_start,
+               	treatment_date_end,withdrawal_period,safe_marketing_date,dose,question,prescribing_vet)
+               	VALUES ('$question7a','$question7b','$question7c','$question7d','$question7e','$question7f','$question7','$question7h')";
+               	$resultQuestion7 = mysqli_query($flockCon, $question7Query);
+               }
+
 //            
 //            
 //            
