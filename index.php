@@ -77,6 +77,7 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
                         </tr>
                     </table>
                 </form>
+
             </td>
 
             <td>
@@ -99,14 +100,22 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
                 </form>
             </td>
             </tr>
+            <tr>
+            <td>
+                <p>
+                    <?php
+                        if (isset($msg) & !empty($msg)) {
+                            echo $msg;
+                        }
+                    ?>  
+                </p>                
+            </td>
+            <td></td>
+            </tr>
             </table>
             <div>
                 <br>
-                <?php
-                    if (isset($msg) & !empty($msg)) {
-                        echo $msg;
-                    }
-                ?>  
+
             </div>
             <hr />
             <div id="about-us">
