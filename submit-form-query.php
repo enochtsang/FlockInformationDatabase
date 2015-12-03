@@ -39,7 +39,7 @@
                 $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise');//e_name
                 $produces_for = filter_input(INPUT_POST, 'produces-for');//produces_for
                 //$vet_name = filter_input(INPUT_POST, 'vet-name');//vet_name
-                $vet_name = "Moath";
+                $vet_name = "Moath"; //TODO delete this when the table gets hooked up
                 //insert values into the database
                 if (!empty($producer_code_quota) && !empty($producer_enterprise)) {
                     $enterpriseQuery = "INSERT INTO `Enterprise` (e_code_,e_name,submission_date_,produces_for,vet_name) "
@@ -58,6 +58,7 @@
                 $grow_out_density_units = filter_input(INPUT_POST, 'grow-out-density-units');//density_units
                 
 				//insert values into the database
+				//TODO density units isn't working yet and for some reason vet_name breaks it
 //              $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,density_units,e_code_,submission_date_) "
 //              . "VALUES ('$barn_number', '$mortality_rate','$number_of_birds_shipped', '$number_of_birds_placed','$grow_out_density','$grow_out_density_units','$producer_code_quota','$submission_date')";
                 $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,e_code_,submission_date_) "//removed density units and vet name
@@ -74,6 +75,7 @@
                 $cfc_cert = filter_input(INPUT_POST, 'certification');//cfc_cert
                 
                 //insert values into the database
+                //TODO get the cert radio button working with this query
 //              $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,species,category,age,cfc_cert,vet_name,barn_number_,e_code_,submission_date_) "
 //              . "VALUES ('$kg_per_bird','$species', '$category','$age_of_birds','$cfc_cert','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
                 $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,species,category,age,barn_number_,e_code_,submission_date_) "//removed cert
@@ -81,6 +83,7 @@
                 $resultPoultry = mysqli_query($flockCon, $poultryFlockQuery);
 
                 //***************veterinary_practice******************
+                //TODO  uncomment once vet stuff is in form
 //                 //set variables from form submission
 //                 $vet_name = filter_input(INPUT_POST, 'vet-name');//vet_name
 //                 $vet_address = filter_input(INPUT_POST, 'vet-address');//vet_address
@@ -193,6 +196,7 @@
             
                //***************catching******************
                //set variables from form submission
+               //TODO front end needs to be changed to reflect the planned date type
                $planned_catching_date = filter_input(INPUT_POST, 'planned-catching-date');//planned_date
                $planned_catching_time = filter_input(INPUT_POST, 'planned-catching-time');//planned_time
                $actual_catching_date = filter_input(INPUT_POST, 'actual-catching-date');//actual_date
@@ -206,6 +210,8 @@
                 
                //***************processing******************
                //set variables from form submission
+               //TODO isn't working might be because front end types are different
+               //TODO when the last field of form B is filled out the submit button can't be pressed
                $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-datetime');//planned_date
                $last_water_access_time = filter_input(INPUT_POST, 'last-water-access-time');//last_water_access
                $feed_distruption = filter_input(INPUT_POST, 'feed-distruption');//feed_supply_disrupted
