@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 
-    var sectionShown = 0;
+    var sectionShown = 2;
     var formSections = ['#general', '#section-a', '#section-b', '#additional-comments'];
     var animationRunning = false;
 
