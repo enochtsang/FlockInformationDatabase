@@ -14,9 +14,7 @@
             <h1> Succesful Submission </h1>
         </div>
         
-        <div>
-
-       
+        <div id="public-relations">
         <img src="resources/space_moustache.jpg" style="width:304px;height:228px;PADDING-TOP:90px;" align="bottom" >
          <h2>TO THE MOOOOOON!</h2>
         </div>
@@ -40,7 +38,8 @@
                 $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');//e_code_
                 $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise');//e_name
                 $produces_for = filter_input(INPUT_POST, 'produces-for');//produces_for
-                $vet_name = filter_input(INPUT_POST, 'vet-name');//vet_name
+                //$vet_name = filter_input(INPUT_POST, 'vet-name');//vet_name
+                $vet_name = "Moath";
                 //insert values into the database
                 if (!empty($producer_code_quota) && !empty($producer_enterprise)) {
                     $enterpriseQuery = "INSERT INTO `Enterprise` (e_code_,e_name,submission_date_,produces_for,vet_name) "
@@ -61,7 +60,7 @@
 				//insert values into the database
 //              $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,density_units,e_code_,submission_date_) "
 //              . "VALUES ('$barn_number', '$mortality_rate','$number_of_birds_shipped', '$number_of_birds_placed','$grow_out_density','$grow_out_density_units','$producer_code_quota','$submission_date')";
-                $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,e_code_,submission_date_) "
+                $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,e_code_,submission_date_) "//removed density units and vet name
                 . "VALUES ('$barn_number', '$mortality_rate','$number_of_birds_shipped', '$number_of_birds_placed','$grow_out_density','$producer_code_quota','$submission_date')";
                 $resultBarn = mysqli_query($flockCon, $barnQuery);
                    
@@ -71,17 +70,27 @@
                 $kg_per_bird = filter_input(INPUT_POST, 'kg-per-bird'); //kg_per_bird
                 $species = filter_input(INPUT_POST, 'species');//species
                 $category = filter_input(INPUT_POST, 'category-sex');//category
-                $age_of_birds = filter_input(INPUT_POST, 'age-of-birds');//age
+                $age_of_birds = filter_input(INPUT_POST, 'age-of-birds');//agede
                 $cfc_cert = filter_input(INPUT_POST, 'certification');//cfc_cert
                 
                 //insert values into the database
 //              $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,species,category,age,cfc_cert,vet_name,barn_number_,e_code_,submission_date_) "
 //              . "VALUES ('$kg_per_bird','$species', '$category','$age_of_birds','$cfc_cert','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
-                $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,species,category,age,barn_number_,e_code_,submission_date_) "
+                $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,species,category,age,barn_number_,e_code_,submission_date_) "//removed cert
                	. "VALUES ('$kg_per_bird','$species', '$category','$age_of_birds','$barn_number','$producer_code_quota','$submission_date')";
                 $resultPoultry = mysqli_query($flockCon, $poultryFlockQuery);
 
+                //***************veterinary_practice******************
+//                 //set variables from form submission
+//                 $vet_name = filter_input(INPUT_POST, 'vet-name');//vet_name
+//                 $vet_address = filter_input(INPUT_POST, 'vet-address');//vet_address
 
+//                 //set variables from form submission
+//                 $vetQuery = "INSERT INTO `veterinary_practice` (vet_name,vet_address) "
+//                 . "VALUES ('$vet_name','$vet_address')";
+//                 $resultVet = mysqli_query($flockCon, $vetQuery);
+                
+                
 //**********Section A*********************************
 				//if button is clicked and the first field filled                   
                $q1Answer = filter_input(INPUT_POST, 'question-1');
@@ -91,11 +100,10 @@
                	$question1a = filter_input(INPUT_POST,'question-1-a');//medication_name
                	$question1d = filter_input(INPUT_POST,'question-1-d');//withdrawal_period
                	$question1e = filter_input(INPUT_POST,'question-1-e');//safe_marketing_date
-               	$question1h = filter_input(INPUT_POST,'question-1-h');//prescribing_vet
                	//insert values into the database
-               	$question1Query = "INSERT INTO `medications` (medication_name,withdrawal_period,safe_marketing_date,question,prescribing_vet,barn_number_,e_code_,submission_date_) 
-               	VALUES ('$question1a','$question1d','$question1e','$question1','$question1h','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
-               	$resultQuestion1 = mysqli_query($flockCon, $processingQuery);
+                $question1Query = "INSERT INTO `medications` (medication_name,withdrawal_period,safe_marketing_date,question,prescribed_by,barn_number_,e_code_,submission_date_)
+                VALUES ('$question1a','$question1d','$question1e','$question1','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
+               	$resultQuestion1 = mysqli_query($flockCon, $question1Query);
                }
                
                $q2Answer = filter_input(INPUT_POST, 'question-2');
@@ -105,11 +113,10 @@
                	$question2b = filter_input(INPUT_POST,'question-2-b');//dose
                	$question2d = filter_input(INPUT_POST,'question-2-d');//withdrawal_period
                	$question2e = filter_input(INPUT_POST,'question-2-e');//safe_marketing_date
-               	$question2h = filter_input(INPUT_POST,'question-2-h');//prescribing_vet
                	
-               	$question2Query = "INSERT INTO `medications` (medication_name,dose,withdrawal_period,safe_marketing_date,question,prescribing_vet,barn_number_,e_code_,submission_date_)
-               	VALUES ('$question2a','$question2b','$question2d','$question2e','$question2','$question2h','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
-               	$resultQuestion2 = mysqli_query($flockCon, $question5Query);               	
+                $question2Query = "INSERT INTO `medications` (medication_name,dose,withdrawal_period,safe_marketing_date,question,prescribed_by,barn_number_,e_code_,submission_date_)
+                VALUES ('$question2a','$question2b','$question2d','$question2e','$question2','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
+               	$resultQuestion2 = mysqli_query($flockCon, $question2Query);             	
                }
                
                $q3Answer = filter_input(INPUT_POST, 'question-3');
@@ -117,8 +124,8 @@
                	$question3 = 3;
                	$question3g = filter_input(INPUT_POST,'question-3-g');//disease_syndrome
                	
-               	$question3Query = "INSERT INTO `disease_syndrome` (disease_syndrome_name,question,barn_number_,e_code_,submission_date_)"
-               	."VALUES ('$question3g','$question3','$barn_number','$producer_code_quota','$submission_date')";
+               	$question3Query = "INSERT INTO `disease_syndrome` (disease_syndrome_name,barn_number_,e_code_,submission_date_)"
+               	."VALUES ('$question3g','$barn_number','$producer_code_quota','$submission_date')";
                	$resultQuestion3 = mysqli_query($flockCon, $question3Query);    
                	           	
                }
@@ -132,12 +139,11 @@
                	$question4e = filter_input(INPUT_POST,'question-4-e');//safe_marketing_date
                	$question4f = filter_input(INPUT_POST,'question-4-f');//dose
                	$question4g = filter_input(INPUT_POST,'question-4-g');//disease_syndrome_treated
-               	$question4h = filter_input(INPUT_POST,'question-4-h');//prescribing_vet
                	
                	$question4Query = "INSERT INTO `medications` (medication_name,treatment_date_start,
-               	treatment_date_end,withdrawal_period,safe_marketing_date,dose,disease_syndrome_treated,question,prescribing_vet,barn_number_,e_code_,submission_date_)"
-               	."VALUES ('$question4a','$question4b','$question4c','$question4d','$question4e','$question4f','$question4g','$question4','$question4h','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
-               	$resultQuestion4 = mysqli_query($flockCon, $resultQuestion4);    
+               	treatment_date_end,withdrawal_period,safe_marketing_date,dose,disease_syndrome_treated,question,prescribed_by,barn_number_,e_code_,submission_date_)"
+               	."VALUES ('$question4a','$question4b','$question4c','$question4d','$question4e','$question4f','$question4g','$question4','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
+               	$resultQuestion4 = mysqli_query($flockCon, $question4Query);    
                }
                
                $q5Answer = filter_input(INPUT_POST, 'question-5');
@@ -146,10 +152,9 @@
                	$question5a = filter_input(INPUT_POST,'question-5-a');//medication_Name
                	$question5d = filter_input(INPUT_POST,'question-5-d');//withdrawal_period
                	$question5e = filter_input(INPUT_POST,'question-5-e');//safe_marketing_date
-               	$question5h = filter_input(INPUT_POST,'question-5-h');//prescribing_vet
                	
-               	$question5Query = "INSERT INTO `medications` (medication_name,withdrawal_period,safe_marketing_date,question,prescribing_vet,barn_number_,e_code_,submission_date_)"
-               	."VALUES ('$question5a','$question5d','$question5e','$question5','$question5h','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
+               	$question5Query = "INSERT INTO `medications` (medication_name,withdrawal_period,safe_marketing_date,question,prescribed_by,barn_number_,e_code_,submission_date_)"
+               	."VALUES ('$question5a','$question5d','$question5e','$question5','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
                	$resultQuestion5 = mysqli_query($flockCon, $question5Query);
                 }
                               
@@ -160,10 +165,9 @@
                	$question6a = filter_input(INPUT_POST,'question-6-a');//medication_Name
                	$question6d = filter_input(INPUT_POST,'question-6-d');//withdrawal_period
                	$question6e = filter_input(INPUT_POST,'question-6-e');//safe_marketing_date
-               	$question6h = filter_input(INPUT_POST,'question-6-h');//prescribing_vet
                	
-               	$question6Query = "INSERT INTO `medications` (medication_name,withdrawal_period,safe_marketing_date,question,prescribing_vet,barn_number_,e_code_,submission_date_)"
-               	."VALUES ('$question6a','$question6d','$question6e','$question6','$question6h','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
+               	$question6Query = "INSERT INTO `medications` (medication_name,withdrawal_period,safe_marketing_date,question,prescribed_by,barn_number_,e_code_,submission_date_)"
+               	."VALUES ('$question6a','$question6d','$question6e','$question6','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
                	$resultQuestion6 = mysqli_query($flockCon, $question6Query);
                }
                
@@ -177,11 +181,10 @@
                	$question7d = filter_input(INPUT_POST,'question-7-d');//withdrawal_period
                	$question7e = filter_input(INPUT_POST,'question-7-e');//safe_marketing_date
                	$question7f = filter_input(INPUT_POST,'question-7-f');//dose
-               	$question7h = filter_input(INPUT_POST,'question-7-h');//prescribing_vet
                	
                	$question7Query = "INSERT INTO `medications` (medication_name,treatment_date_start,"
-               	."treatment_date_end,withdrawal_period,safe_marketing_date,dose,question,prescribing_vet,barn_number_,e_code_,submission_date_)"
-               	."VALUES ('$question7a','$question7b','$question7c','$question7d','$question7e','$question7f','$question7','$question7h','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
+               	."treatment_date_end,withdrawal_period,safe_marketing_date,dose,question,prescribed_by,barn_number_,e_code_,submission_date_)"
+               	."VALUES ('$question7a','$question7b','$question7c','$question7d','$question7e','$question7f','$question7','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
                	$resultQuestion7 = mysqli_query($flockCon, $question7Query);
                }
 
