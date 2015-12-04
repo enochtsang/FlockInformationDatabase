@@ -4,6 +4,7 @@
     <?php include 'header.php';?>
     <title>Flock Information Database - IAPT Result</title>
     <meta name="description" content="View the flock information statistics owned by the Institute of Applied Poultry Technology (IAPT).">
+    <link href="resources/stylesheet-iapt-results.css" rel="stylesheet" type="text/css"/>
 </head>
 
 
@@ -80,7 +81,6 @@
                                 echo "</tr>";
                             }
                                 echo "</table>";
-                                
                             }
 
                         // Medication result
