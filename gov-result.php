@@ -1,3 +1,9 @@
+<?php
+    session_start();
+  if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "gov")) {    
+    header('Location: logout.php');
+  } 
+?>
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
