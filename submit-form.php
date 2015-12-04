@@ -66,17 +66,9 @@ if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {
                             <td><label for="age-of-birds">Age of Birds</label></td>
                             <td><input type="text" name="age-of-birds" maxlength="80"></td>
                             <td></td>
-<<<<<<< HEAD
                             <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
-                        <tr>
-                            <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
-                            <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
-                            <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
-=======
->>>>>>> submit-form-backend
-                        </tr>
+
                         <tr>
                             <td><label for="number-of-birds-shipped">Number of Birds Shipped</label></td>
                             <td><input type="text" name="number-of-birds-shipped" maxlength="80"></td>
@@ -84,6 +76,7 @@ if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {
                         </tr>
                         	<td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
                             <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
+                        <?php $producer_enterprise = filter_input(INPUT_POST, 'number-of-birds-placed'); ?>
                             <td></td>
                         </tr>
                         <tr>
@@ -491,10 +484,8 @@ if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {
                                 <table>
                                     <td><label for="actual-catching-time">Time</label></td>
                                     <td><input type="time" name="actual-catching-time"></td>
-<<<<<<< HEAD
                                     <?php $actual_catching_time = filter_input(INPUT_POST, 'actual-catching-time'); ?>
-=======
->>>>>>> submit-form-backend
+
                                 </table>
                             </td>
                         </tr>
