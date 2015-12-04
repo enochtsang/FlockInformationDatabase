@@ -11,13 +11,9 @@
     <div class="wrapper">
         <div id="logo-bar">
             <?php include 'logo-include.php'; ?>
-            <h1> Succesful Submission </h1>
+            <h1> Successful Submission </h1>
         </div>
-        
-        <div id="public-relations">
-        <img src="resources/space_moustache.jpg" style="width:304px;height:228px;PADDING-TOP:90px;" align="bottom" >
-         <h2>TO THE MOOOOOON!</h2>
-        </div>
+
             <?php
             session_start();
             require_once 'connect.php';
