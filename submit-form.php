@@ -66,7 +66,6 @@ if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {
                             <td><label for="age-of-birds">Age of Birds</label></td>
                             <td><input type="text" name="age-of-birds" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
 
                         <tr>
@@ -76,14 +75,12 @@ if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {
                         </tr>
                         	<td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
                             <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
-                        <?php $producer_enterprise = filter_input(INPUT_POST, 'number-of-birds-placed'); ?>
                             <td></td>
                         </tr>
                         <tr>
                             <td><label for="mortality-rate">Mortality Rate</label></td>
                             <td><input type="text" name="mortality-rate" maxlength="80"></td>
                             <td></td>
-                            <?php $mortality_rate = filter_input(INPUT_POST, 'mortality-rate'); ?>
                         </tr>
                         <tr>
                             <td><label for="kg-per-bird">Kg/Bird</label></td>
@@ -484,7 +481,6 @@ if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {
                                 <table>
                                     <td><label for="actual-catching-time">Time</label></td>
                                     <td><input type="time" name="actual-catching-time"></td>
-                                    <?php $actual_catching_time = filter_input(INPUT_POST, 'actual-catching-time'); ?>
 
                                 </table>
                             </td>

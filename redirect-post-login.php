@@ -20,7 +20,7 @@
     if (isset($_SESSION['userType'])) {
         $userType = $_SESSION['userType'];
         if ($userType == "gov"){
-           header("Location: government-lookup.php");
+           header("Location: gov-lookup.php");
            exit;
         }
         else if ($userType == "iapt"){
