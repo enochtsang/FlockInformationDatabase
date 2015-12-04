@@ -18,22 +18,59 @@
                     <?php
                         require_once 'connect.php';
                         $Ecode = $_POST['enterprise-code'];
-                        $startDate = $_POST['start-date'];
-                        $endDate = $_POST['end-date'];
-                        if(!empty($Ecode) && !empty($startDate) && !empty($endDate)){
-                            $resultSQL = "SELECT * FROM (Enterprise as E) WHERE E.Ecode='$Ecode' 
-                                                        AND E.submissionDate BETWEEN '$startDate' AND '$endDate'";
-                            $query = mysqli_query($flockCon, $resultSQL);
+                        
+                        $Ecode2 = $_POST['enterprise-code2'];
+                        $EntStartDate = $_POST['enterprise-start-date'];
+                        $EntEndDate = $_POST['enterprise-end-date'];
 
-                           while($result = mysqli_fetch_array($query)) {
-                                echo "<div class = \"tuple\">"; 
-                                echo "<li class=\"tuplecolumn\">". $result['Ename'] . " ";
-                                echo "<li class=\"tuplecolumn\">".$result['Ecode']. " " ;
-                                echo "<li class=\"tuplecolumn\">".$result['Pcode']. " " ;
-                                echo "<br/>";
-                                echo "</div>"; 
-                            } 
-                        }
+                        if(!empty($Ecode)){
+                            $resultSQL = "SELECT * FROM (enterprise as E) WHERE E.e_code_='$Ecode'";
+                            $query = mysqli_query($flockCon, $resultSQL);
+                            
+                            echo "<table border = '3'";
+                                echo "<tr>";
+                                echo "<td>" . "Enterprise-Code" . "</td>";
+                                echo "<td>" . "Enterprise-Name" . "</td>";
+                                echo "<td>" . "Producer-Code" . "</td>";
+                                echo "<td>" . "Submission-Date" . "</td>";
+                                echo "</tr>";
+                            while($row = mysqli_fetch_array($query)){
+                                echo "<tr>";
+                                echo "<td>" . $row[0] . "</td>";
+                                echo "<td>" . $row[1] . "</td>";
+                                echo "<td>" . $row[2] . "</td>";
+                                echo "<td>" . $row[3] . "</td>";
+                                echo "</tr>";
+                            }
+                                echo "</table>";
+                            }
+
+//<!--            // Enterprise result within a date range -->        
+                         else if(!empty($Ecode2) && !empty($EntStartDate) && !empty($EntEndDate)){
+                            $resultSQL = "SELECT * FROM (enterprise as E) WHERE E.e_code_='$Ecode2'
+                            AND E.submission_date_ BETWEEN '$EntStartDate' AND '$EntEndDate'";
+                            $query = mysqli_query($flockCon, $resultSQL);
+                            
+                                echo "<table border = '3'";
+                                echo "<tr>";
+                                echo "<td>" . "Enterprise-Name" . "</td>";
+                                echo "<td>" . "Enterprise-Code" . "</td>";
+                                echo "<td>" . "Submission-Date" . "</td>";
+                                echo "<td>" . "Produces-For" . "</td>";
+                                echo "<td>" . "Vet-Name" . "</td>";
+                                echo "</tr>";
+                            while($row = mysqli_fetch_array($query)){
+                                echo "<tr>";
+                                echo "<td>" . $row[0] . "</td>";
+                                echo "<td>" . $row[1] . "</td>";
+                                echo "<td>" . $row[2] . "</td>";
+                                echo "<td>" . $row[3] . "</td>";
+                                echo "<td>" . $row[4] . "</td>";
+                                echo "</tr>";
+                            }
+                                echo "</table>";
+                                
+                            }
                     ?>
             </div>
     </div>
