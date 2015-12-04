@@ -121,12 +121,10 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
             <div id="about-us">
                 <h1> About Us </h1>
 				<!--About us shortened and rephrased from Institute of Applied Poultry Technologies from http://www.iaptwest.org/about-us/ -->
-                <p>
-                The Institute for Applied Poultry Technologies (IAPT) is a non-profit entity that was established to innovative
-                poultry health technologies that will prepare for disease outbreaks before they can occur, and as well as improve
-				product quality and consumer confidence. An aspect of innovating these technologies is to research the valuable
-				flock related information that are submitted by producers.
-				</p>
+                The Institute for Applied Poultry Technologies (IAPT) is a non-profit entity that was established to innovative 
+                poultry health technologies to assist in preparation of preventing disease outbreaks, and as well as improve
+		product quality and consumer confidence. An aspect of innovating these technologies is to research the valuable 
+		flock related information submitted by producers.
             </div>
         </div>
     </div>
