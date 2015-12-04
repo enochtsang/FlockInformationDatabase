@@ -25,11 +25,6 @@
             //global variables
             $submission_date = date('Y-m-d H:i:s');//submission_date_
 
-
-//TODO make sure tables have all primary and secondary keys
-//TODO get radio button post to work
-
-
 //**********General Flock Information*********************************
 
             //***************veterinary_practice******************
@@ -67,14 +62,11 @@
                 $number_of_birds_shipped = filter_input(INPUT_POST, 'number-of-birds-shipped');//birds_shipped
                 $number_of_birds_placed = filter_input(INPUT_POST, 'number-of-birds-placed');//birds_placed
                 $grow_out_density = filter_input(INPUT_POST, 'grow-out-density');//grow_out_density
-//                $grow_out_density_units = filter_input(INPUT_POST, 'grow-out-density-units');//density_units
+                $grow_out_density_units = filter_input(INPUT_POST, 'grow-out-density-units');//density_units
                 
 				//insert values into the database
-				//TODO density units isn't working yet and for some reason vet_name breaks it
-//                $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,density_units,e_code_,submission_date_) "
-//               . "VALUES ('$barn_number', '$mortality_rate','$number_of_birds_shipped', '$number_of_birds_placed','$grow_out_density','$grow_out_density_units','$producer_code_quota','$submission_date')";
-                 $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,e_code_,submission_date_) "//removed density units and vet name
-                 . "VALUES ('$barn_number', '$mortality_rate','$number_of_birds_shipped', '$number_of_birds_placed','$grow_out_density','$producer_code_quota','$submission_date')";
+                 $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,density_units,e_code_,submission_date_) "
+                 . "VALUES ('$barn_number', '$mortality_rate','$number_of_birds_shipped', '$number_of_birds_placed','$grow_out_density','$grow_out_density_units','$producer_code_quota','$submission_date')";
                 $resultBarn = mysqli_query($flockCon, $barnQuery);
                    
             
@@ -84,14 +76,11 @@
                 $species = filter_input(INPUT_POST, 'species');//species
                 $category = filter_input(INPUT_POST, 'category-sex');//category
                 $age_of_birds = filter_input(INPUT_POST, 'age-of-birds');//age
-//                $cfc_cert = filter_input(INPUT_POST, 'certification');//cfc_cert
+                $cfc_cert = filter_input(INPUT_POST, 'certification');//cfc_cert
                 
                 //insert values into the database
-                //TODO get the cert radio button working with this query
-//              $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,species,category,age,cfc_cert,vet_name,barn_number_,e_code_,submission_date_) "
-//              . "VALUES ('$kg_per_bird','$species', '$category','$age_of_birds','$cfc_cert','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
-                $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,species,category,age,barn_number_,e_code_,submission_date_,vet_name) "//removed cert
-               	. "VALUES ('$kg_per_bird','$species', '$category','$age_of_birds','$barn_number','$producer_code_quota','$submission_date','$vet_name')";
+                $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,species,category,age,cfc_cert,barn_number_,e_code_,submission_date_,vet_name) "
+               	. "VALUES ('$kg_per_bird','$species', '$category','$age_of_birds','$cfc_cert','$barn_number','$producer_code_quota','$submission_date','$vet_name')";
                 $resultPoultry = mysqli_query($flockCon, $poultryFlockQuery);
 
 
@@ -99,7 +88,7 @@
 //**********Section A*********************************
 				//if button is clicked and the first field filled                   
                $q1Answer = filter_input(INPUT_POST, 'question-1');
-               if(!empty($q1Answer) && isset($_POST['question-1-a'])){
+               if($q1Answer == yes){
                	//set variables from form submission
                	$question1 = 1;//to fill in the question attribute of medications
                	$question1a = filter_input(INPUT_POST,'question-1-a');//medication_name
@@ -112,7 +101,7 @@
                }
                
                $q2Answer = filter_input(INPUT_POST, 'question-2');
-               if(!empty($q2Answer) && isset($_POST['question-2-a'])){
+               if($q2Answer == "yes"){
                	$question2 = 2;
                	$question2a = filter_input(INPUT_POST,'question-2-a');//medication_name
                	$question2b = filter_input(INPUT_POST,'question-2-b');//dose
@@ -125,7 +114,7 @@
                }
                
                $q3Answer = filter_input(INPUT_POST, 'question-3');
-               if(!empty($q3Answer) && isset($_POST['question-3-g'])){
+               if($q3Answer == "yes"){
                	$question3 = 3;
                	$question3g = filter_input(INPUT_POST,'question-3-g');//disease_syndrome
                	
@@ -135,7 +124,7 @@
                	           	
                }
                $q4Answer = filter_input(INPUT_POST, 'question-4');
-               if(!empty($q4Answer) && isset($_POST['question-4-a'])){
+               if($q4Answer == "yes"){
                	$question4 = 4;
                	$question4a = filter_input(INPUT_POST,'question-4-a');//medication_Name
                	$question4b = filter_input(INPUT_POST,'question-4-b');//treatment_date_start
@@ -152,7 +141,7 @@
                }
                
                $q5Answer = filter_input(INPUT_POST, 'question-5');
-               if(!empty($q5Answer) && isset($_POST['question-5-a'])){
+               if($q5Answer == "yes"){
                	$question5 = 5;
                	$question5a = filter_input(INPUT_POST,'question-5-a');//medication_Name
                	$question5d = filter_input(INPUT_POST,'question-5-d');//withdrawal_period
@@ -165,7 +154,7 @@
                               
                               
                $q6Answer = filter_input(INPUT_POST, 'question-6');
-               if(!empty($q6Answer) && isset($_POST['question-6-a'])){
+               if($q6Answer == "yes"){
                	$question6 = 6;
                	$question6a = filter_input(INPUT_POST,'question-6-a');//medication_Name
                	$question6d = filter_input(INPUT_POST,'question-6-d');//withdrawal_period
@@ -178,7 +167,7 @@
                
                
                $q7Answer = filter_input(INPUT_POST, 'question-7');
-               if(!empty($q7Answer) && isset($_POST['question-7-a'])){
+               if($q7Answer == "yes"){
                	$question7 = 7;
                	$question7a = filter_input(INPUT_POST,'question-7-a');//medication_Name
                	$question7b = filter_input(INPUT_POST,'question-7-b');//treatment_date_start
@@ -198,7 +187,6 @@
             
                //***************catching******************
                //set variables from form submission
-               //TODO front end needs to be changed to reflect the planned date type
                $planned_catching_date = filter_input(INPUT_POST, 'planned-catching-date');//planned_date
                $planned_catching_time = filter_input(INPUT_POST, 'planned-catching-time');//planned_time
                $actual_catching_time = filter_input(INPUT_POST, 'actual-catching-time');//actual_time
@@ -211,28 +199,20 @@
                 
                //***************processing******************
                //set variables from form submission
-               //TODO isn't working might be because front end types are different
                $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-date');//planned_date
                $planned_processing_time = filter_input(INPUT_POST, 'planned-processing-time');//planned_time
                $last_water_access_time = filter_input(INPUT_POST, 'last-water-access-time');//last_water_access
-//                $feed_disruption = filter_input(INPUT_POST, 'feed-disruption');//feed_supply_disrupted
+               $feed_disruption = filter_input(INPUT_POST, 'feed-distruption');//feed_supply_disrupted
                $feed_withdrawal_time = filter_input(INPUT_POST, 'feed-withdrawal-time');//feed_withdraw_time
-               $food_no_access_date = filter_input(INPUT_POST, 'food-no-access-date');//feed_not_accessible_date
+               $food_no_access_date = filter_input(INPUT_POST, 'food-no-access-date');//date_feed_not_accessible
                $floor_1_time = filter_input(INPUT_POST, 'floor-1-time');//floor1_time
                $floor_2_time = filter_input(INPUT_POST, 'floor-2-time');//floor2_time
                $floor_3_time = filter_input(INPUT_POST, 'floor-3-time');//floor3_time
                //set variables from form submission
-//                $processingQuery = "INSERT INTO `processing` (planned_date,last_water_access,feed_supply_disrupted,"
-//                		. "feed_withdraw_time,feed_not_accessible_date,floor1_time,floor2_time,floor3_time,barn_number_,e_code_,submission_date_) "
-//                		. "VALUES ('$planned_processing_day','$last_water_access_time', '$feed_disruption', '$feed_withdrawal_time', "
-//                		. "'$food_no_access_date', '$floor_1_time', '$floor_2_time', '$floor_3_time','$barn_number','$producer_code_quota','$submission_date')";
-               $processingQuery = "INSERT INTO `processing` (planned_date,planned_time,last-water-access-time,barn_number_,e_code_,submission_date_)"
-               		. "VALUES ('$planned_processing_day','$planned_processing_time','$last_water_access_time','$barn_number','$producer_code_quota','$submission_date')";
+               $processingQuery = "INSERT INTO `processing` (planned_date,planned_time,last_water_access,feed_supply_disrupted,feed_withdraw_time,date_feed_not_accessible,floor1_time,floor2_time,floor3_time,barn_number_,e_code_,submission_date_)"
+               	. "VALUES ('$planned_processing_day','$planned_processing_time','$last_water_access_time','$feed_disruption','$feed_withdrawal_time','$food_no_access_date','$floor_1_time','$floor_2_time','$floor_3_time','$barn_number','$producer_code_quota','$submission_date')";
                $resultProcessing = mysqli_query($flockCon, $processingQuery);
-               
-                //TODO I haven't dealt with the additional comments section
-                //last_water_access,feed_withdraw_time,feed_not_accessible_date,floor1_time,floor2_time,floor3_time,
-                //'$last_water_access_time','$feed_withdrawal_time','$food_no_access_date','$floor_1_time','$floor_2_time','$floor_3_time'
+
                 
             
             ?>
