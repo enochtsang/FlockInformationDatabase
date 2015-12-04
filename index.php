@@ -120,7 +120,11 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
             <hr />
             <div id="about-us">
                 <h1> About Us </h1>
-                <p>Institute of Applied Poultry Technologies! INFO HERE</p>
+		<!--About us shortened and rephrased from Institute of Applied Poultry Technologies from http://www.iaptwest.org/about-us/ -->
+                <p>The Institute for Applied Poultry Technologies (IAPT) was formed in 2012 by poultry industry stakeholders. 
+		    It is a non-profit entity established to evaluate novel and innovative cost saving poultry health technologies 
+		    that will prepare for disease outbreaks before they occur, and as well as improve product quality and consumer confidence.
+		</p>
             </div>
         </div>
     </div>
