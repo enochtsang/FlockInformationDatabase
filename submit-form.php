@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+<?php
+	
+require_once 'connect.php';
+    // If the values are posted, insert them into the database.
+    if (isset($_POST['username']) && isset($_POST['password'])){
+        $username = $_POST['username'];
+		$user_type = $_POST['user_type'];	
+        $password = $_POST['password'];
+ 	if(!empty($username) && !empty($user_type) && !empty($password)){
+        $query = "INSERT INTO `INFO` (username, password, user_type) VALUES ('$username', '$password','$user_type')";
+        $result = mysqli_query($con,$query);
+        if($result){
+            $msg = "User Created Successfully.";
+        }
+		}else{
+		$msg = "Please fill in all the fields.";
+		}
+    }
+    ?>
 <html lang="en-CA">
 <head>
     <?php include 'header.php';?>
@@ -28,46 +47,61 @@
                             <td><label for="producer-enterprise">Producer / Enterprise</label></td>
                             <td><input type="text" name="producer-enterprise" maxlength="80"></td>
                             <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="producer-code-quota">Producer Code / Quota</label></td>
                             <td><input type="text" name="producer-code-quota" maxlength="80"></td>
                             <td></td>
+                            <?php $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota'); ?>
                         </tr>
                         <tr>
                             <td><label for="barn-number">Barn #</label></td>
                             <td><input type="text" name="barn-number" maxlength="80"></td>
                             <td></td>
+                            <?php $barn_number = filter_input(INPUT_POST, 'barn-number'); ?>
                         </tr>
                         <tr>
                             <td><label for="species">Species</label></td>
                             <td><input type="text" name="species" maxlength="80"></td>
+                            <?php $species = filter_input(INPUT_POST, 'species'); ?>
                             <td></td>
                         </tr>
                         <tr>
                             <td><label for="category-sex">Category/Sex</label></td>
                             <td><input type="text" name="category-sex" maxlength="80"></td>
                             <td></td>
+                            <?php $category_sex = filter_input(INPUT_POST, 'category-sex'); ?>
                         </tr>
                         <tr>
                             <td><label for="age-of-birds">Age of Birds</label></td>
                             <td><input type="text" name="age-of-birds" maxlength="80"></td>
                             <td></td>
-                        </tr>
-                        <tr>
-                            <td><label for="number-of-birds-shipped">Number of Birds Shipped</label></td>
-                            <td><input type="text" name="number-of-birds-shipped" maxlength="80"></td>
-                            <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
                             <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
                             <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
+                        </tr>
+                        <tr>
+                            <td><label for="number-of-birds-shipped">Number of Birds Shipped</label></td>
+                            <td><input type="text" name="number-of-birds-shipped" maxlength="80"></td>
+                            <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
+                        </tr>
+                        <tr>
+                            <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
+                            <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
+                            <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="mortality-rate">Mortality Rate</label></td>
                             <td><input type="text" name="mortality-rate" maxlength="80"></td>
                             <td></td>
+                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="kg-per-bird">Kg/Bird</label></td>
@@ -454,6 +488,7 @@
                                             <option value="nov">Nov</option>
                                             <option value="dec">Dec</option>
                                         </select>
+                                        <?php $planned_catching_month = filter_input(INPUT_POST, 'planned-catching-month'); ?>
                                     </td>
                                     <td>
                                         <label for="planned-catching-day">Day</label>
@@ -461,12 +496,14 @@
                                     <td>
                                         <input type="number" name="planned-catching-day" min="1" max="31">
                                     </td>
+                                    <?php $planned_catching_day = filter_input(INPUT_POST, 'planned-catching-day'); ?>
                                 </table>
                             </td>
                             <td>
                                 <table>
                                     <td><label for="planned-catching-time">Time</label></td>
                                     <td><input type="time" name="planned-catching-time"></td>
+                                    <?php $planned_catching_time = filter_input(INPUT_POST, 'planned-catching-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -477,6 +514,7 @@
                                 <table>
                                     <td><label for="actual-catching-time">Time</label></td>
                                     <td><input type="time" name="actual-catching-time"></td>
+                                    <?php $actual_catching_time = filter_input(INPUT_POST, 'actual-catching-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -502,12 +540,14 @@
                                             <option value="nov">Nov</option>
                                             <option value="dec">Dec</option>
                                         </select>
+                                        <?php $planned_processing_month = filter_input(INPUT_POST, 'planned-processing-month'); ?>
                                     </td>
                                     <td>
                                         <label for="planned-processing-day">Day</label>
                                     </td>
                                     <td>
                                         <input type="number" name="planned-processing-day" min="1" max="31">
+                                        <?php $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-day'); ?>
                                     </td>
                                 </table>
                             </td>
@@ -515,6 +555,7 @@
                                 <table>
                                     <td><label for="planned-processing-time">Time</label></td>
                                     <td><input type="time" name="planned-processing-time"></td>
+                                    <?php $planned_processing_time = filter_input(INPUT_POST, 'planned-processing-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -525,6 +566,7 @@
                                 <table>
                                     <td><label for="last-water-access-time">Time</label></td>
                                     <td><input type="time" name="last-water-access-time"></td>
+                                    <?php $last_water_access_time = filter_input(INPUT_POST, 'last-water-access-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -540,6 +582,7 @@
                                         <input type="radio" name="feed-distruption" value="no">
                                         <label for="no">No</label>
                                     </td>
+                                    <?php $feed_distruption = filter_input(INPUT_POST, 'feed-distruption'); ?>
                                 </table>
                             </td>
                             <td></td>
@@ -551,6 +594,7 @@
                                 <table>
                                     <td><label for="feed-withdrawal-time">Time</label></td>
                                     <td><input type="time" name="feed-withdrawal-time"></td>
+                                    <?php $feed_withdrawal_time = filter_input(INPUT_POST, 'feed-withdrawal-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -576,6 +620,7 @@
                                             <option value="nov">Nov</option>
                                             <option value="dec">Dec</option>
                                         </select>
+                                        <?php $food_no_access_month = filter_input(INPUT_POST, 'food-no-access-month'); ?>
                                     </td>
                                     <td>
                                         <label for="food-no-access-day">Day</label>
@@ -583,6 +628,7 @@
                                     <td>
                                         <input type="number" name="food-no-access-day" min="1" max="31">
                                     </td>
+                                    <?php $food_no_access_day = filter_input(INPUT_POST, 'food-no-access-day'); ?>
                                 </table>
                             </td>
                             <td>
@@ -595,6 +641,7 @@
                                 <input type="time" class="floor-input" name="floor-1-time">
                             </td>
                             <td></td>
+                            <?php $floor_1_time = filter_input(INPUT_POST, 'floor-1-time'); ?>
                         </tr>
                         <tr>
                             <td></td>
@@ -603,6 +650,7 @@
                                 <input type="time" class="floor-input" name="floor-2-time">
                             </td>
                             <td></td>
+                            <?php $floor_2_time = filter_input(INPUT_POST, 'floor-2-time'); ?>
                         </tr>
                         <tr>
                             <td></td>
@@ -611,6 +659,7 @@
                                 <input type="time" class="floor-input" name="floor-3-time">
                             </td>
                             <td></td>
+                            <?php $floor_3_time = filter_input(INPUT_POST, 'floor-3-time'); ?>
                         </tr>
                     </table>
                 </div>
