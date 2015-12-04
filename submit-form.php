@@ -66,6 +66,10 @@
                             <td><input type="text" name="number-of-birds-shipped" maxlength="80"></td>
                             <td></td>
                         </tr>
+                        	<td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
+                            <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
+                            <td></td>
+                        </tr>
                         <tr>
                             <td><label for="mortality-rate">Mortality Rate</label></td>
                             <td><input type="text" name="mortality-rate" maxlength="80"></td>

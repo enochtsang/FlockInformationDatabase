@@ -32,19 +32,30 @@
 
 //**********General Flock Information*********************************
 
+            //***************veterinary_practice******************
+            //set variables from form submission
+            $vet_name = filter_input(INPUT_POST, 'vet-name');//vet_name
+            $vet_address = filter_input(INPUT_POST, 'vet-address');//vet_address
+            
+            //set variables from form submission
+            $vetQuery = "INSERT INTO `veterinary_practice` (vet_name,vet_address) "
+            		. "VALUES ('$vet_name','$vet_address')";
+            $resultVet = mysqli_query($flockCon, $vetQuery);
+            
+            
+            
             //***************enterprise******************
             //set variables from form submission
             if (isset($_POST['producer-enterprise'])) {
                 $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota');//e_code_
                 $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise');//e_name
                 $produces_for = filter_input(INPUT_POST, 'produces-for');//produces_for
-                $additional_comments = document.getElementById("additional-comments").value;
-                //$vet_name = filter_input(INPUT_POST, 'vet-name');//vet_name
-                $vet_name = "Moath"; //TODO delete this when the table gets hooked up
+                $additional_comments = filter_input(INPUT_POST, 'additional-comments');//comments
+//              $additional_comments = document.getElementById("additional-comments").value;//comments
                 //insert values into the database
                 if (!empty($producer_code_quota) && !empty($producer_enterprise)) {
-                    $enterpriseQuery = "INSERT INTO `Enterprise` (e_code_,e_name,submission_date_,produces_for,vet_name) "
-                    . "VALUES ('$producer_code_quota','$producer_enterprise','$submission_date','$produces_for','$vet_name')";
+                    $enterpriseQuery = "INSERT INTO `Enterprise` (e_code_,e_name,produces_for,comments,vet_name,submission_date_) "
+                    . "VALUES ('$producer_code_quota','$producer_enterprise','$produces_for','$additional_comments','$vet_name','$submission_date')";
                     $resultEnterprise = mysqli_query($flockCon, $enterpriseQuery);
                 }
             }
@@ -56,14 +67,14 @@
                 $number_of_birds_shipped = filter_input(INPUT_POST, 'number-of-birds-shipped');//birds_shipped
                 $number_of_birds_placed = filter_input(INPUT_POST, 'number-of-birds-placed');//birds_placed
                 $grow_out_density = filter_input(INPUT_POST, 'grow-out-density');//grow_out_density
-                $grow_out_density_units = filter_input(INPUT_POST, 'grow-out-density-units');//density_units
+//                $grow_out_density_units = filter_input(INPUT_POST, 'grow-out-density-units');//density_units
                 
 				//insert values into the database
 				//TODO density units isn't working yet and for some reason vet_name breaks it
-//              $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,density_units,e_code_,submission_date_) "
-//              . "VALUES ('$barn_number', '$mortality_rate','$number_of_birds_shipped', '$number_of_birds_placed','$grow_out_density','$grow_out_density_units','$producer_code_quota','$submission_date')";
-                $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,e_code_,submission_date_) "//removed density units and vet name
-                . "VALUES ('$barn_number', '$mortality_rate','$number_of_birds_shipped', '$number_of_birds_placed','$grow_out_density','$producer_code_quota','$submission_date')";
+//                $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,density_units,e_code_,submission_date_) "
+//               . "VALUES ('$barn_number', '$mortality_rate','$number_of_birds_shipped', '$number_of_birds_placed','$grow_out_density','$grow_out_density_units','$producer_code_quota','$submission_date')";
+                 $barnQuery = "INSERT INTO `barn` (barn_number_,mortality_rate,birds_shipped,birds_placed,grow_out_density,e_code_,submission_date_) "//removed density units and vet name
+                 . "VALUES ('$barn_number', '$mortality_rate','$number_of_birds_shipped', '$number_of_birds_placed','$grow_out_density','$producer_code_quota','$submission_date')";
                 $resultBarn = mysqli_query($flockCon, $barnQuery);
                    
             
@@ -72,28 +83,18 @@
                 $kg_per_bird = filter_input(INPUT_POST, 'kg-per-bird'); //kg_per_bird
                 $species = filter_input(INPUT_POST, 'species');//species
                 $category = filter_input(INPUT_POST, 'category-sex');//category
-                $age_of_birds = filter_input(INPUT_POST, 'age-of-birds');//agede
-                $cfc_cert = filter_input(INPUT_POST, 'certification');//cfc_cert
+                $age_of_birds = filter_input(INPUT_POST, 'age-of-birds');//age
+//                $cfc_cert = filter_input(INPUT_POST, 'certification');//cfc_cert
                 
                 //insert values into the database
                 //TODO get the cert radio button working with this query
 //              $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,species,category,age,cfc_cert,vet_name,barn_number_,e_code_,submission_date_) "
 //              . "VALUES ('$kg_per_bird','$species', '$category','$age_of_birds','$cfc_cert','$vet_name','$barn_number','$producer_code_quota','$submission_date')";
-                $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,species,category,age,barn_number_,e_code_,submission_date_) "//removed cert
-               	. "VALUES ('$kg_per_bird','$species', '$category','$age_of_birds','$barn_number','$producer_code_quota','$submission_date')";
+                $poultryFlockQuery = "INSERT INTO `poultry_flock` (kg_per_bird,species,category,age,barn_number_,e_code_,submission_date_,vet_name) "//removed cert
+               	. "VALUES ('$kg_per_bird','$species', '$category','$age_of_birds','$barn_number','$producer_code_quota','$submission_date','$vet_name')";
                 $resultPoultry = mysqli_query($flockCon, $poultryFlockQuery);
 
-                //***************veterinary_practice******************
-                //TODO  uncomment once vet stuff is in form
-//                 //set variables from form submission
-//                 $vet_name = filter_input(INPUT_POST, 'vet-name');//vet_name
-//                 $vet_address = filter_input(INPUT_POST, 'vet-address');//vet_address
 
-//                 //set variables from form submission
-//                 $vetQuery = "INSERT INTO `veterinary_practice` (vet_name,vet_address) "
-//                 . "VALUES ('$vet_name','$vet_address')";
-//                 $resultVet = mysqli_query($flockCon, $vetQuery);
-                
                 
 //**********Section A*********************************
 				//if button is clicked and the first field filled                   
@@ -200,11 +201,10 @@
                //TODO front end needs to be changed to reflect the planned date type
                $planned_catching_date = filter_input(INPUT_POST, 'planned-catching-date');//planned_date
                $planned_catching_time = filter_input(INPUT_POST, 'planned-catching-time');//planned_time
-               $actual_catching_date = filter_input(INPUT_POST, 'actual-catching-date');//actual_date
                $actual_catching_time = filter_input(INPUT_POST, 'actual-catching-time');//actual_time
                //set variables from form submission
-               $catchingQuery = "INSERT INTO `catching` (planned_date,planned_time,actual_date,actual_time,barn_number_,e_code_,submission_date_) "
-               		. "VALUES ('$planned_catching_date','$planned_catching_time', '$actual_catching_date', '$actual_catching_time','$barn_number','$producer_code_quota','$submission_date')";
+               $catchingQuery = "INSERT INTO `catching` (planned_date,planned_time,actual_time,barn_number_,e_code_,submission_date_) "
+               		. "VALUES ('$planned_catching_date','$planned_catching_time', '$actual_catching_time','$barn_number','$producer_code_quota','$submission_date')";
                $resultCatching = mysqli_query($flockCon, $catchingQuery);
                
                 
@@ -212,22 +212,27 @@
                //***************processing******************
                //set variables from form submission
                //TODO isn't working might be because front end types are different
-               $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-datetime');//planned_date
+               $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-date');//planned_date
+               $planned_processing_time = filter_input(INPUT_POST, 'planned-processing-time');//planned_time
                $last_water_access_time = filter_input(INPUT_POST, 'last-water-access-time');//last_water_access
-               $feed_disruption = filter_input(INPUT_POST, 'feed-disruption');//feed_supply_disrupted
+//                $feed_disruption = filter_input(INPUT_POST, 'feed-disruption');//feed_supply_disrupted
                $feed_withdrawal_time = filter_input(INPUT_POST, 'feed-withdrawal-time');//feed_withdraw_time
                $food_no_access_date = filter_input(INPUT_POST, 'food-no-access-date');//feed_not_accessible_date
                $floor_1_time = filter_input(INPUT_POST, 'floor-1-time');//floor1_time
                $floor_2_time = filter_input(INPUT_POST, 'floor-2-time');//floor2_time
                $floor_3_time = filter_input(INPUT_POST, 'floor-3-time');//floor3_time
                //set variables from form submission
-               $processingQuery = "INSERT INTO `processing` (planned_date,last_water_access,feed_supply_disrupted,"
-               		. "feed_withdraw_time,feed_not_accessible_date,floor1_time,floor2_time,floor3_time,barn_number_,e_code_,submission_date_) "
-               		. "VALUES ('$planned_processing_day','$last_water_access_time', '$feed_disruption', '$feed_withdrawal_time', "
-               		. "'$food_no_access_date', '$floor_1_time', '$floor_2_time', '$floor_3_time','$barn_number','$producer_code_quota','$submission_date')";
+//                $processingQuery = "INSERT INTO `processing` (planned_date,last_water_access,feed_supply_disrupted,"
+//                		. "feed_withdraw_time,feed_not_accessible_date,floor1_time,floor2_time,floor3_time,barn_number_,e_code_,submission_date_) "
+//                		. "VALUES ('$planned_processing_day','$last_water_access_time', '$feed_disruption', '$feed_withdrawal_time', "
+//                		. "'$food_no_access_date', '$floor_1_time', '$floor_2_time', '$floor_3_time','$barn_number','$producer_code_quota','$submission_date')";
+               $processingQuery = "INSERT INTO `processing` (planned_date,planned_time,last-water-access-time,barn_number_,e_code_,submission_date_)"
+               		. "VALUES ('$planned_processing_day','$planned_processing_time','$last_water_access_time','$barn_number','$producer_code_quota','$submission_date')";
                $resultProcessing = mysqli_query($flockCon, $processingQuery);
                
                 //TODO I haven't dealt with the additional comments section
+                //last_water_access,feed_withdraw_time,feed_not_accessible_date,floor1_time,floor2_time,floor3_time,
+                //'$last_water_access_time','$feed_withdrawal_time','$food_no_access_date','$floor_1_time','$floor_2_time','$floor_3_time'
                 
             
             ?>
