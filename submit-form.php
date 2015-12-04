@@ -66,11 +66,6 @@ if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {
                             <td></td>
                         </tr>
                         <tr>
-                            <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
-                            <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
                             <td><label for="number-of-birds-shipped">Number of Birds Shipped</label></td>
                             <td><input type="text" name="number-of-birds-shipped" maxlength="80"></td>
                             <td></td>
@@ -130,280 +125,442 @@ if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {
                     <hr>
                     <table>
                         <tr>
-                            <td><label for="question-1">
-                                Were medications or vaccines administered at the hatchery?
-                            </label></td>
-                            <td><input type="radio" name="question-1" value="yes">
-                            <label for="yes">Yes</label>
+                            <td>
+                                <label for="question-1">
+                                    Were medications or vaccines administered at the hatchery?
+                                </label>
                             </td>
-                            <td><input type="radio" name="question-1" value="no">
-                            <label for="no">No</label>
+                            <td>
+                                <input type="radio" name="question-1" value="yes">
+                                <label for="yes">Yes</label>
                             </td>
-                        </tr>
-                            <tr class="question-information-row question-1-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-1-a">Medication or vaccine name</label></td>
-                                <td><input type="text" name="question-1-a" maxlength="80"></td>
-                                </tr></table>
-                            </td></tr>
-                            <tr class="question-information-row question-1-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-1-d">Withdrawal period (days)</label></td>
-                                <td><input type="text" name="question-1-d" maxlength="80"></td>
-                                </tr></table>
-                            </td></tr>
-                            <tr class="question-information-row question-1-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-1-e">Safe marketing date date (if any)</label></td>
-                                <td><input type="date" name="question-1-e" maxlength="80"></td>
-                                </tr></table>
-                            </td></tr>
-                        <tr class="question-header">
-                            <td><label for="question-2">
-                                Were vaccines administered on-farm?
-                            </label></td>
-                            <td><input type="radio" name="question-2" value="yes">
-                            <label for="yes">Yes</label>
-                            </td>
-                            <td><input type="radio" name="question-2" value="no">
-                            <label for="no">No</label>
+                            <td>
+                                <input type="radio" name="question-1" value="no">
+                                <label for="no">No</label>
                             </td>
                         </tr>
-                            <tr class="question-information-row question-2-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-2-a">Medication or vaccine name</label></td>
-                                <td><input type="text" name="question-2-a" maxlength="80"></td>
-                                </tr></table>
+                            <tr class="question-information-row question-1-information-row"><td>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-1-a">Medication or vaccine name</label></td>
+                                        <td><input type="text" name="question-1-a" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
-                            <tr class="question-information-row question-2-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-2-b">Dose</label></td>
-                                <td><input type="text" name="question-2-b" maxlength="80"></td>
-                                </tr></table>
+                            <tr class="question-information-row question-1-information-row"><td>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-1-d">Withdrawal period (days)</label></td>
+                                        <td><input type="text" name="question-1-d" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
-                            <tr class="question-information-row question-2-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-2-d">Withdrawal period (days)</label></td>
-                                <td><input type="text" name="question-2-d" maxlength="80"></td>
-                                </tr></table>
-                            </td></tr>
-                            <tr class="question-information-row question-2-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-2-e">Safe marketing date (if any)</label></td>
-                                <td><input type="date" name="question-2-e" maxlength="80"></td>
-                                </tr></table>
+                            <tr class="question-information-row question-1-information-row"><td>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-1-e">Safe marketing date date (if any)</label></td>
+                                        <td><input type="date" name="question-1-e" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                         <tr class="question-header">
-                            <td><label for="question-3">
-                                Were any diseases or syndromes diagnosed during the flock?
-                            </label></td>
-                            <td><input type="radio" name="question-3" value="yes">
-                            <label for="yes">Yes</label>
+                            <td>
+                                <label for="question-2">
+                                    Were vaccines administered on-farm?
+                                </label>
                             </td>
-                            <td><input type="radio" name="question-3" value="no">
-                            <label for="no">No</label>
+                            <td>
+                                <input type="radio" name="question-2" value="yes">
+                                <label for="yes">Yes</label>
+                            </td>
+                            <td>
+                                <input type="radio" name="question-2" value="no">
+                                <label for="no">No</label>
+                            </td>
+                        </tr>
+                            <tr class="question-information-row question-2-information-row"><td>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-2-a">Medication or vaccine name</label></td>
+                                        <td><input type="text" name="question-2-a" maxlength="80"></td>
+                                    </tr>
+                                </table>
+                            </td></tr>
+                            <tr class="question-information-row question-2-information-row"><td>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-2-b">Dose</label></td>
+                                        <td><input type="text" name="question-2-b" maxlength="80"></td>
+                                    </tr>
+                                </table>
+                            </td></tr>
+                            <tr class="question-information-row question-2-information-row"><td>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-2-d">Withdrawal period (days)</label></td>
+                                        <td><input type="text" name="question-2-d" maxlength="80"></td>
+                                    </tr>
+                                </table>
+                            </td></tr>
+                            <tr class="question-information-row question-2-information-row"><td>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-2-e">Safe marketing date (if any)</label></td>
+                                        <td><input type="date" name="question-2-e" maxlength="80"></td>
+                                    </tr>
+                                </table>
+                            </td></tr>
+                        <tr class="question-header">
+                            <td>
+                                <label for="question-3">
+                                    Were any diseases or syndromes diagnosed during the flock?
+                                </label>
+                            </td>
+                            <td>
+                                <input type="radio" name="question-3" value="yes">
+                                <label for="yes">Yes</label>
+                            </td>
+                            <td>
+                                <input type="radio" name="question-3" value="no">
+                                <label for="no">No</label>
                             </td>
                         </tr>
                             <tr class="question-information-row question-3-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-3-g">Disease or Syndrome & flock recovery (initials)</label></td>
-                                <td><input type="text" name="question-3-g" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-3-g">Disease or Syndrome & flock recovery (initials)</label></td>
+                                        <td><input type="text" name="question-3-g" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                       <tr class="question-header">
-                            <td><label for="question-4">
-                                Were any medications administered for treatment?
-                            </label></td>
-                            <td><input type="radio" name="question-4" value="yes">
-                            <label for="yes">Yes</label>
+                            <td>
+                                <label for="question-4">
+                                    Were any medications administered for treatment?
+                                </label>
                             </td>
-                            <td><input type="radio" name="question-4" value="no">
-                            <label for="no">No</label>
+                            <td>
+                                <input type="radio" name="question-4" value="yes">
+                                <label for="yes">Yes</label>
+                            </td>
+                            <td>
+                                <input type="radio" name="question-4" value="no">
+                                <label for="no">No</label>
                             </td>
                         </tr>
                             <tr class="question-information-row question-4-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-4-a">Medication or vaccine name</label></td>
-                                <td><input type="text" name="question-4-a" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-4-a">Medication or vaccine name</label></td>
+                                        <td><input type="text" name="question-4-a" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-4-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-4-b">First treatment date</label></td>
-                                <td><input type="date" name="question-4-b" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-4-b">First treatment date</label></td>
+                                        <td><input type="date" name="question-4-b" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-4-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-4-c">Last treatment date</label></td>
-                                <td><input type="date" name="question-4-c" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-4-c">Last treatment date</label></td>
+                                        <td><input type="date" name="question-4-c" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-4-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-4-d">Withdrawal Period (days)</label></td>
-                                <td><input type="text" name="question-4-d" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-4-d">Withdrawal Period (days)</label></td>
+                                        <td><input type="text" name="question-4-d" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-4-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-4-e">Safe marketing date (if any)</label></td>
-                                <td><input type="date" name="question-4-e" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-4-e">Safe marketing date (if any)</label></td>
+                                        <td><input type="date" name="question-4-e" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-4-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-4-f">Dose</label></td>
-                                <td><input type="text" name="question-4-f" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-4-f">Dose</label></td>
+                                        <td><input type="text" name="question-4-f" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-4-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-4-g">Disease or Syndrome & flock recovery (initials)</label></td>
-                                <td><input type="text" name="question-4-g" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-4-g">Disease or Syndrome & flock recovery (initials)</label></td>
+                                        <td><input type="text" name="question-4-g" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                         <tr class="question-header">
-                            <td><label for="question-5">
-                                Did the rations prior to shipment in the last 7 days for chickens or in the
-                                last 14 for turkeys have any feed medications with a withdrawal period?
-                            </label></td>
-                            <td><input type="radio" name="question-5" value="yes">
-                            <label for="yes">Yes</label>
+                            <td>
+                                <label for="question-5">
+                                    Did the rations prior to shipment in the last 7 days for chickens or in the
+                                    last 14 for turkeys have any feed medications with a withdrawal period?
+                                </label>
                             </td>
-                            <td><input type="radio" name="question-5" value="no">
-                            <label for="no">No</label>
+                            <td>
+                                <input type="radio" name="question-5" value="yes">
+                                <label for="yes">Yes</label>
+                            </td>
+                            <td>
+                                <input type="radio" name="question-5" value="no">
+                                <label for="no">No</label>
                             </td>
                         </tr>
                             <tr class="question-information-row question-5-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-5-a">Medication or vaccine name</label></td>
-                                <td><input type="text" name="question-5-a" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-5-a">Medication or vaccine name</label></td>
+                                        <td><input type="text" name="question-5-a" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-5-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-5-d">Withdrawal period (days)</label></td>
-                                <td><input type="text" name="question-5-d" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-5-d">Withdrawal period (days)</label></td>
+                                        <td><input type="text" name="question-5-d" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-5-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-5-e">Safe marketing date (if any)</label></td>
-                                <td><input type="date" name="question-5-e" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-5-e">Safe marketing date (if any)</label></td>
+                                        <td><input type="date" name="question-5-e" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                         <tr class="question-header">
-                            <td><label for="question-6">
-                                Were any extra-label medications used in the feed?
-                            </label></td>
-                            <td><input type="radio" name="question-6" value="yes">
-                            <label for="yes">Yes</label>
+                            <td>
+                                <label for="question-6">
+                                    Were any extra-label medications used in the feed?
+                                </label>
                             </td>
-                            <td><input type="radio" name="question-6" value="no">
-                            <label for="no">No</label>
+                            <td>
+                                <input type="radio" name="question-6" value="yes">
+                                <label for="yes">Yes</label>
+                            </td>
+                            <td>
+                                <input type="radio" name="question-6" value="no">
+                                <label for="no">No</label>
                             </td>
                         </tr>
                             <tr class="question-information-row question-6-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-6-a">Medication or vaccine name</label></td>
-                                <td><input type="text" name="question-6-a" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-6-a">Medication or vaccine name</label></td>
+                                        <td><input type="text" name="question-6-a" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-6-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-6-d">Withdrawal period (days)</label></td>
-                                <td><input type="text" name="question-6-d" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-6-d">Withdrawal period (days)</label></td>
+                                        <td><input type="text" name="question-6-d" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-6-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-6-e">Safe marketing date (if any)</label></td>
-                                <td><input type="date" name="question-6-e" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-6-e">Safe marketing date (if any)</label></td>
+                                        <td><input type="date" name="question-6-e" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                         <tr class="question-header">
-                            <td><label for="question-7">
-                                Were any Category I medications (e.g., ceftiofur - Excenel<sup>TM</sup>,
-                                enrofloxacin - Baytril<sup>TM</sup>) used on-farm in a <u>preventive</u> manner?
-                            </label></td>
-                            <td><input type="radio" name="question-7" value="yes">
-                            <label for="yes">Yes</label>
+                            <td>
+                                <label for="question-7">
+                                    Were any Category I medications (e.g., ceftiofur - Excenel<sup>TM</sup>,
+                                    enrofloxacin - Baytril<sup>TM</sup>) used on-farm in a <u>preventive</u> manner?
+                                </label>
                             </td>
-                            <td><input type="radio" name="question-7" value="no">
-                            <label for="no">No</label>
+                            <td>
+                                <input type="radio" name="question-7" value="yes">
+                                <label for="yes">Yes</label>
+                            </td>
+                            <td>
+                                <input type="radio" name="question-7" value="no">
+                                <label for="no">No</label>
+                            </td>
                         </tr>
                             <tr class="question-information-row question-7-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-7-a">Medication or vaccine name</label></td>
-                                <td><input type="text" name="question-7-a" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-7-a">Medication or vaccine name</label></td>
+                                        <td><input type="text" name="question-7-a" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-7-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-7-b">First treatment date</label></td>
-                                <td><input type="date" name="question-7-b" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-7-b">First treatment date</label></td>
+                                        <td><input type="date" name="question-7-b" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-7-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-7-c">Last treatment date</label></td>
-                                <td><input type="date" name="question-7-c" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-7-c">Last treatment date</label></td>
+                                        <td><input type="date" name="question-7-c" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-7-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-7-d">Withdrawal Period (days)</label></td>
-                                <td><input type="text" name="question-7-d" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-7-d">Withdrawal Period (days)</label></td>
+                                        <td><input type="text" name="question-7-d" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-7-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-7-e">Safe marketing date (if any)</label></td>
-                                <td><input type="date" name="question-7-e" maxlength="80"></td>
-                                </tr></table>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-7-e">Safe marketing date (if any)</label></td>
+                                        <td><input type="date" name="question-7-e" maxlength="80"></td>
+                                    </tr>
+                                </table>
                             </td></tr>
                             <tr class="question-information-row question-7-information-row"><td>
-                                <table><tr>
-                                <td><label for="question-7-f">Dose</label></td>
-                                <td><input type="text" name="question-4-f" maxlength="80"></td>
-                                </tr></table>
-                            </td></tr>
+                                <table>
+                                    <tr>
+                                        <td><label for="question-7-f">Dose</label></td>
+                                        <td><input type="text" name="question-4-f" maxlength="80"></td>
+                                    </tr>
+                                </table>
+                            </td>
                     </table>
                 </div>
                 <div id="section-b" class="form-section">
                     <h3> Section B </h3>
                     <hr>
-                    <table>
+                    <table class="outer-table">
                         <tr>
-                            <td><label for="producer-enterprise">Producer / Enterprise</label></td>
-                            <td><input type="text" name="producer-enterprise" maxlength="80"></td>
+                            <td><label>Planned catching time</label></td>
+                            <td>
+                                <table class="date-table">
+                                    <td>
+                                        <label for="planned-catching-date">Date</label>
+                                    </td>
+                                    <td>
+                                        <input type="date" name="planned-catching-date">
+                                    </td>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <td><label for="planned-catching-time">Time</label></td>
+                                    <td><input type="time" name="planned-catching-time"></td>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr class="section-b-separator">
+                            <td><label>Actual start of catching</label></td>
+                            <td></td>
+                            <td>
+                                <table>
+                                    <td><label for="actual-catching-time">Time</label></td>
+                                    <td><input type="time" name="actual-catching-time"></td>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr class="section-b-separator">
+                            <td><label>Planned processing time</label></td>
+                            <td>
+                                <table class="date-table">
+                                    <td>
+                                        <label for="planned-processing-date">Date</label>
+                                    </td>
+                                    <td>
+                                        <input type="date" name="planned-processing-date">
+                                    </td>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <td><label for="planned-processing-time">Time</label></td>
+                                    <td><input type="time" name="planned-processing-time"></td>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr class="section-b-separator">
+                            <td><label>Time of last access to water</label></td>
+                            <td></td>
+                            <td>
+                                <table>
+                                    <td><label for="last-water-access-time">Time</label></td>
+                                    <td><input type="time" name="last-water-access-time"></td>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr class="section-b-separator">
+                            <td><label>Was the feed supply distrupted in the last 48 hours?</label></td>
+                            <td>
+                                <table id="feed-distruption-table">
+                                    <td>
+                                        <input type="radio" name="feed-distruption" value="yes">
+                                        <label for="yes">Yes</label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="feed-distruption" value="no">
+                                        <label for="no">No</label>
+                                    </td>
+                                </table>
+                            </td>
                             <td></td>
                         </tr>
-                        <tr>
-                            <td><label for="producer-code-quota">Producer Code / Quota</label></td>
-                            <td><input type="text" name="producer-code-quota" maxlength="80"></td>
+                        <tr class="section-b-separator">
+                            <td><label>Feeding withdrawal time provided by the processor</label></td>
                             <td></td>
+                            <td>
+                                <table>
+                                    <td><label for="feed-withdrawal-time">Time</label></td>
+                                    <td><input type="time" name="feed-withdrawal-time"></td>
+                                </table>
+                            </td>
                         </tr>
-                        <tr>
-                            <td><label for="barn-number">Barn #</label></td>
-                            <td><input type="text" name="barn-number" maxlength="80"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><label for="species">Species</label></td>
-                            <td><input type="text" name="species" maxlength="80"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><label for="category-sex">Category/Sex</label></td>
-                            <td><input type="text" name="category-sex" maxlength="80"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><label for="age-of-birds">Age of Birds</label></td>
-                            <td><input type="text" name="age-of-birds" maxlength="80"></td>
-                            <td></td>
+                        <tr class="section-b-separator">
+                            <td><label>Time feed was no longer accessible</label></td>
+                            <td>
+                                <table class="date-table">
+                                    <tr>
+                                        <td><label for="food-no-access-date">Date</label></td>
+                                        <td><input type="date" name="food-no-access-date"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="floor-1-time">1<sup>st</sup>  Floor Time</label></td>
+                                        <td><input type="time" class="floor-input" name="floor-1-time"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="floor-2-time">2<sup>nd</sup>  Floor Time</label></td>
+                                        <td><input type="time" class="floor-input" name="floor-2-time"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="floor-3-time">3<sup>rd</sup>  Floor Time</label></td>
+                                        <td><input type="time" class="floor-input" name="floor-3-time"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                            </td>
                         </tr>
                     </table>
                 </div>
