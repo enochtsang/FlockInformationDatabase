@@ -1,23 +1,12 @@
-<!DOCTYPE html>
 <?php
-	
-require_once 'connect.php';
-    // If the values are posted, insert them into the database.
-    if (isset($_POST['username']) && isset($_POST['password'])){
-        $username = $_POST['username'];
-		$user_type = $_POST['user_type'];	
-        $password = $_POST['password'];
- 	if(!empty($username) && !empty($user_type) && !empty($password)){
-        $query = "INSERT INTO `INFO` (username, password, user_type) VALUES ('$username', '$password','$user_type')";
-        $result = mysqli_query($con,$query);
-        if($result){
-            $msg = "User Created Successfully.";
-        }
-		}else{
-		$msg = "Please fill in all the fields.";
-		}
-    }
-    ?>
+    session_start();    
+if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {
+    header('Location: logout.php');
+  }
+?>
+<!DOCTYPE html>
+    <?php include 'header.php'; ?>
+
 <html lang="en-CA">
 <head>
     <?php include 'header.php';?>
@@ -38,7 +27,7 @@ require_once 'connect.php';
             <input type="image" class="arrow" id="prev-arrow" src="resources/next.png" alt="next"/>
         </td>
         <td id="form-column">
-            <form name="flock-information" method="post" action="CHANGE_THIS.php">
+            <form name="flock-information" method="post" action="submit-form-query.php">
                 <div id="general" class="form-section">
                     <h3> General Flock Information </h3>
                     <hr>
@@ -47,36 +36,37 @@ require_once 'connect.php';
                             <td><label for="producer-enterprise">Producer / Enterprise</label></td>
                             <td><input type="text" name="producer-enterprise" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="producer-code-quota">Producer Code / Quota</label></td>
                             <td><input type="text" name="producer-code-quota" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_code_quota = filter_input(INPUT_POST, 'producer-code-quota'); ?>
+                        </tr>
+                        <tr>
+                            <td><label for="produces-for">Producer For</label></td>
+                            <td><input type="text" name="produces-for" maxlength="80"></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td><label for="barn-number">Barn #</label></td>
                             <td><input type="text" name="barn-number" maxlength="80"></td>
                             <td></td>
-                            <?php $barn_number = filter_input(INPUT_POST, 'barn-number'); ?>
                         </tr>
                         <tr>
                             <td><label for="species">Species</label></td>
                             <td><input type="text" name="species" maxlength="80"></td>
-                            <?php $species = filter_input(INPUT_POST, 'species'); ?>
                             <td></td>
                         </tr>
                         <tr>
                             <td><label for="category-sex">Category/Sex</label></td>
                             <td><input type="text" name="category-sex" maxlength="80"></td>
                             <td></td>
-                            <?php $category_sex = filter_input(INPUT_POST, 'category-sex'); ?>
                         </tr>
                         <tr>
                             <td><label for="age-of-birds">Age of Birds</label></td>
                             <td><input type="text" name="age-of-birds" maxlength="80"></td>
                             <td></td>
+<<<<<<< HEAD
                             <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
@@ -84,24 +74,23 @@ require_once 'connect.php';
                             <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
                             <td></td>
                             <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
+=======
+>>>>>>> submit-form-backend
                         </tr>
                         <tr>
                             <td><label for="number-of-birds-shipped">Number of Birds Shipped</label></td>
                             <td><input type="text" name="number-of-birds-shipped" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
-                        <tr>
-                            <td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
+                        	<td><label for="number-of-birds-placed">Number of Birds Placed</label></td>
                             <td><input type="text" name="number-of-birds-placed" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
                         </tr>
                         <tr>
                             <td><label for="mortality-rate">Mortality Rate</label></td>
                             <td><input type="text" name="mortality-rate" maxlength="80"></td>
                             <td></td>
-                            <?php $producer_enterprise = filter_input(INPUT_POST, 'producer-enterprise'); ?>
+                            <?php $mortality_rate = filter_input(INPUT_POST, 'mortality-rate'); ?>
                         </tr>
                         <tr>
                             <td><label for="kg-per-bird">Kg/Bird</label></td>
@@ -129,6 +118,16 @@ require_once 'connect.php';
                                 <label for="lb-per-ft2">lb/ft<sup>2</sup></label>
                                 <input type="radio" class="not-left-most-radio" name="grow-out-density-units" value="kg-per-ft2">
                                 <label for="kg-per-ft2">kg/ft<sup>2</sup></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><label for="vet-name">Veterinary Practice Name</label></td>
+                            <td><input type="text" name="vet-name" maxlength="80"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><label for="vet-address">Veterinary Practice Address</label></td>
+                            <td><input type="text" name="vet-address" maxlength="80"></td>
                             <td></td>
                         </tr>
                     </table>
@@ -456,7 +455,7 @@ require_once 'connect.php';
                                 <table>
                                     <tr>
                                         <td><label for="question-7-f">Dose</label></td>
-                                        <td><input type="text" name="question-4-f" maxlength="80"></td>
+                                        <td><input type="text" name="question-7-f" maxlength="80"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -469,41 +468,19 @@ require_once 'connect.php';
                         <tr>
                             <td><label>Planned catching time</label></td>
                             <td>
-                                <table class="month-day-table">
+                                <table class="date-table">
                                     <td>
-                                        <label for="planned-catching-month">Month</label>
+                                        <label for="planned-catching-date">Date</label>
                                     </td>
                                     <td>
-                                        <select form="flock-information" name="planned-catching-month">
-                                            <option value="jan">Jan</option>
-                                            <option value="feb">Feb</option>
-                                            <option value="mar">Mar</option>
-                                            <option value="apr">Apr</option>
-                                            <option value="may">May</option>
-                                            <option value="jun">Jun</option>
-                                            <option value="jul">Jul</option>
-                                            <option value="aug">Aug</option>
-                                            <option value="sep">Sep</option>
-                                            <option value="oct">Oct</option>
-                                            <option value="nov">Nov</option>
-                                            <option value="dec">Dec</option>
-                                        </select>
-                                        <?php $planned_catching_month = filter_input(INPUT_POST, 'planned-catching-month'); ?>
+                                        <input type="date" name="planned-catching-date">
                                     </td>
-                                    <td>
-                                        <label for="planned-catching-day">Day</label>
-                                    </td>
-                                    <td>
-                                        <input type="number" name="planned-catching-day" min="1" max="31">
-                                    </td>
-                                    <?php $planned_catching_day = filter_input(INPUT_POST, 'planned-catching-day'); ?>
                                 </table>
                             </td>
                             <td>
                                 <table>
                                     <td><label for="planned-catching-time">Time</label></td>
                                     <td><input type="time" name="planned-catching-time"></td>
-                                    <?php $planned_catching_time = filter_input(INPUT_POST, 'planned-catching-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -514,40 +491,22 @@ require_once 'connect.php';
                                 <table>
                                     <td><label for="actual-catching-time">Time</label></td>
                                     <td><input type="time" name="actual-catching-time"></td>
+<<<<<<< HEAD
                                     <?php $actual_catching_time = filter_input(INPUT_POST, 'actual-catching-time'); ?>
+=======
+>>>>>>> submit-form-backend
                                 </table>
                             </td>
                         </tr>
                         <tr class="section-b-separator">
                             <td><label>Planned processing time</label></td>
                             <td>
-                                <table class="month-day-table">
+                                <table class="date-table">
                                     <td>
-                                        <label for="planned-processing-month">Month</label>
+                                        <label for="planned-processing-date">Date</label>
                                     </td>
                                     <td>
-                                        <select form="flock-information" name="planned-processing-month">
-                                            <option value="jan">Jan</option>
-                                            <option value="feb">Feb</option>
-                                            <option value="mar">Mar</option>
-                                            <option value="apr">Apr</option>
-                                            <option value="may">May</option>
-                                            <option value="jun">Jun</option>
-                                            <option value="jul">Jul</option>
-                                            <option value="aug">Aug</option>
-                                            <option value="sep">Sep</option>
-                                            <option value="oct">Oct</option>
-                                            <option value="nov">Nov</option>
-                                            <option value="dec">Dec</option>
-                                        </select>
-                                        <?php $planned_processing_month = filter_input(INPUT_POST, 'planned-processing-month'); ?>
-                                    </td>
-                                    <td>
-                                        <label for="planned-processing-day">Day</label>
-                                    </td>
-                                    <td>
-                                        <input type="number" name="planned-processing-day" min="1" max="31">
-                                        <?php $planned_processing_day = filter_input(INPUT_POST, 'planned-processing-day'); ?>
+                                        <input type="date" name="planned-processing-date">
                                     </td>
                                 </table>
                             </td>
@@ -555,7 +514,6 @@ require_once 'connect.php';
                                 <table>
                                     <td><label for="planned-processing-time">Time</label></td>
                                     <td><input type="time" name="planned-processing-time"></td>
-                                    <?php $planned_processing_time = filter_input(INPUT_POST, 'planned-processing-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -566,7 +524,6 @@ require_once 'connect.php';
                                 <table>
                                     <td><label for="last-water-access-time">Time</label></td>
                                     <td><input type="time" name="last-water-access-time"></td>
-                                    <?php $last_water_access_time = filter_input(INPUT_POST, 'last-water-access-time'); ?>
                                 </table>
                             </td>
                         </tr>
@@ -582,7 +539,6 @@ require_once 'connect.php';
                                         <input type="radio" name="feed-distruption" value="no">
                                         <label for="no">No</label>
                                     </td>
-                                    <?php $feed_distruption = filter_input(INPUT_POST, 'feed-distruption'); ?>
                                 </table>
                             </td>
                             <td></td>
@@ -594,72 +550,33 @@ require_once 'connect.php';
                                 <table>
                                     <td><label for="feed-withdrawal-time">Time</label></td>
                                     <td><input type="time" name="feed-withdrawal-time"></td>
-                                    <?php $feed_withdrawal_time = filter_input(INPUT_POST, 'feed-withdrawal-time'); ?>
                                 </table>
                             </td>
                         </tr>
                         <tr class="section-b-separator">
                             <td><label>Time feed was no longer accessible</label></td>
                             <td>
-                                <table class="month-day-table">
-                                    <td>
-                                        <label for="food-no-access-month">Month</label>
-                                    </td>
-                                    <td>
-                                        <select form="flock-information" name="food-no-access-month">
-                                            <option value="jan">Jan</option>
-                                            <option value="feb">Feb</option>
-                                            <option value="mar">Mar</option>
-                                            <option value="apr">Apr</option>
-                                            <option value="may">May</option>
-                                            <option value="jun">Jun</option>
-                                            <option value="jul">Jul</option>
-                                            <option value="aug">Aug</option>
-                                            <option value="sep">Sep</option>
-                                            <option value="oct">Oct</option>
-                                            <option value="nov">Nov</option>
-                                            <option value="dec">Dec</option>
-                                        </select>
-                                        <?php $food_no_access_month = filter_input(INPUT_POST, 'food-no-access-month'); ?>
-                                    </td>
-                                    <td>
-                                        <label for="food-no-access-day">Day</label>
-                                    </td>
-                                    <td>
-                                        <input type="number" name="food-no-access-day" min="1" max="31">
-                                    </td>
-                                    <?php $food_no_access_day = filter_input(INPUT_POST, 'food-no-access-day'); ?>
+                                <table class="date-table">
+                                    <tr>
+                                        <td><label for="food-no-access-date">Date</label></td>
+                                        <td><input type="date" name="food-no-access-date"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="floor-1-time">1<sup>st</sup>  Floor Time</label></td>
+                                        <td><input type="time" class="floor-input" name="floor-1-time"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="floor-2-time">2<sup>nd</sup>  Floor Time</label></td>
+                                        <td><input type="time" class="floor-input" name="floor-2-time"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="floor-3-time">3<sup>rd</sup>  Floor Time</label></td>
+                                        <td><input type="time" class="floor-input" name="floor-3-time"></td>
+                                    </tr>
                                 </table>
                             </td>
                             <td>
                             </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <label for="floor-1-time">Floor #1</label>
-                                <input type="time" class="floor-input" name="floor-1-time">
-                            </td>
-                            <td></td>
-                            <?php $floor_1_time = filter_input(INPUT_POST, 'floor-1-time'); ?>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <label for="floor-2-time">Floor #2</label>
-                                <input type="time" class="floor-input" name="floor-2-time">
-                            </td>
-                            <td></td>
-                            <?php $floor_2_time = filter_input(INPUT_POST, 'floor-2-time'); ?>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <label for="floor-3-time">Floor #3</label>
-                                <input type="time" class="floor-input" name="floor-3-time">
-                            </td>
-                            <td></td>
-                            <?php $floor_3_time = filter_input(INPUT_POST, 'floor-3-time'); ?>
                         </tr>
                     </table>
                 </div>
@@ -675,7 +592,7 @@ require_once 'connect.php';
                     <br>
                     <p>
                         I confirm that, to the best of my knowledge, the information contained 
-                        on this flock information reporting form is accurate and compelte and 
+                        on this flock information reporting form is accurate and complete and 
                         that any diseases that were diagnosed in the flock as a result of 
                         laboratory tests and/or readily available observable clinical signs have 
                         been identified and reported on this form.
@@ -690,5 +607,8 @@ require_once 'connect.php';
         </table>
         </div>
     </div>
+
 </body>
 </html>
+
+

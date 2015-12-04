@@ -1,3 +1,30 @@
+<?php
+require_once 'connect.php';
+// If the values are posted, insert them into the database.
+
+if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['password']) && isset($_POST['email'])) {
+    $username = $_POST['username'];
+    $user_type = $_POST['user_type'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    
+    $query = "SELECT username FROM `user` WHERE username='$username'";
+    $isDuplicate = mysqli_query($con, $query);
+    if($isDuplicate) {
+        $msg = "Sorry! This username is currently taken. Please choose another one.";
+    }    
+    
+    if (!empty($username) && !empty($user_type) && !empty($password) && !empty($email)) {
+        $query = "INSERT INTO `user` (username, password, user_type, email) VALUES ('$username', '$password','$user_type', '$email')";
+        $result = mysqli_query($con, $query);
+        if ($result) {
+            $msg = "User Created Successfully.";
+        }
+    } else {
+        $msg = "Please fill in all the fields.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
@@ -17,23 +44,23 @@
         <div class="content">
             <table id="register-login">
             <tr>
-            <td>
+            <td>    
                 <h3>Register</h3>
                 <hr>
-                <form id="register-form" name="register" method="post" action="CHANGE_THIS.php" onSubmit="return validateRegister()">
+                <form id="register-form" name="register" method="post" action="index.php">
                     <table id="inner-register" class="login-table">
                         <tr>
-                            <td><label for="register_username">Username</label></td>
-                            <td><input type="text" name="register_username"></td>
+                            <td><label for="username"><b>Username<b></label></td>
+                            <td><input type="text" name="username"></td>
                         </tr>
                         <tr>
-                            <td><label for="register_password">Password</label></td>
-                            <td><input name="register_password" type="password"></input></td>
+                            <td><label for="password"><b>Password</b></label></td>
+                            <td><input type="password" name="password"></input></td>
                         </tr>
                         <tr>
                             <td><label for="user_type">User Type</label></td>
                             <td>
-                                <select form="register" name="user_type">
+                                <select name="user_type">
                                     <option value="producer">Producer</option>
                                     <option value="iapt">IAPT</option>
                                     <option value="gov">Government</option>
@@ -50,21 +77,21 @@
                         </tr>
                     </table>
                 </form>
+
             </td>
 
             <td>
                 <h3>Login</h3>
                 <hr>
-                <form id="login-form" method="post" action="redirectPostLogin.php">
+                <form id="login-form" method="post" action="redirect-post-login.php">
                     <table id="inner-login" class="login-table">
                         <tr>
-                            <td><label for="login_username">Username</label></td>
-                            <td><input type="text" name="login_username"></td>
+                            <td><label for="username"><b>Username</b></label></td>
+                            <td><input type="text" name="username"></td>
                         </tr>
                         <tr>
-                            <td><label for="login_password">Password</label></td>
-                            <td><input name="login_password" type="password"></input></td>
-                        </tr>
+                            <td><label for="login_password"><b>Password</b></label></td>
+                            <td><input name="password" type="password"></input></td>
                         <tr>
                             <td></td>
                             <td><input type="submit" value="Login"/></td>
@@ -73,7 +100,23 @@
                 </form>
             </td>
             </tr>
+            <tr>
+            <td>
+                <p>
+                    <?php
+                        if (isset($msg) & !empty($msg)) {
+                            echo $msg;
+                        }
+                    ?>  
+                </p>                
+            </td>
+            <td></td>
+            </tr>
             </table>
+            <div>
+                <br>
+
+            </div>
             <hr />
             <div id="about-us">
                 <h1> About Us </h1>
