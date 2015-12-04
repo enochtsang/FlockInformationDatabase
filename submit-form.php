@@ -1,3 +1,9 @@
+<?php
+    session_start();    
+if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {
+    header('Location: logout.php');
+  }
+?>
 <!DOCTYPE html>
     <?php include 'header.php'; ?>
 
