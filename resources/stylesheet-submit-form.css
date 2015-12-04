@@ -133,21 +133,17 @@
     border-width: 1px 0;
 }
 
-#section-b .month-day-table td:nth-child(3) {
+#section-b .date-table td:last-child {
     padding-left: 10px;
+    padding-right: 10px;
+}
+
+#section-b .date-table label {
+    white-space: nowrap;
 }
 
 #section-b input {
     margin-left: 9px;
-}
-
-#section-b #feed-distruption-table td {
-    width: 50%;
-}
-
-#section-b .floor-input {
-    /*margin-left: 100%;*/
-    float: right;
 }
 
 #additional-comments textarea {
