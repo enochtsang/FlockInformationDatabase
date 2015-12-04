@@ -7,13 +7,13 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
     $user_type = $_POST['user_type'];
     $password = $_POST['password'];
     $email = $_POST['email'];
-    
+
     $query = "SELECT username FROM `user` WHERE username='$username'";
     $isDuplicate = mysqli_query($con, $query);
     if($isDuplicate) {
         $msg = "Sorry! This username is currently taken. Please choose another one.";
-    }    
-    
+    }
+
     if (!empty($username) && !empty($user_type) && !empty($password) && !empty($email)) {
         $query = "INSERT INTO `user` (username, password, user_type, email) VALUES ('$username', '$password','$user_type', '$email')";
         $result = mysqli_query($con, $query);
@@ -44,7 +44,7 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
         <div class="content">
             <table id="register-login">
             <tr>
-            <td>    
+            <td>
                 <h3>Register</h3>
                 <hr>
                 <form id="register-form" name="register" method="post" action="index.php">
@@ -64,7 +64,7 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
                                     <option value="producer">Producer</option>
                                     <option value="iapt">IAPT</option>
                                     <option value="gov">Government</option>
-                                </select>                            
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -107,8 +107,8 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
                         if (isset($msg) & !empty($msg)) {
                             echo $msg;
                         }
-                    ?>  
-                </p>                
+                    ?>
+                </p>
             </td>
             <td></td>
             </tr>
@@ -120,11 +120,13 @@ if (isset($_POST['username']) && isset($_POST['user_type']) && isset($_POST['pas
             <hr />
             <div id="about-us">
                 <h1> About Us </h1>
-		<!--About us shortened and rephrased from Institute of Applied Poultry Technologies from http://www.iaptwest.org/about-us/ -->
-                <p>The Institute for Applied Poultry Technologies (IAPT) was formed in 2012 by poultry industry stakeholders. 
-		    It is a non-profit entity established to evaluate novel and innovative cost saving poultry health technologies 
-		    that will prepare for disease outbreaks before they occur, and as well as improve product quality and consumer confidence.
-		</p>
+				<!--About us shortened and rephrased from Institute of Applied Poultry Technologies from http://www.iaptwest.org/about-us/ -->
+                <p>
+                The Institute for Applied Poultry Technologies (IAPT) is a non-profit entity that was established to innovative
+                poultry health technologies that will prepare for disease outbreaks before they can occur, and as well as improve
+				product quality and consumer confidence. An aspect of innovating these technologies is to research the valuable
+				flock related information that are submitted by producers.
+				</p>
             </div>
         </div>
     </div>
