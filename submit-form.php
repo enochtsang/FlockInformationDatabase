@@ -1,3 +1,9 @@
+<?php
+    session_start();    
+if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {
+    header('Location: logout.php');
+  }
+?>
 <!DOCTYPE html>
     <?php include 'header.php'; ?>
 
@@ -61,6 +67,7 @@
                             <td><input type="text" name="age-of-birds" maxlength="80"></td>
                             <td></td>
                         </tr>
+
                         <tr>
                             <td><label for="number-of-birds-shipped">Number of Birds Shipped</label></td>
                             <td><input type="text" name="number-of-birds-shipped" maxlength="80"></td>
@@ -74,7 +81,6 @@
                             <td><label for="mortality-rate">Mortality Rate</label></td>
                             <td><input type="text" name="mortality-rate" maxlength="80"></td>
                             <td></td>
-                            <?php $mortality_rate = filter_input(INPUT_POST, 'mortality-rate'); ?>
                         </tr>
                         <tr>
                             <td><label for="kg-per-bird">Kg/Bird</label></td>
@@ -475,6 +481,7 @@
                                 <table>
                                     <td><label for="actual-catching-time">Time</label></td>
                                     <td><input type="time" name="actual-catching-time"></td>
+
                                 </table>
                             </td>
                         </tr>

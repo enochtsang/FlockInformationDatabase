@@ -1,3 +1,9 @@
+<?php
+    session_start();
+  if(!isset($_SESSION['userType']) || ($_SESSION['userType'] !== "producer")) {    
+    header('Location: logout.php');
+  } 
+?>
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
@@ -49,7 +55,7 @@
 //              $additional_comments = document.getElementById("additional-comments").value;//comments
                 //insert values into the database
                 if (!empty($producer_code_quota) && !empty($producer_enterprise)) {
-                    $enterpriseQuery = "INSERT INTO `Enterprise` (e_code_,e_name,produces_for,comments,vet_name,submission_date_) "
+                    $enterpriseQuery = "INSERT INTO `enterprise` (e_code_,e_name,produces_for,comments,vet_name,submission_date_) "
                     . "VALUES ('$producer_code_quota','$producer_enterprise','$produces_for','$additional_comments','$vet_name','$submission_date')";
                     $resultEnterprise = mysqli_query($flockCon, $enterpriseQuery);
                 }
